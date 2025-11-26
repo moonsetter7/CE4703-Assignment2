@@ -8,10 +8,11 @@
 #include <stdlib.h>
 #include "CardDeck.h"
 
-/* Linked List Operations
+/************************************************************
+* Linked List Operations
 * Note that all function implementations under this operation section
 * are based off of reiner's lecture 18.
-*/
+************************************************************/
 
 
 /**
@@ -119,3 +120,6 @@ deckError CardDeck_gotoNextCard(CardDeck* deck) {
 	return ok;
 }
 
+/************************************************************
+* Essential Operations
+/************************************************************/
