@@ -123,3 +123,10 @@ deckError CardDeck_gotoNextCard(CardDeck* deck) {
 /************************************************************
 * Essential Operations
 /************************************************************/
+
+Card* CardDeck_seeTop(CardDeck* deck) {
+	if (deck == NULL) return NULL; // if deck is null, return null
+	if (deck->head->successor == NULL) return NULL; // if deck is empty, return null
+
+	return &(deck->head->successor->card); // return pointer towards top card of deck
+}
