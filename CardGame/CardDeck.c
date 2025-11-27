@@ -7,6 +7,9 @@
 
 #include <stdlib.h>
 #include "CardDeck.h"
+#include "Card.h"
+#include <stdbool.h>
+#include <time.h>
 
 /* Linked List Operations
 * Note that all function implementations under this operation section
@@ -117,5 +120,360 @@ deckError CardDeck_gotoNextCard(CardDeck* deck) {
 
 	deck->current = deck->current->successor;
 	return ok;
+}
+
+
+/**
+*randomizes the deck
+* randomly mix the elements so they are at random order 
+* 
+*ensure pointers are correct
+* no element should bebiased
+* 
+* e.g A->B->C->D 
+* 
+* randomly generate  number
+* trancverse rom head to find that node num
+* insert node at that position
+* 
+* aka i wnt to inset a node at index 5 
+* 
+* i need index 4 to link to the current node]
+* so i decrese pos by 1 to get prev node
+* i store wht prev nod is linking to to a temp variale
+* put whats before  current node in a temp variable
+* then prev links to currnt node
+* 
+* whats links to current node linked to the target node
+* 
+* target node liks to prevous current nodes successor 
+* 
+* 1.Find the length of the linked list
+* 2.Pick a random node 
+* 3.Generate a random index position 
+* 4.Inner loop: find prevTragteNode at a certian positioj
+* 4.Rearrange pointers  to move nodes to teh correct position
+* 5.repeat loop
+* 
+* 
+*/
+void CardDeck_shuffle(CardDeck* deck) {
+	srand(time(NULL));
+	//use rand()
+	// Need
+	//randomizes the deck
+	//cards r already there
+	//just randomize cards
+
+	//get the length of deck to geneate random indexes
+	CardNode* temp;//temp node
+	CardNode* prevTargetNode;
+	CardNode* prev=NULL;
+	int decklen = 0;
+	while (deck->current!=NULL) {
+		decklen++;
+
+	}
+	
+	//loops while successor isnt null
+	while (deck->current!=NULL) {//handles pointers
+		int randIndex = rand() % decklen;//generates a random index witin the dcek length
+		int pos = randIndex;// stores random index into pos
+		//pos used to find the pos of the target node
+		//i loop from current node to pos 
+		//tempCurr = deck->current;//used to prevent losing track of the current node when I am transversing through the list
+		prevTargetNode = deck->current;//prevTragte node starts at current node
+
+
+
+
+
+		for (int i = 0; i < pos - 1; i++) {//used to find the node before current node
+			prevTargetNode = prevTargetNode->successor;
+
+
+
+		}
+
+
+		//if statements to track prev node
+
+		if (prev==NULL) {
+			//A->B->C->D 
+			//head=A 
+			//stored currentnode in tempCurr
+			//tempCurr can cange 
+			//current cannot cahnge
+			temp = deck->head;//first node
+
+			//head points to where prevNode points to
+			deck->head = prevTargetNode->successor;//deck head is now c
+
+			//current head links to where the targetnode points to
+			temp->successor = prevTargetNode->successor->successor;
+
+			//prevTaregte node points to the original head
+			prevTargetNode->successor = temp;
+
+
+
+			//targetnode points to prevTargetnode 
+			deck->head->successor = prevTargetNode;
+
+
+
+		}
+		else {
+			temp = deck->current;
+			//we set prev to the node before ccurret node
+
+			//prev node links to 
+
+			//prev node links to targetNode
+			prev->successor = prevTargetNode->successor;
+
+			//targetnode links to prevTarget node
+			prevTargetNode->successor->successor = prevTargetNode;
+
+			//current node links to where tragetnode links to
+
+			temp->successor = prevTargetNode->successor->successor;
+
+			//prev targetnode links to current node
+			prevTargetNode->successor = temp;
+
+		}
+		prev = deck->current;
+		deck->current = deck->current->successor;
+
+
+
+	
+
+
+
+	}
+
+
+}
+
+/**
+*1.neeed to find out access a spcific pat in an enum  and somehow loop through it 
+* 2.sorting --> loop through the list, 
+* 3. if  the element is club then increment by 1 else 
+* 
+*  selection sort
+* 
+* first compare suits lower enum =smaller
+* 
+* if suits are the same then compare ranks
+* if i <i+! then increment else swap ranks
+* 
+* if suits are different then swap the lrger enum with the smaller one
+* 
+* if it cant find smaller then make tthe ext enum value as smller
+* repeat until ordered
+* 
+* this is going to be awkard cuz i need to take i account the last card will point to null , all i need to do is whe the las card is being swapped the last card pointts to where the card im swapping it with is pointing, and the card im swpaping with it points to null correct
+* 
+*/
+
+
+
+/**
+*Buble Sort
+* how i will be doing this
+* 1. im comapring adjcant cards
+* 2. checking if current->suit >current->link->suit
+*		if true then they are swapped
+* 
+* 3. checking if suits arre equal
+*		if true then check if current->rank>current->link->rank
+*		if true then the cards are swapped
+* 
+* 4. handle pointerr updates carefullly and 
+*		dont forget when the current->link is null
+*	
+* 
+* 
+*/
+void CardDeck_sort(CardDeck* deck) {
+	//buuble suit
+	//sort the deck by suit then rank
+	
+	//current is the card
+	//like curret i linked list the current is  type node
+	//in type node u can get the data or link
+
+	//so in type cardnode u can get cardata and 
+
+	//ii need a temp variable to store reference;
+
+	CardNode* prev=NULL;
+	CardNode* temp;
+	CardNode* temp2;
+	bool swapped;
+
+	//use swapped
+	//to track the passes
+	//swapped=true only when adjacnet elements are swapped
+	//once the end is reached swapped=false because theres nothing more toswap
+	
+	
+	//outer loop handles the num of passes
+	// //pas until no more swaps occur
+	//looping until
+	swapped = true;
+	while (swapped==true) {
+		//inner loop handles the swapping
+		
+		while (deck->current->successor != NULL) {//while successor  isnt null
+			swapped = false;
+			//swapped only stayys false if we reached then end and theres nothing left to swap
+			//i wnat to acces the suit
+
+			//deck->current is the card itself
+			//deck->current->suit is the shuit
+			//deck->current->rank is the rank itself
+
+			//if current suit is greater then successor suit then swap cards
+
+
+			if (deck->current->card->suit > deck->current->successor->card->suit) {
+
+				if (prev != NULL) {
+					// A->B->C->D
+					// swapping B and C
+					// storing c in temp
+					temp = deck->current->successor;
+					//b link to d 
+					deck->current->successor = deck->current->successor->successor;
+					//c links to b
+					temp->successor = deck->current;
+					//a links to c
+					prev->successor = temp;
+					swapped = true;
+
+				}
+				else {
+					//A->B->C->D
+					// we want head to point to 2nd node 
+					// and the frist node to point to the 3rd node
+					//swapping A and B 
+					//wand to store reference to first node
+					temp = deck->head;
+					temp2 = deck->head->successor->successor;//storing a refernece to c
+					//head links to 2nd node/B
+					deck->head = deck->head->successor;
+					//first node links to where the 2nd ndde was connectd to
+					//B link to A
+					deck->head->successor = temp;
+					// link to c
+					temp->successor = temp2;
+					swapped = true;
+
+
+
+
+
+				}
+
+
+
+				//now i want the predecessor to point to the successor node
+
+				//how do i get the predecessor
+
+				//i have the current node
+				//now i want the predecessor to point to the current node
+
+				//e.g if i have A->B->C->D
+				//and i swap b and c, b becomes the current node
+
+				prev = deck->current;//prev is he current node -> used in next iteration
+				deck->current = deck->current->successor;//amkes successor the current node
+
+
+			}
+			//else if the suits are the same then check rank
+			else if (deck->current->card->suit == deck->current->successor->card->suit) {
+
+				//if the currnet card's rank is > then the next card's rank then swap cards
+				if (deck->current->card->rank > deck->current->successor->card->rank) {
+					if (prev != NULL) {
+						// A->B->C->D
+						// swapping B and C
+						// storing c in temp
+						temp = deck->current->successor;
+						//b link to d 
+						deck->current->successor = deck->current->successor->successor;
+						//c links to b
+						temp->successor = deck->current;
+						//a links to c
+						prev->successor = temp;
+						swapped = true;
+
+					}
+					else {
+						//A->B->C->D
+						// we want head to point to 2nd node 
+						// and the frist node to point to the 3rd node
+						//swapping A and B 
+						//wand to store reference to first node
+						temp = deck->head;
+						temp2 = deck->head->successor->successor;//storing a refernece to c
+						//head links to 2nd node/B
+						deck->head = deck->head->successor;
+						//first node links to where the 2nd ndde was connectd to
+						//B link to A
+						deck->head->successor = temp;
+						// link to c
+						temp->successor = temp2;
+						swapped = true;
+
+
+
+
+
+					}
+					//now i want the predecessor to point to the current node
+					prev = deck->current;
+					deck->current = deck->current->successor;//amkes successor the current node
+
+
+
+				}
+
+			}
+			else {
+				//now i want the predecessor to point to the current node
+				
+				prev = deck->current;
+				deck->current = deck->current->successor;//amkes successor the current node
+
+			}
+
+
+
+
+
+
+
+
+
+
+
+		}
+		prev = NULL;//After each pass prev needs to reset to null to start where head=current--> prev cant be before current
+					//thefore it has to be null
+		deck->current = deck->head;
+	}
+
+
+
+
+}
+void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
+
 }
 
