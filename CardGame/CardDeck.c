@@ -11,10 +11,11 @@
 #include <stdbool.h>
 #include <time.h>
 
-/* Linked List Operations
+/************************************************************
+* Linked List Operations
 * Note that all function implementations under this operation section
 * are based off of reiner's lecture 18.
-*/
+************************************************************/
 
 
 /**
