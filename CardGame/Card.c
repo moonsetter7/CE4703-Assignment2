@@ -28,6 +28,9 @@ void Card_create(Card* card, Suit suit, Rank rank) {
 * would be <i>Spade-Five</i>.
 *
 * @param card Pointer of the card to be printed
+* 
+*
+* 
 */
 void Card_print(Card* card) {
 	printf("Card: %s-%s\n", suitNames[card->suit], rankNames[card->rank]);
