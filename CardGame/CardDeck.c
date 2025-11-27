@@ -123,6 +123,53 @@ deckError CardDeck_gotoNextCard(CardDeck* deck) {
 	return ok;
 }
 
+/************************************************************
+* Essential Operations
+************************************************************/
+
+Card* CardDeck_seeTop(CardDeck* deck) {
+	if (deck == NULL) return NULL; // if deck is null, return null
+	if (deck->head->successor == NULL) return NULL; // if deck is empty, return null
+
+	return &(deck->head->successor->card); // return pointer towards top card of deck
+}
+
+/**
+* @breif Ceate Ordered decks? funtion
+*
+*/
+CardDeck* CardDeck_createOrdered(int numPacks) {
+	CardDeck* deck = CardDeck_create();
+	if (!deck) return NULL;
+
+	deck->current = deck->head;
+
+	for (int i = 0; i < 52 * numPacks; i++) {
+		Suit suit = (i % 52) / 13; // each suit has 13 cards 
+		Rank rank = i % 13; // changes after counting from 0 to 12
+		/*
+		if (rank == 12) {
+			rank = 0;
+			if(suit >= 3) {
+				suit = 0;
+			}
+			else {
+				suit += 1;
+			}
+		}
+		*/
+		Card card;
+		Card_create(&card, suit, rank);
+		CardDeck_insertAfter(&card, deck);
+		deck->current = deck->current->successor;
+	}
+	return deck;
+}
+
+/************************************************************
+* Complex Operations
+************************************************************/
+
 
 /**
 *randomizes the deck
