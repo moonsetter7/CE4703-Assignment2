@@ -19,7 +19,7 @@
 
 #include "Card.h"
 
-// checks if a deck is valid, else returns illegal card
+// checks if a deck is valid, else returns illegal card. use in functions returning deckError types
 #define CHECK_DECK_VALID(deck) if(deck == NULL || deck->current == NULL || deck->current->successor == NULL) return illegalCard
 
 typedef enum {
@@ -57,7 +57,7 @@ deckError CardDeck_gotoNextCard(CardDeck* deck);
 Card* CardDeck_seeTop(CardDeck* deck);
 CardDeck* CardDeck_createOrdered(int num_packs);
 deckError CardDeck_insertToTop(CardDeck* deck, Card card);
-Card CardDeck_useTop(CardDeck* deck, deckError* result);
+Card* CardDeck_useTop(CardDeck* deck, deckError* result);
 
 /*
 

@@ -33,13 +33,53 @@ int main(){
 	*/
 
 	// creates an ordered deck consisting of 2 playing card packs
-	CardDeck* deck = CardDeck_createOrdered(2);
+	//CardDeck* deck = CardDeck_createOrdered(1);
+	CardDeck* deck = CardDeck_create();
 	CardNode* node = deck->head->successor;
 	int i = 1;
 	while (node != NULL) {
-		printf("Card %d: ", i++);
+		printf("%d: ", i++);
 		Card_print(&node->card);
 		node = node->successor;
 	}
+
+	Card card1 = { HEART, ACE };
+	Card card2 = { DIAMOND, TEN };
+	Card card3 = { SPADE, FIVE };
+	printf("Inserting ");
+	Card_print(&card1);
+	CardDeck_insertToTop(deck, card1 );
+
+	printf("Inserting ");
+	Card_print(&card2);
+	CardDeck_insertToTop(deck, card2);
+
+	printf("Inserting ");
+	Card_print(&card3);
+	CardDeck_insertToTop(deck, card3);
+
+	while (deck!=NULL) {
+		Card* foundCard = NULL;
+		deckError statusResult;
+		foundCard = CardDeck_useTop(deck, &statusResult);
+		if (statusResult == ok) {
+			printf("Used ");
+			Card_print(foundCard);
+			free(foundCard);
+		}
+		else {
+			if (statusResult == illegalCard) {
+				printf("\nPlayer has no more cards\nPlayer has won the game\n");
+				return EXIT_SUCCESS;
+			}
+			else if (statusResult == noMemory) {
+				printf("No memory available.\n");
+				return EXIT_FAILURE;
+			}
+		}
+	}
+	
+
+	
 }
 

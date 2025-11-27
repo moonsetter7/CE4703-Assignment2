@@ -166,6 +166,39 @@ CardDeck* CardDeck_createOrdered(int numPacks) {
 	return deck;
 }
 
+deckError CardDeck_insertToTop(CardDeck* deck, Card card){
+	if (!deck || !deck->head) return illegalCard;
+
+	CardNode* newNode = (CardNode*)malloc(sizeof(CardNode)); // create and allocate newNode
+	if (newNode == NULL) return noMemory; // return noMemory if allocation fails
+
+	// begin inserting card after current node
+	newNode->card = card; // associate card with newNode
+	newNode->successor = deck->head->successor; // point newNode's successor towards next node
+	deck->head->successor = newNode; // point current node's successor towards newNode
+
+	return ok;
+}
+Card* CardDeck_useTop(CardDeck* deck, deckError* result) {
+	if (deck == NULL || deck->head->successor == NULL) {
+		if (result) {
+			*result = illegalCard;
+		}
+		return NULL; // if deck is null, return null, if deck is empty, return null
+	}
+	CardNode* delnode = deck->head->successor;
+	deck->head->successor = delnode->successor;
+	Card* delcard = malloc(sizeof(Card));
+	if (!delcard) {
+		if (result) *result = noMemory;
+		return NULL;
+	}
+	*delcard = delnode->card;
+	free(delnode);
+	if (result) *result = ok;
+	return delcard;
+}
+
 /************************************************************
 * Complex Operations
 ************************************************************/
@@ -236,7 +269,7 @@ CardDeck* CardDeck_createOrdered(int numPacks) {
 * 
 **/
 void CardDeck_shuffle(CardDeck* deck) {
-	srand(time(NULL));
+	// srand(time(NULL)); commented out for the time being; will re-implement in main
 	CHECK_DECK_VALID(deck);
 	
 
@@ -444,7 +477,7 @@ void CardDeck_sort(CardDeck* deck) {
 			//if current suit is greater then successor suit then swap cards
 
 
-			if (deck->current->card->suit > deck->current->successor->card->suit) {
+			if (deck->current->card.suit > deck->current->successor->card.suit) {
 
 				if (prev != NULL) {
 					// A->B->C->D
@@ -501,10 +534,10 @@ void CardDeck_sort(CardDeck* deck) {
 
 			}
 			//else if the suits are the same then check rank
-			else if (deck->current->card->suit == deck->current->successor->card->suit) {
+			else if (deck->current->card.suit == deck->current->successor->card.suit) {
 
 				//if the currnet card's rank is > then the next card's rank then swap cards
-				if (deck->current->card->rank > deck->current->successor->card->rank) {
+				if (deck->current->card.rank > deck->current->successor->card.rank) {
 					if (prev != NULL) {
 						// A->B->C->D
 						// swapping B and C
