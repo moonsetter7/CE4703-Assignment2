@@ -6,6 +6,7 @@
 
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "CardDeck.h"
 #include "Card.h"
 #include <stdbool.h>
@@ -200,6 +201,105 @@ Card* CardDeck_useTop(CardDeck* deck, deckError* result) {
 }
 
 /************************************************************
+* Utility Operations
+************************************************************/
+CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result) {
+	if (deck == NULL || deck->head->successor == NULL) {
+		if (result) {
+			*result = illegalCard;
+		}
+		return NULL; // if deck is null/empty, return null
+	}
+	CardNode* node = deck->head->successor;
+	int i = 0;
+	while (i != index) {
+		if (node->successor == NULL) {
+			*result = illegalCard;
+			return NULL;
+		}
+		node = node->successor;
+		i++;
+	}
+	return node;
+}
+
+Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result) {
+	// we must first update the predecessor to point past the node to be deleted
+	CardNode* preNode = NULL;
+	CardNode* delNode = NULL;
+	
+	if (index == 0) { // if index is at 0, set predecessor to head
+		if (deck == NULL || deck->head->successor == NULL) {
+			if (result) *result = illegalCard;
+			return NULL;
+		}
+		else {
+			preNode = deck->head;
+		}
+	}
+	else {  // else, set predecessor to the node prior to the deleted node
+		preNode = CardDeck_cardNodeAt(deck, index-1, result);
+		if (preNode == NULL) {
+			return NULL;
+		}
+	}
+	delNode = preNode->successor; // find the deleted node
+
+	if (delNode == NULL) { // check if a node existed after preNode
+		if (result) *result = illegalCard; // // index went out of bounds
+		return NULL;
+	}
+
+	// if all checks are fine, begin removal
+
+	Card* delCard = malloc(sizeof(Card)); // allocate memory for card
+	if (!delCard) {
+		if (result) *result = noMemory;
+		return NULL;
+	}
+	
+	preNode->successor = delNode->successor; // set predecessor's successor pointer to the deleted node's successor
+
+	
+	*delCard = delNode->card; // copy card data from deleted node into newly allocated card
+	free(delNode);
+	if (result) *result = ok;
+	return delCard;
+}
+
+int CardDeck_count(CardDeck* deck) {
+	if (deck == NULL || deck->head->successor == NULL) { // if card is empty, return 0
+		return 0;
+	}
+	CardNode* node = deck->head->successor; 
+	int i = 0;
+	while (node != NULL) { // increase count by 1 for every valid card. stop when node is a tail (end of list)
+		node = node->successor;
+		i++;
+	}
+
+	return i;
+}
+void CardDeck_print(CardDeck* deck) {
+	if (deck == NULL || deck->head->successor == NULL) { // if card is empty, end function
+		printf("Empty deck!\n");
+		return;
+	}
+
+	CardNode* node = deck->head->successor;
+	printf("deck: ");
+	while (node != NULL) { // print every valid card. stop iterating when node is a tail (end of list)
+		printf("%s-%s", suitNames[node->card.suit], rankNames[node->card.rank]);
+
+		if (node->successor != NULL) { // print comma and space if card isn't last element
+			printf(", ");
+		}
+		node = node->successor; 
+	}
+	printf("\n");
+}
+
+/************************************************************
 * Complex Operations
 ************************************************************/
 
@@ -270,7 +370,7 @@ Card* CardDeck_useTop(CardDeck* deck, deckError* result) {
 **/
 void CardDeck_shuffle(CardDeck* deck) {
 	// srand(time(NULL)); commented out for the time being; will re-implement in main
-	CHECK_DECK_VALID(deck);
+	//CHECK_DECK_VALID(deck);
 	
 
 	
@@ -443,7 +543,7 @@ void CardDeck_sort(CardDeck* deck) {
 
 	//ii need a temp variable to store reference;
 
-	CHECK_DECK_VALID(deck);//checks if deck is valid or not
+	//CHECK_DECK_VALID(deck);//checks if deck is valid or not
 
 
 

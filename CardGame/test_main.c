@@ -58,6 +58,20 @@ int main(){
 	Card_print(&card3);
 	CardDeck_insertToTop(deck, card3);
 
+	CardDeck_print(deck);
+	printf("Deck size: %d\n", CardDeck_count(deck));
+
+	deckError e;
+	int index = 1;
+	Card* foundCard = CardDeck_removeAt(deck, index, &e);
+	if (e == ok) {
+		printf("Removed ");
+		Card_print(foundCard);
+		printf("at %d.\n", index);
+	}
+	
+
+
 	while (deck!=NULL) {
 		Card* foundCard = NULL;
 		deckError statusResult;

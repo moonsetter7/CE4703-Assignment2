@@ -59,17 +59,17 @@ CardDeck* CardDeck_createOrdered(int num_packs);
 deckError CardDeck_insertToTop(CardDeck* deck, Card card);
 Card* CardDeck_useTop(CardDeck* deck, deckError* result);
 
-/*
-
-// Util operations
-Card CardDeck_removeAt(CardDeck* deck, int index, deckError* result);
+// Util Operations
+CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result);
+Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result);
 int CardDeck_count(CardDeck* deck);
 void CardDeck_print(CardDeck* deck);
-*/
+
+
 // Complex Operations
-void CardDeck_shuffle(CardDeck* deck);
-void CardDeck_sort(CardDeck* deck);
-void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);
+//void CardDeck_shuffle(CardDeck* deck);
+//void CardDeck_sort(CardDeck* deck);
+//void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);
 
 
 
