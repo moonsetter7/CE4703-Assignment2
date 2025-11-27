@@ -3,11 +3,17 @@
 #include "Card.h"
 #include "CardDeck.h"
 
+
 int main(){
 	// Creates a card deck.
+
 	Card card1;
 	card1.suit = HEART;
 	card1.rank = ACE;
+
+	int selecton;
+
+
 
 	CardDeck* d = CardDeck_create();
 	
