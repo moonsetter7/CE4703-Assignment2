@@ -158,21 +158,48 @@ deckError CardDeck_gotoNextCard(CardDeck* deck) {
 * 
 * 
 */
+
+/**
+*@brief Shuffles a deck of cards using randomization
+* @details This function randomizes the order of cards in a linked list deck 
+* by repeatedly selecting random positions and rearranging nodes.
+* The algorithm uses srand(time(NULL) which esnures unbiased shuffling
+* 
+* Algorithm steps:
+* 1.Calculate the length of the devl
+* 2.For each card 
+*	-Generate a random index
+*	-Tranverse to find the node at that random position
+*	-Rearrange pointers to move the current card to teh random position
+* 3.Update predecessor and current pointers for the next iteration
+* 
+* Pointer management:
+*	-Different handling when prev/predecessor is null
+*	-Predecessor used to track the node before the current node
+* 
+* Example: A->B->C->D 
+* A ranodm position is selected , predecessor, current and target node links/pointers are rearranged in order
+* to insert the current node at the target node's position
+* 
+* @param deck Pointer to the unshuffled CardDeck structure 
+* 
+* 
+* @note Uses srand(time(NULL)) to seed  the random number generator 
+* 
+* 
+**/
 void CardDeck_shuffle(CardDeck* deck) {
 	srand(time(NULL));
-	//use rand()
-	// Need
-	//randomizes the deck
-	//cards r already there
-	//just randomize cards
+	CHECK_DECK_VALID(deck);
+	
 
-	//get the length of deck to geneate random indexes
+	
 	CardNode* temp;//temp node
 	CardNode* prevTargetNode;
 	CardNode* prev=NULL;
 	int decklen = 0;
 	while (deck->current!=NULL) {
-		decklen++;
+		decklen++;//get the length of deck to geneate random indexes
 
 	}
 	
@@ -225,10 +252,8 @@ void CardDeck_shuffle(CardDeck* deck) {
 
 		}
 		else {
-			temp = deck->current;
-			//we set prev to the node before ccurret node
-
-			//prev node links to 
+			temp = deck->current;//storing the reference to the currnet node into temp
+			
 
 			//prev node links to targetNode
 			prev->successor = prevTargetNode->successor;
@@ -298,8 +323,36 @@ void CardDeck_shuffle(CardDeck* deck) {
 * 
 * 
 */
+
+/**
+* @brief Implements Bubble Sort Algoirthm to sort a deck of cards
+* @details This function implements Bubble Sort Algorithm to sort a deck of cards using a Linekd List Structure.
+*			The sorting is based off 2 rules:
+*				Rule 1: Must sort by suit (lower enum is the smaller one)
+*				Rule 2: Mut sort by rank (When suits are equal)
+* 
+* This algorithm uses 2 while loops
+*	Outer loop: Repeatedly passes through the list until the deck is in the right order and no more swaps is needed.
+*	Inner loop: Compares suits and swaps once the currentsuit is greather then the successor suit
+* 
+* Implementation details:
+* - Uses swapped boolean flag to track if swaps occured or not
+* - Uses if statements to handle when current node is the head or not
+* - Rearranges pointers to point to the correct node
+* - After every pass , predecessor becomes null and current node egins at the head node again
+* 
+* 
+* @param deck Pointer to the unsorted CardDeck structure 
+* 
+* 
+* @return void: nothing
+* 
+* 
+* 
+* 
+*/
 void CardDeck_sort(CardDeck* deck) {
-	//buuble suit
+	//bubbl sort
 	//sort the deck by suit then rank
 	
 	//current is the card
@@ -309,6 +362,10 @@ void CardDeck_sort(CardDeck* deck) {
 	//so in type cardnode u can get cardata and 
 
 	//ii need a temp variable to store reference;
+
+	CHECK_DECK_VALID(deck);//checks if deck is valid or not
+
+
 
 	CardNode* prev=NULL;
 	CardNode* temp;
