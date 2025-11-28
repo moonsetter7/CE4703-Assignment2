@@ -19,7 +19,8 @@ typedef enum {
 	CLUB,
 	SPADE,
 	HEART,
-	DIAMOND
+	DIAMOND,
+	INVALID_SUIT = -1
 
 } Suit;
 
@@ -36,7 +37,8 @@ typedef enum{
 	JACK,
 	QUEEN,
 	KING,
-	ACE
+	ACE,
+	INVALID_RANK = -1
 } Rank;
 
 typedef struct {
@@ -44,6 +46,7 @@ typedef struct {
 	Rank rank;
 } Card;
 
+extern const Card INVALID_CARD;
 extern const char* suitNames[4];
 extern const char* rankNames[13];
 

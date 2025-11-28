@@ -11,6 +11,8 @@
 const char* suitNames[4] = {"Club", "Spade", "Heart", "Diamond"};
 const char* rankNames[13] = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
 
+const Card INVALID_CARD = { INVALID_SUIT, INVALID_RANK }; // represents a non-usable card. return it whenever a "Card" type function encounters an error.
+
 /**
 * Allocates and initializes a single card structure.
 * 
