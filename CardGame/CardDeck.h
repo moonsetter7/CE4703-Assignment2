@@ -69,7 +69,7 @@ void CardDeck_print(CardDeck* deck);
 // Complex Operations
 void CardDeck_shuffle(CardDeck* deck);
 void CardDeck_sort(CardDeck* deck);
-void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);
+void CardDeck_recycleHidden(CardDeck* hiddenDeck, CardDeck* playedDeck);
 
 
 

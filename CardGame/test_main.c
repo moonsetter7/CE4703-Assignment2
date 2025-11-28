@@ -6,7 +6,7 @@
 
 int main(){
 	// Creates a card deck.
-
+	srand(time(NULL));
 	Card card1;
 	card1.suit = HEART;
 	card1.rank = ACE;

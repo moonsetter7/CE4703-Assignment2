@@ -189,93 +189,133 @@ deckError CardDeck_gotoNextCard(CardDeck* deck) {
 * 
 **/
 void CardDeck_shuffle(CardDeck* deck) {
-	srand(time(NULL));
+	
 	CHECK_DECK_VALID(deck);
 	
 
 	
 	CardNode* temp;//temp node
 	CardNode* prevTargetNode;
+	CardNode* targetNode;
 	CardNode* prev=NULL;
 	int decklen = 0;
 	while (deck->current!=NULL) {
 		decklen++;//get the length of deck to geneate random indexes
+		deck->current = deck->current->successor;
 
 	}
+	//what hppens when deck->current is null
+	//I want the head to become current again
+	deck->current = deck->head;
+
 	
 	//loops while successor isnt null
 	while (deck->current!=NULL) {//handles pointers
-		int randIndex = rand() % decklen;//generates a random index witin the dcek length
-		int pos = randIndex;// stores random index into pos
+		int pos = rand() % decklen;//generates a random index witin the dcek length
+		
 		//pos used to find the pos of the target node
 		//i loop from current node to pos 
 		//tempCurr = deck->current;//used to prevent losing track of the current node when I am transversing through the list
-		prevTargetNode = deck->current;//prevTragte node starts at current node
+		prevTargetNode = deck->head;//prevTragte node starts at the head node
 
 
-
-
-
-		for (int i = 0; i < pos - 1; i++) {//used to find the node before current node
-			prevTargetNode = prevTargetNode->successor;
-
+		//finding prevtargetnode and targtnode
+		if (pos==0) {//if the poition is 0(at head) then
+			prevTargetNode = NULL;//theres nothing before the head node
+			targetNode = deck->head;//setting targetNode as the head node
 
 
 		}
+		else {
+			prevTargetNode = deck->head;//prevTragte node starts at the head node
+			for (int i = 0; i < pos - 1; i++) {//used to find the node before current node
+				prevTargetNode = prevTargetNode->successor;
+
+
+			}
+			targetNode = prevTargetNode->successor;//targetnode changes every time the position chnages
+		
+
+		}
+		//if tragetNode is the current node then skip
+		if (targetNode==deck->current) {//checks
+			//then current node chnges 
+			//then we want prev to be the current node and the successor to be the targetnode
+			prev = deck->current;
+			deck->current=  deck->current->successor;
+			continue;//skips to the loop again
+
+		}
+		
+
+
+
+
+		
+		
 
 
 		//if statements to track prev node
 
-		if (prev==NULL) {
+		if (prev==NULL) {//currrnet is the head node
+			//were swapping current with currnetnode
 			//A->B->C->D 
 			//head=A 
 			//stored currentnode in tempCurr
 			//tempCurr can cange 
 			//current cannot cahnge
-			temp = deck->head;//first node
-
-			//head points to where prevNode points to
-			deck->head = prevTargetNode->successor;//deck head is now c
-
-			//current head links to where the targetnode points to
-			temp->successor = prevTargetNode->successor->successor;
-
-			//prevTaregte node points to the original head
-			prevTargetNode->successor = temp;
+			if (prevTargetNode == NULL) {//targetnode is head
+				deck->head = targetNode->successor;//then we link to where targetnode points to and ignore targetnode 
 
 
+			}
+			else {
+				//targtenode isnt head 
+				//if prevtargetnode isnt null then currentode  is not head
+				//then we want the targetnode to link to itself to allow easy insertion 
+				prevTargetNode->successor = targetNode->successor;//prevtargtenode links to target nodes successor to extract targetnode
 
-			//targetnode points to prevTargetnode 
-			deck->head->successor = prevTargetNode;
+			}
+			
+			
+
+			
+			targetNode->successor = deck->head;//targetnode points to current node/head
+			deck->head = targetNode;// head is now tragetnode
+
+			prev = targetNode;//prev is now the current node, since targetNode is now the head
+
+		
+
+
 
 
 
 		}
 		else {
-			temp = deck->current;//storing the reference to the currnet node into temp
-			
-
-			//prev node links to targetNode
-			prev->successor = prevTargetNode->successor;
-
-			//targetnode links to prevTarget node
-			prevTargetNode->successor->successor = prevTargetNode;
-
-			//current node links to where tragetnode links to
-
-			temp->successor = prevTargetNode->successor->successor;
-
-			//prev targetnode links to current node
-			prevTargetNode->successor = temp;
-
-		}
-		prev = deck->current;
-		deck->current = deck->current->successor;
+			//not at first iteration
+			if (prevTargetNode == NULL) {//targetnode is head
+				deck->head = targetNode->successor;//then we link to where targetnode points to and ignore targetnode 
 
 
+			}
+			else {
+				//targtenode isnt head 
+				//if prevtargetnode isnt null then currentode  is not head
+				//then we want the targetnode to link to itself to allow easy insertion 
+				prevTargetNode->successor = targetNode->successor;//prevtargtenode links to target nodes successor to extract targetnode
+
+			}
 
 	
 
+			targetNode->successor = deck->current;//targetnode links to currrentnode
+			prev->successor = targetNode;//previous node to current links to targetnode
+
+			prev = targetNode; //targetnode is now the previous node
+
+		}
+		
 
 
 	}
@@ -397,7 +437,7 @@ void CardDeck_sort(CardDeck* deck) {
 			//if current suit is greater then successor suit then swap cards
 
 
-			if (deck->current->card->suit > deck->current->successor->card->suit) {
+			if (deck->current->card.suit > deck->current->successor->card.suit) {
 
 				if (prev != NULL) {
 					// A->B->C->D
@@ -454,10 +494,10 @@ void CardDeck_sort(CardDeck* deck) {
 
 			}
 			//else if the suits are the same then check rank
-			else if (deck->current->card->suit == deck->current->successor->card->suit) {
+			else if (deck->current->card.suit == deck->current->successor->card.suit) {
 
 				//if the currnet card's rank is > then the next card's rank then swap cards
-				if (deck->current->card->rank > deck->current->successor->card->rank) {
+				if (deck->current->card.rank > deck->current->successor->card.rank) {
 					if (prev != NULL) {
 						// A->B->C->D
 						// swapping B and C
@@ -531,7 +571,22 @@ void CardDeck_sort(CardDeck* deck) {
 
 
 }
+
+/**
+*Purpose: Transfers the played cards to the hidden deck and shuffles it. The played deck should have only one card–the last played card.
+* 
+*/
 void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
+
+	//tarnsfers played cards o teh hidden deck and shuffles it
+
+	CHECK_DECK_VALID(hidden);
+	CHECK_DECK_VALID(played);
+
+
+
+
+
 
 }
 
