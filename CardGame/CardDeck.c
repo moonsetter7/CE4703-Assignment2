@@ -304,7 +304,7 @@ void CardDeck_print(CardDeck* deck) {
 ************************************************************/
 
 
-/**
+/****
 *randomizes the deck
 * randomly mix the elements so they are at random order 
 * 
@@ -336,9 +336,8 @@ void CardDeck_print(CardDeck* deck) {
 * 4.Rearrange pointers  to move nodes to teh correct position
 * 5.repeat loop
 * 
-* 
-*/
 
+**/
 /**
 *@brief Shuffles a deck of cards using randomization
 * @details This function randomizes the order of cards in a linked list deck 
@@ -346,12 +345,12 @@ void CardDeck_print(CardDeck* deck) {
 * The algorithm uses srand(time(NULL) which esnures unbiased shuffling
 * 
 * Algorithm steps:
-* 1.Calculate the length of the devl
+* 1.Calculate the length of the card
 * 2.For each card 
 *	-Generate a random index
 *	-Tranverse to find the node at that random position
-*	-Rearrange pointers to move the current card to teh random position
-* 3.Update predecessor and current pointers for the next iteration
+*	-Rearrange pointers to move the current card to whre teh targetNode is
+* 3.Update predecessor and targetNode 
 * 
 * Pointer management:
 *	-Different handling when prev/predecessor is null
@@ -362,7 +361,7 @@ void CardDeck_print(CardDeck* deck) {
 * to insert the current node at the target node's position
 * 
 * @param deck Pointer to the unshuffled CardDeck structure 
-* 
+* @author Diana Ogualiri 24353051
 * 
 * @note Uses srand(time(NULL)) to seed  the random number generator 
 * 
@@ -503,7 +502,7 @@ void CardDeck_shuffle(CardDeck* deck) {
 
 }
 
-/**
+/*
 *1.neeed to find out access a spcific pat in an enum  and somehow loop through it 
 * 2.sorting --> loop through the list, 
 * 3. if  the element is club then increment by 1 else 
@@ -522,7 +521,7 @@ void CardDeck_shuffle(CardDeck* deck) {
 * 
 * this is going to be awkard cuz i need to take i account the last card will point to null , all i need to do is whe the las card is being swapped the last card pointts to where the card im swapping it with is pointing, and the card im swpaping with it points to null correct
 * 
-*/
+****/
 
 
 
@@ -563,7 +562,7 @@ void CardDeck_shuffle(CardDeck* deck) {
 * 
 * 
 * @param deck Pointer to the unsorted CardDeck structure 
-* 
+* @author Diana Ogualiri 24353051
 * 
 * @return void: nothing
 * 
@@ -753,15 +752,75 @@ void CardDeck_sort(CardDeck* deck) {
 }
 
 /**
-*Purpose: Transfers the played cards to the hidden deck and shuffles it. The played deck should have only one card–the last played card.
+*
+* @brief Puts cards from played deck to hidden deck when played deck is empty(top card left)
+* @details This function transfers all cards(except the top card) from played deck to the hidden deck.
+* Once the played deck only has the top card, the hidden deck is then shuffled.
+* Using a temp node to store a reference to the 2nd node in the played deck, to prevent losing access to it.
 * 
-*/
+* @param hidden Pointer to hidden deck(piace to draw cards from)
+* @param played Pointer to played deck
+* 
+* @note if the played deck is empty then the fucntion returns
+* 
+* @author Diana Ogualiri 24353051
+* @see cardDeck_shuffle()
+* 
+* 
+**/
 void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 
 	//tarnsfers played cards o teh hidden deck and shuffles it
 
-	CHECK_DECK_VALID(hidden);
-	CHECK_DECK_VALID(played);
+	CHECK_DECK_VALID(hidden);//checkin the hidden deck
+	CHECK_DECK_VALID(played);//checking the played deck
+	CardNode* topCard=played->head;//gets the top card from the played deck and stores a reference to the head
+	CardNode* currentCard;//the 2nd card onwards in the played deck
+	CardNode* temp;//temporary holds a card
+	
+	if (topCard==NULL) {
+		//if topCard aka the head is null that means the deck is null
+		return;
+
+	}
+
+	//i want to move every card but the top card to hidden deck
+	
+
+	//so i want to start at the 2nd card so where the head points to
+	currentCard = played->head->successor;//currentCard is the 2nd card
+
+	//getting each card from played deck so I need to loop
+
+	while (currentCard!=NULL) {//while the currnet card isnt null loop
+
+		//looping through played deck I want to move each card to the hidden deck
+
+		
+		// the currentcard to link to the head 
+		//then make the current code the headnode
+		//swapping occurs
+		temp = currentCard->successor;//storing a reference to where the currentacrd points to
+
+		currentCard->successor = hidden->head;//Currentcard  links to head
+		hidden->head = currentCard;
+
+		currentCard = temp;//currentCard has the originla current card
+		
+
+
+	}
+	//we only nat played deck to have the top card
+	//we wnat the top card aka head's successor to point to nothing
+	played->head->successor = NULL;
+	CardDeck_shuffle(hidden);//shuffling the hiddn deck after played deck only has the top card
+
+
+
+
+	
+
+
 
 
 
