@@ -31,35 +31,33 @@ deckError Game_deal(Game* game)
 		// take the top card from the hidden deck
 		Card takenCard = CardDeck_useTop(&game->hidden, &err);
 		if (err != ok)
-
+		{
 			// if we cant get a card return error
 			return err;
+		}
+
+		// even i -> player 1, odd i -> player 2
+		if (i % 2 == 0)
+		{
+			// put card on top of player 1s deck
+			err = CardDeck_insertToTop(&game->p1, takenCard);
+		}
+		else
+		{
+			// put card on top of player 2s deck
+			err = CardDeck_insertToTop(&game->p2, takenCard);
+		}
+
+		if (err != ok)
+		{
+			// something went wrong adding the card to a players hand
+			return err;
+		}
 	}
 
-	// even i -> player 1, odd i -> player 2
-	if (i % 2 == 0)
-
-	{
-		// put card on top of player 1s deck
-		err = CardDeck_insertToTop(&game->p1, takenCard);
-	}
-
-	else
-
-	{
-		// put card on top of player 2s deck
-		err = CardDeck_insertToTop(&game->p2, takenCard);
-	}
-
-	if (err != ok)
-	{
-		// something went wrong adding the card to a players hand
-		return err;
-	}
-
-return ok;
-
+	return ok;
 }
+
 
 /*
 * CardDeck_findMatch
