@@ -1,0 +1,27 @@
+Hidden Deck:
+
+    Face down on the table
+
+    Players cannot see the cards in it
+
+    Used for drawing when players can't play a card
+
+    Gets smaller as players draw from it
+
+Played Deck:
+
+    Face up on the table
+
+    Everyone can see the top card
+
+    Used to play matching cards on top of it
+
+    Gets larger as players add cards to it
+
+Analogy:
+
+    Hidden deck = Draw pile (like in Uno)
+
+    Played deck = Discard pile (like in Uno)
+
+They are two separate piles on the table - one face down (hidden) and one face up (played)!

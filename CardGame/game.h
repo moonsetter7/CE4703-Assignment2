@@ -26,8 +26,8 @@ typedef struct { // struct containing all components of a game.
 
 //function declarations
 //game loop
-deckError Game_deal(Game* game);
-int CardDeck_findMatch(Game* game);
-void Game_playTurn(Game* game);
+//deckError Game_deal(Game* game);
+//int CardDeck_findMatch(Game* game);
+//void Game_playTurn(Game* game);
 
 #endif
