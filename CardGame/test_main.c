@@ -34,6 +34,15 @@ int main(){
 
 	// creates an ordered deck consisting of 2 playing card packs
 	//CardDeck* deck = CardDeck_createOrdered(1);
+
+	//promting user with options
+
+	printf("\nEnter card pack number \n");//ask user for num of packs
+	
+	printf("\nCreate empty deck \n");
+	printf("\nCreate empty deck \n");
+
+
 	CardDeck* deck = CardDeck_create();
 	CardNode* node = deck->head->successor;
 	int i = 1;
@@ -46,6 +55,7 @@ int main(){
 	Card card1 = { HEART, ACE };
 	Card card2 = { DIAMOND, TEN };
 	Card card3 = { SPADE, FIVE };
+	Card card4 = { HEART,SEVEN };
 	printf("Inserting ");
 	Card_print(&card1);
 	CardDeck_insertToTop(deck, card1 );

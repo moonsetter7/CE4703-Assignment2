@@ -40,6 +40,42 @@ CardDeck* CardDeck_create() {
 }
 
 /**
+* @brief Fills the deck with cards
+* @details This method takes in the pack number prompted by the user.
+*  
+* Formula: numPacks=numPacks*52 
+* Each pack is 52 cards
+* The number of cards in the deck,depends on the packet number
+* 
+* @param deck Pointer to the CardDeck
+* @param numPacks Number of card packs to add to the deck
+* @author Diana Ogualiri 24353051
+* @return Pointer to the filled CardDeck
+* 
+* 
+* 
+* 
+**/
+CardDeck* CardDeck_fillDeck(CardDeck* deck,int numPacks) {
+	//creating a deck with a number the user chooses
+
+	numPacks = numPacks * 52;
+	
+
+
+	//looping through elements in pack
+	//adding cards with suits and ranks 
+	//then putting each card into the deck
+
+	//for each card its placed in the deck/ 
+	for (int i = 0; i < numPacks; i++) {
+		Card* newCard = Card_create2(newCard);
+		CardDeck_insertAfter(newCard, deck);
+	}
+
+}
+
+/**
 * Inserts a card after the current card node of a deck.
 * Note that the current node of a deck will still remain the same when
 * calling this function, and will not be set to the newly added card.

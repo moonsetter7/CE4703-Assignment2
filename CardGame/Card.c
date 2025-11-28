@@ -7,6 +7,7 @@
 
 #include "Card.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 const char* suitNames[4] = {"Club", "Spade", "Heart", "Diamond"};
 const char* rankNames[13] = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
@@ -23,6 +24,32 @@ const Card INVALID_CARD = { INVALID_SUIT, INVALID_RANK }; // represents a non-us
 void Card_create(Card* card, Suit suit, Rank rank) {
 	card->suit = suit;
 	card->rank = rank;
+}
+
+/**
+* 
+* @brief Creating a card with suit and rank
+* 
+* @details This method creates a card by looping through the suits and ranks
+* and places each within the card.
+* 
+* @param newCard Pointer 
+* @return Card newCard
+* 
+**/
+Card* Card_create2(Card* newCard) {
+	//Card* newCard = malloc(sizeof(Card));
+	for (int suit = 0; suit < suitCount; suit++) {
+		for (int rank = 0; rank < rankCount; rank++) {
+			newCard->suit = suit;//stores the enum value not the string enum;
+			newCard->rank = rank;
+			return newCard;
+
+		}
+
+	}
+	
+
 }
 
 /**
