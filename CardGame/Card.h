@@ -49,12 +49,9 @@ typedef struct {
 
 extern const Card INVALID_CARD;
 extern const char* suitNames[4];
-size_t suitCount = sizeof(suitNames) / sizeof(suitNames[0]);
 extern const char* rankNames[13];
-size_t rankCount = sizeof(rankNames) / sizeof(suitNames[0]);
 
 void Card_create(Card* card, Suit suit, Rank rank);
-Card* Card_create2(Card* newCard);
 void Card_print(Card* card);
 
 #endif

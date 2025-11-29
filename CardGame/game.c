@@ -29,7 +29,7 @@ deckError Game_deal(Game* game)
 	for (i = 0; i < 8; i++)
 	{
 		// take the top card from the hidden deck
-		Card takenCard = CardDeck_useTop(&game->hidden, &err);
+		Card takenCard = *CardDeck_useTop(&game->hidden, &err);
 		if (err != ok)
 		{
 			// if we cant get a card return error
@@ -153,7 +153,7 @@ void Game_playTurn(Game* game)
 		if (game->hidden.head != NULL)
 		{
 			deckError err = ok;
-			Card drawnCard = CardDeck_useTop(&game->hidden, &err);
+			Card drawnCard = *CardDeck_useTop(&game->hidden, &err);
 			if (err == ok)
 			{
 				CardDeck_insertToTop(&game->p1, drawnCard);
@@ -180,7 +180,7 @@ void Game_playTurn(Game* game)
 		deckError err = ok;
 		Card playedCard;
 		
-		playedCard = CardDeck_removeAt(&game->p1, matchIndex, &err);
+		playedCard = *CardDeck_removeAt(&game->p1, matchIndex, &err);
 		if (err != ok)
 		{
 			printf("Error: could not remove matching card from player 1s hand.\n");

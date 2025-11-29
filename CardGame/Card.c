@@ -37,20 +37,6 @@ void Card_create(Card* card, Suit suit, Rank rank) {
 * @return Card newCard
 * 
 **/
-Card* Card_create2(Card* newCard) {
-	//Card* newCard = malloc(sizeof(Card));
-	for (int suit = 0; suit < suitCount; suit++) {
-		for (int rank = 0; rank < rankCount; rank++) {
-			newCard->suit = suit;//stores the enum value not the string enum;
-			newCard->rank = rank;
-			return newCard;
-
-		}
-
-	}
-	
-
-}
 
 /**
 * Prints the details of a card, e.g. a <i> Five of Spades>

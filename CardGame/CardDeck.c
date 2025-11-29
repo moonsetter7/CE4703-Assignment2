@@ -40,46 +40,10 @@ CardDeck* CardDeck_create() {
 }
 
 /**
-* @brief Fills the deck with cards
-* @details This method takes in the pack number prompted by the user.
-*  
-* Formula: numPacks=numPacks*52 
-* Each pack is 52 cards
-* The number of cards in the deck,depends on the packet number
-* 
-* @param deck Pointer to the CardDeck
-* @param numPacks Number of card packs to add to the deck
-* @author Diana Ogualiri 24353051
-* @return Pointer to the filled CardDeck
-* 
-* 
-* 
-* 
-**/
-CardDeck* CardDeck_fillDeck(CardDeck* deck,int numPacks) {
-	//creating a deck with a number the user chooses
-
-	numPacks = numPacks * 52;
-	
-
-
-	//looping through elements in pack
-	//adding cards with suits and ranks 
-	//then putting each card into the deck
-
-	//for each card its placed in the deck/ 
-	for (int i = 0; i < numPacks; i++) {
-		Card* newCard = Card_create2(newCard);
-		CardDeck_insertAfter(newCard, deck);
-	}
-
-}
-
-/**
 * Inserts a card after the current card node of a deck.
 * Note that the current node of a deck will still remain the same when
 * calling this function, and will not be set to the newly added card.
-* 
+*
 * @param card The card to be inserted
 * @param deck The card deck to insert the card into
 * @return Enum value indicating allocation success status
@@ -89,7 +53,7 @@ deckError CardDeck_insertAfter(Card* card, CardDeck* deck) {
 
 	CardNode* newNode = (CardNode*)malloc(sizeof(CardNode)); // create and allocate newNode
 	if (newNode == NULL) return noMemory; // return noMemory if allocation fails
-	
+
 	// begin inserting card after current node
 	newNode->card = *card; // associate card with newNode
 	newNode->successor = deck->current->successor; // point newNode's successor towards next node
@@ -405,7 +369,7 @@ void CardDeck_print(CardDeck* deck) {
 **/
 void CardDeck_shuffle(CardDeck* deck) {
 	
-	CHECK_DECK_VALID(deck);
+	if (deck == NULL) return;
 	
 
 	
@@ -808,8 +772,8 @@ void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 
 	//tarnsfers played cards o teh hidden deck and shuffles it
 
-	CHECK_DECK_VALID(hidden);//checkin the hidden deck
-	CHECK_DECK_VALID(played);//checking the played deck
+	if (hidden == NULL) return;//checkin the hidden deck
+	if (played == NULL) return;//checking the played deck
 	CardNode* topCard=played->head;//gets the top card from the played deck and stores a reference to the head
 	CardNode* currentCard;//the 2nd card onwards in the played deck
 	CardNode* temp;//temporary holds a card
