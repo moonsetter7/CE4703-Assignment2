@@ -42,16 +42,38 @@ int main(void){
 	
 	printf("\nempty deck created \n");
 
-	printf("\nEnter card pack number");
+	printf("\nEnter card pack number ");
 	int numpacks;
 	scanf_s("%d", &numpacks);
 	
 	CardDeck* emptyDeck = CardDeck_create();
 	CardDeck* hiddenDeck = CardDeck_fillDeck(emptyDeck, numpacks);
-	CardDeck_shuffle(hiddenDeck);
+	//	CardDeck_print(hiddenDeck);
+	printf("Shuffling deck...\n");
+	CardDeck_print(hiddenDeck);
 
-   CardDeck_print(hiddenDeck);
-	printf("Deck size: %d\n", CardDeck_count(hiddenDeck));
+	switch (CardDeck_shuffle(hiddenDeck)) {
+		case ok:
+
+			printf("deck shuffled successfully\n");
+			CardDeck_print(hiddenDeck);
+			printf("Deck size: %d\n", CardDeck_count(hiddenDeck));
+			break;
+		case noMemory:
+			printf("No memory available. Exiting program.\n");
+			break;
+		case illegalCard:
+			printf("Illegal card state. Exiting program.\n");
+			break;
+		
+		default:
+			printf("Invalid selection. Exiting program.\n");
+			return EXIT_FAILURE;
+	}
+	
+
+
+  
 
 
 

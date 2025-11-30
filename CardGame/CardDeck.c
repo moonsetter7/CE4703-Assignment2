@@ -71,7 +71,7 @@ CardDeck* CardDeck_fillDeck(CardDeck* deck,int numPacks) {
 	//then putting each card into the deck
 
 	//Each card is created and inserted after the current node using insertAfter function
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < numPacks; i++) {
 		
 		 for (int suit = 0; suit < suitCount; suit++) {
 			 for (int rank = 0; rank < rankCount; rank++) {
@@ -105,6 +105,7 @@ deckError CardDeck_insertAfter(Card* card, CardDeck* deck) {
 	if (deck->current == NULL) return illegalCard; // if current node is somehow null (maybe its a tail), return error
 
 	CardNode* newNode = (CardNode*)malloc(sizeof(CardNode)); // create and allocate newNode
+	
 
 	if (newNode == NULL) return noMemory; // return noMemory if allocation fails
 	
@@ -223,15 +224,17 @@ CardDeck* CardDeck_createOrdered(int numPacks) {
 }
 
 deckError CardDeck_insertToTop(CardDeck* deck, Card card){
-	if (!deck || !deck->head) return illegalCard;
-
+	
+	CHECK_DECK_VALID2(deck);//if its null
 	CardNode* newNode = (CardNode*)malloc(sizeof(CardNode)); // create and allocate newNode
+
 	if (newNode == NULL) return noMemory; // return noMemory if allocation fails
 
 	// begin inserting card after current node
 	newNode->card = card; // associate card with newNode
 	newNode->successor = deck->head->successor; // point newNode's successor towards next node
 	deck->head->successor = newNode; // point current node's successor towards newNode
+
 
 	return ok;
 }
@@ -267,6 +270,7 @@ CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result) {
 	}
 	CardNode* node = deck->head->successor;
 	int i = 0;
+	
 	while (i != index) {
 		if (node->successor == NULL) {
 			*result = illegalCard;
@@ -322,6 +326,133 @@ Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result) {
 	return delCard;
 }
 
+/**
+* @brief Removes a card at a specific position in the deck
+* @details This function removes a card at a specific position in the deck.
+*	It handles 2 cases:
+* 
+**/
+deckError removeCardAt(CardDeck* deck,int pos) {
+	//pos=1 =the node after dummy
+	//printf("within removeCardAt function pos=%d\n", pos);
+	
+	CardNode* targetNode;
+	CardNode* prevTargetNode;
+	//int count = 0;
+	CHECK_DECK_VALID2(deck);
+
+	prevTargetNode = deck->head;//previous target node starts at head
+	if (prevTargetNode==NULL) {
+		printf("prevTargetNode is  null\n");
+		return illegalCard;
+
+	}
+	int decklen = CardDeck_count(deck);//getting the deck length
+	//printf("in rmeove card");
+	//printf("within removeCardAt decklen=%d\n", decklen);
+	//handles case when pos is out of bounds
+	if(pos<1 || pos>decklen) {// if pos is out of bounds then return illegalCard
+		//invalid position
+		//printf("position out of bounds\n");
+		return illegalCard;
+	}
+	//handles case when pos is the head node
+	
+		//else user wants to remove any other node
+		//looping until the node previous targetnode is found
+	
+		
+	
+		for (int i = 0; i < pos - 1; i++) {
+			if (prevTargetNode->successor == NULL) {
+				printf("no successor found\n");
+				return illegalCard;//if theres no successor then return illegal card
+
+			}
+			prevTargetNode = prevTargetNode->successor;//tranversing to find previous target node
+
+		}
+		targetNode = prevTargetNode->successor;//target node is the node to be removed
+		if (targetNode== NULL) {
+			printf("target node is null\n");
+			return illegalCard;//if theres no successor then return illegal card
+
+		}
+
+		prevTargetNode->successor = targetNode->successor;//previous target node links to the node after target node
+		free(targetNode);//freeing the target node
+		//printf("node at pos %d removed\n", pos);
+		return ok;
+	
+	
+
+
+
+
+
+}
+/**
+* 
+* @brief Gets the card node at a specific position in the deck
+* @details This function retrieves the card node at a specific position in the deck.
+* It handles 3 cases:
+* 1.When the position is out of bounds
+* 2. When the position is 1 (head node)
+*	3. When the position is not 1 (non-head node)
+* 
+* @param deck Pointer to the CardDeck
+* @param pos Position of the card node to retrieve (1-based index)
+* 
+* @return Pointer to the CardNode at the specified position, or NULL if position is out of bounds
+*   
+* 
+**/
+CardNode* getCardNodeAt(CardDeck* deck, int pos) {
+
+	//pos=0 is head
+	//pos=1 is teh succesor of head
+	
+	CardNode* prevTargetNode;
+	CardNode* targetNode;
+	if (deck==NULL) {
+		return NULL;
+
+	}
+	int decklen = CardDeck_count(deck);//getting the deck length
+
+	//handles case when pos it out of bounds
+	if (pos<1 ||pos>decklen) {
+		return NULL;// if pos is out of bounds then return null
+
+	}
+	//handles case when pos is 1 , where 1 is the head node
+
+
+		prevTargetNode = deck->head;//previous target node starts at head	
+		//loops to find node before targetnode
+		for (int i = 0; i < pos - 1; i++) {
+			if (prevTargetNode->successor==NULL) {
+				return NULL;//if theres no successor then return null
+
+			}
+			prevTargetNode = prevTargetNode->successor;//tranversing to find previous target node
+
+		}
+		targetNode = prevTargetNode->successor;//target node is the node to be removed
+
+		if (targetNode==NULL) {
+			return NULL;
+
+		}
+		//once tragetnode is found , its returned
+		return targetNode;
+
+
+	
+
+
+}
+
 int CardDeck_count(CardDeck* deck) {
 	if (deck == NULL || deck->head->successor == NULL) { // if card is empty, return 0
 		return 0;
@@ -340,16 +471,19 @@ void CardDeck_print(CardDeck* deck) {
 		printf("Empty deck!\n");
 		return;
 	}
-
+	
 	CardNode* node = deck->head->successor;
-	printf("deck: ");
+	printf("deck: \n");
 	while (node != NULL) { // print every valid card. stop iterating when node is a tail (end of list)
+		
 		printf("%s-%s", suitNames[node->card.suit], rankNames[node->card.rank]);
 
 		if (node->successor != NULL) { // print comma and space if card isn't last element
 			printf(", ");
 		}
 		node = node->successor; 
+		
+		
 	}
 	printf("\n");
 }
@@ -421,122 +555,114 @@ void CardDeck_print(CardDeck* deck) {
 * @note Uses srand(time(NULL)) to seed  the random number generator 
 * 
 * 
+* 
 **/
+
+
+
 deckError CardDeck_shuffle(CardDeck* deck) {
 	
-	CHECK_DECK_VALID(deck);
 	
+	
+	int decklen = CardDeck_count(deck);//getting the deck length
+	CardDeck* deck2=malloc(sizeof(CardDeck));//crating a second emty deck
 
 	
+
+	//initializing deck2
+	if (deck2!=NULL) {
+		deck2->head =malloc(sizeof(CardNode));//allocating memory for head node of deck2
+		
+		if (deck2->head == NULL) {
+			printf("deck2 head is null\n");
+			free(deck2);
+			return noMemory;//return no memory if allocation fails
+		}
+		deck2->head->successor= NULL;//setting the head linkto null
+		deck2->current = deck2->head;//setting current node to head node
+
+	}
+	int pos = 0;
 	
-	CardNode* prevTargetNode;
 	CardNode* targetNode;
-	CardNode* prev=NULL;
-	CardNode* temp = deck->head;
-	int decklen = 0;
-
-	int shuffedCount=0;
 	
-	while (temp!=NULL) {
+	Card targetCard;//Card is the card itself, Card* is a pointer to the card
+
+
+	while (decklen!=0) {
+	//	printf("\nwithin the loop\n");
+
 		
-		decklen++;//get the length of deck to geneate random indexes
-		temp = temp->successor;
+
+	pos = rand() % decklen+1;//generating a random position between 1 and decklen
+
+	//printf("Loop decklen=%d, pos=%d\n",decklen, pos);
+
+	
+	targetNode = getCardNodeAt(deck, pos);//getting the card node at that position
+	if (targetNode==NULL) {
+		//printf("targetNode is null\n");
+		return illegalCard;
+	}
+	//printf("targetNode found: rank=%d, suit=%d\n", targetNode->card.rank, targetNode->card.suit);
+	targetCard = targetNode->card;//storing cardNodes card into targetCard
+	//*targetCard = &(targetNode->card);
+	deckError removeCardError = removeCardAt(deck, pos);//removing the card at that position
+
+	if (removeCardError!=ok) {
+		printf("failed to remove card at pos %d\n", pos);
+		return illegalCard;
 
 	}
-	//what hppens when deck->current is null
-	//I want the head to become current again
-	deck->current = deck->head;
-
-	
-	//loops while successor isnt null
-	while (deck->current!=NULL) {//handles pointers
-		int unshuffledCount = decklen - shuffedCount;//tracks how many unshuffled cards are left
-		int pos = rand() % shuffedCount;//generates a random index witin the dcek length
-		
-		//pos used to find the pos of the target node
-		//i loop from current node to pos 
-		//tempCurr = deck->current;//used to prevent losing track of the current node when I am transversing through the list
-		prevTargetNode = deck->head;//prevTragte node starts at the head node
-
-
-		//finding prevtargetnode and targtnode
-		if (pos==0) {//if the poition is 0(at head) then
-			prevTargetNode = NULL;//theres nothing before the head node
-			targetNode = deck->head;//setting targetNode as the head node
-
-
+	else {
+		//printf("card at pos %d removed successfully\n", pos);
+		deckError insertCardError=CardDeck_insertToTop(deck2, targetCard);
+		if (insertCardError!=ok) {
+			printf("failed to insert card into deck2\n");
+			return noMemory;
 		}
-		else {
-			prevTargetNode = deck->head;//prevTragte node starts at the head node
-			for (int i = 0; i < pos - 1; i++) {//used to find the node before current node
-				prevTargetNode = prevTargetNode->successor;
-
-
-			}
-			targetNode = prevTargetNode->successor;//targetNode  defined as the node after prevTargetNode
 		
-
-		}
-		//if tragetNode is the current node then skip
-		if (targetNode==deck->current) {//it has been shuffled aready
-			//then current node chnges 
-			//then we want prev to be the current node and the successor to be the targetnode
-			prev = deck->current;
-			deck->current=  deck->current->successor;
-			shuffedCount++;
-			continue;//skips to the loop again
-
-		}
-	
-		
-
-
-
-
-		
-		
-
-
-		//if statements to track prev node
-
-		if (prev==NULL) {//currrnet is the head node
-			//were swapping current with currnetnode
-			//A->B->C->D 
-			//head=A 
-			//stored currentnode in tempCurr
-			//tempCurr can cange 
-			//current cannot cahnge
-		
-			
-			
-			//dck is the current node
-			
-			targetNode->successor = deck->head;//targetnode points to current node/head
-			deck->head = targetNode;// head is now tragetnode
-
-
-
-		}
-		else {
-			//not at first iteration
-			
-
-	
-
-			targetNode->successor = deck->current->successor;//targetnode links to where currentnod links to
-			prev->successor = targetNode;//previous node to current links to targetnode
-
-		
-
-		}
-		prev = targetNode; //targetnode is now the previous node
-	//	deck->current = deck->current->successor;//current is now the successor of targetnode
-		shuffedCount++;//incrementing the shuffed count
-
 
 	}
+	
+	
+	decklen--;
+
+	}//end of while loop deck1 is now 1ength 0
+
+	//handling deck1
+
+	printf ("exiting loop\n");
+
+	
+
+	int decklen1 = CardDeck_count(deck);
+	int dec2len= CardDeck_count(deck2);
+
+	
+	deck->head->successor= deck2->head->successor;
+	deck->current = deck2->current;
+	
+	
+	free(deck2->head);
+	free(deck2);
 	return ok;
 
+
+
+
+
+
+	 
+	
+
+
+
+	
+
+	
+	
+	
 
 }
 

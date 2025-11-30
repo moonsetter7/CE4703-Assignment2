@@ -20,7 +20,9 @@
 #include "Card.h"
 
 // checks if a deck is valid, else returns illegal card. use in functions returning deckError types
-#define CHECK_DECK_VALID(deck) if(deck == NULL || deck->current == NULL || deck->current->successor == NULL) return illegalCard
+#define CHECK_DECK_VALID(deck) if(deck == NULL || deck->current == NULL || deck->current->successor == NULL) return illegalCard;
+#define CHECK_DECK_VALID2(deck) if(deck == NULL || deck->head== NULL )return illegalCard;
+#define CHECK_DECK_VALID3(deck) if(deck == NULL || deck->head==NULL||deck->head->successor== NULL )return illegalCard;
 
 typedef enum {
 	ok, // no error
@@ -63,11 +65,13 @@ Card* CardDeck_useTop(CardDeck* deck, deckError* result);
 // Util Operations
 CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result);
 Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result);
+deckError removeCardAt(CardDeck* deck, int pos);
 int CardDeck_count(CardDeck* deck);
 void CardDeck_print(CardDeck* deck);
 
 
 // Complex Operations
+CardDeck* CardDeck_shuffle1(CardDeck* deck);
  deckError CardDeck_shuffle(CardDeck* deck);
 void CardDeck_sort(CardDeck* deck);
 deckError CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);
