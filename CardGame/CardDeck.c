@@ -437,7 +437,7 @@ deckError CardDeck_shuffle(CardDeck* deck) {
 
 	int shuffedCount=0;
 	
-	while (deck->current!=NULL) {
+	while (temp!=NULL) {
 		
 		decklen++;//get the length of deck to geneate random indexes
 		temp = temp->successor;
