@@ -1,17 +1,14 @@
 /**
  * @file CardDeck.h
- * Provides interface for the entire card deck:
- * the card deck data type, its operations such as
- * shuffling, sorting, adding or removing a card.
+ * Provides interface for the entire card deck.
+ * 
  * CardDeck will be implemented as a single linked list.
  * This linked list uses dummy nodes for both the head
  * and tail, containing no card data.
  *
  * A "CardDeck" is a collection of 0,1 or more cards.
  * This data type supports any number of packs
- * of cards, where the user can indicate how many
- * complete packs of cards are to be placed in the
- * "CardDeck" at creation.
+ * of cards.
  *
  * @date 17.11.2025
 */

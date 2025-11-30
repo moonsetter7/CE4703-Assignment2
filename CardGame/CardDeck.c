@@ -1,9 +1,12 @@
 /**
 * @file CardDeck.c
 * Provides implementation of card deck functions:
-* initializing empty/ordered decks, card deck 
-* manipulation, de-allocation
-*
+* <ul>
+*	<li>initializing empty/ordered decks</li>
+*	<li>card deck manipulation</li>
+*	<li>card deckde-allocation</li>
+* </ul>
+* 
 * @date 17.11.2025
 */
 

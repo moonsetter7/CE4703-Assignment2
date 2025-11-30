@@ -1,7 +1,7 @@
 /**
 * @file Card.c
 * Provides implementation of card data type:
-* e.g. creating, printing a card
+* creating, printing a card
 * 
 * @date 17.11.2025
 */
@@ -27,7 +27,7 @@ void Card_create(Card* card, Suit suit, Rank rank) {
 }
 
 /**
-* Prints the details of a card, e.g. a <i> Five of Spades>
+* Prints the details of a card, e.g. a <i>Five of Spades</i>
 * would be <i>Spade-Five</i>.
 *
 * @param card Pointer of the card to be printed

@@ -14,7 +14,6 @@
 
 #ifndef CARD_H
 #define CARD_H
-#include <stddef.h>
 
 typedef enum {
 	CLUB,

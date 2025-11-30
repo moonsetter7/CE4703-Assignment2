@@ -1,7 +1,7 @@
 /**
 * @file game.c
-* Implementation for the game loop functions
-* Deals cards, finds a match and plays a turn
+* Implementation for the game loop functions:
+* Deals cards, finds a match and plays a turn.
 * 
 * @date 27.11.2025
 */
@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "game.h"
 
-/*
+/**
 * Deals 8 cards to each player.
 * Always takes cards from the hidden deck and alternates betweeen player 1 and 2
 * so cards 0,2,4,6 go to player 1
@@ -55,7 +55,7 @@ deckError Game_deal(Game* game)
 }
 
 
-/*
+/**
 * Sorts all players' decks.
 * 
 * @param game Pointer of the game.
@@ -65,7 +65,7 @@ void Game_sortPlayers(Game* game) {
 	CardDeck_sort(game->p2);
 }
 
-/*
+/**
 * Finds a card matching the top card of a played deck 
 * from the player's hand. Two cards match if both share
 * either the same rank or the same suit.
@@ -115,7 +115,7 @@ int CardDeck_findMatchInHand(CardDeck* hand, CardDeck* playedDeck) {
 	return -1;
 }
 
-/*
+/**
 * Transfers all played cards into the hidden deck, and
 * then shuffles the hidden deck. Only the last played card
 * remains on the played card deck.
@@ -157,22 +157,7 @@ void Game_recycleHidden(Game* game) {
 	err = CardDeck_insertToTop(game->played, lastCard);
 }
 
-/*
-* Game_playTurn
-*
-* This function plays one turn of the game.
-*
-* Steps:
-* 1. Try to find a matching card in player's hand using CardDeck_findMatchInHand
-* 2. if no match is found:
-* -if the hidden deck is empty recycle from played back to hidden
-* -then draw one card from player's hand
-* 3. If a match is found:
-* -remove that card from player's hand at the given index
-* -put that card into the played deck
-*/
-
-/*
+/**
 * Plays one turn of the game.
 * <em>Steps:</em>
 * <ol>
@@ -284,7 +269,7 @@ void Game_playTurn(Game* game, int player) {
 }
 
 
-/*
+/**
 * Prints the players' decks.
 * 
 * @param game Pointer of the game.
