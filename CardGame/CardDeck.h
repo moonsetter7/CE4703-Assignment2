@@ -66,12 +66,12 @@ Card* CardDeck_useTop(CardDeck* deck, deckError* result);
 CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result);
 Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result);
 deckError removeCardAt(CardDeck* deck, int pos);
+CardNode* getCardNodeAt(CardDeck* deck, int pos);
 int CardDeck_count(CardDeck* deck);
 void CardDeck_print(CardDeck* deck);
 
 
 // Complex Operations
-CardDeck* CardDeck_shuffle1(CardDeck* deck);
  deckError CardDeck_shuffle(CardDeck* deck);
 void CardDeck_sort(CardDeck* deck);
 deckError CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);

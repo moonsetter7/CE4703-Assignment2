@@ -70,6 +70,9 @@ int main(void){
 			printf("Invalid selection. Exiting program.\n");
 			return EXIT_FAILURE;
 	}
+	printf("Sorting shuffled deck");
+	CardDeck_sort(hiddenDeck);
+	CardDeck_print(hiddenDeck);
 	
 
 
