@@ -37,49 +37,51 @@ int main(){
 
 	//promting user with options
 
-	printf("\nEnter card pack number \n");//ask user for num of packs
-	
-	printf("\nCreate empty deck \n");
-	printf("\nCreate empty deck \n");
+	//printf("\nEnter card pack number \n");//ask user for num of packs
+	//
+	//printf("\nCreate empty deck \n");
+	//printf("\nCreate empty deck \n");
 
 
-	CardDeck* deck = CardDeck_create();
-	CardNode* node = deck->head->successor;
-	int i = 1;
-	while (node != NULL) {
-		printf("%d: ", i++);
-		Card_print(&node->card);
-		node = node->successor;
-	}
-
-	Card card1 = { HEART, ACE };
-	Card card2 = { DIAMOND, TEN };
-	Card card3 = { SPADE, FIVE };
-	Card card4 = { HEART,SEVEN };
-	printf("Inserting ");
-	Card_print(&card1);
-	CardDeck_insertToTop(deck, card1 );
-
-	printf("Inserting ");
-	Card_print(&card2);
-	CardDeck_insertToTop(deck, card2);
-
-	printf("Inserting ");
-	Card_print(&card3);
-	CardDeck_insertToTop(deck, card3);
-
+	CardDeck* deck = CardDeck_createOrdered(2);
 	CardDeck_print(deck);
-	printf("Deck size: %d\n", CardDeck_count(deck));
 
-	deckError e;
+	//Card card1 = { HEART, ACE };
+	//Card card2 = { DIAMOND, TEN };
+	//Card card3 = { SPADE, FIVE };
+	//Card card4 = { HEART,SEVEN };
+	//printf("Inserting ");
+	//Card_print(&card1);
+	//CardDeck_insertToTop(deck, card1 );
+
+	//printf("Inserting ");
+	//Card_print(&card2);
+	//CardDeck_insertToTop(deck, card2);
+
+	//printf("Inserting ");
+	//Card_print(&card3);
+	//CardDeck_insertToTop(deck, card3);
+
+	//printf("Inserting ");
+	//Card_print(&card4);
+	//CardDeck_insertToTop(deck, card4);
+
+	//CardDeck_print(deck);
+	//printf("Deck size: %d\n", CardDeck_count(deck));
+
+	/*deckError e;
 	int index = 1;
 	Card* foundCard = CardDeck_removeAt(deck, index, &e);
 	if (e == ok) {
 		printf("Removed ");
 		Card_print(foundCard);
 		printf("at %d.\n", index);
-	}
+	}*/
+
+	CardDeck_shuffle(deck);
 	
+	CardDeck_print(deck);
+
 
 
 	while (deck!=NULL) {

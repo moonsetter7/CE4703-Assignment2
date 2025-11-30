@@ -145,24 +145,20 @@ CardDeck* CardDeck_createOrdered(int numPacks) {
 
 	deck->current = deck->head;
 
-	for (int i = 0; i < 52 * numPacks; i++) {
+	for (int i = 0; i < 52; i++) {
 		Suit suit = (i % 52) / 13; // each suit has 13 cards 
 		Rank rank = i % 13; // changes after counting from 0 to 12
-		/*
-		if (rank == 12) {
-			rank = 0;
-			if(suit >= 3) {
-				suit = 0;
-			}
-			else {
-				suit += 1;
-			}
-		}
-		*/
-		Card card;
+
+		Card card; // store card data on stack
 		Card_create(&card, suit, rank);
-		CardDeck_insertAfter(&card, deck);
-		deck->current = deck->current->successor;
+		for (int i = 0; i < numPacks; i++) {
+			if (CardDeck_insertAfter(&card, deck) != ok) {
+				printf("Error: Could not insert card into deck due to allocation failure.\n");
+				return deck;
+			}
+			deck->current = deck->current->successor;
+		}
+		
 	}
 	return deck;
 }
@@ -304,224 +300,57 @@ void CardDeck_print(CardDeck* deck) {
 ************************************************************/
 
 
-/****
-*randomizes the deck
-* randomly mix the elements so they are at random order 
-* 
-*ensure pointers are correct
-* no element should bebiased
-* 
-* e.g A->B->C->D 
-* 
-* randomly generate  number
-* trancverse rom head to find that node num
-* insert node at that position
-* 
-* aka i wnt to inset a node at index 5 
-* 
-* i need index 4 to link to the current node]
-* so i decrese pos by 1 to get prev node
-* i store wht prev nod is linking to to a temp variale
-* put whats before  current node in a temp variable
-* then prev links to currnt node
-* 
-* whats links to current node linked to the target node
-* 
-* target node liks to prevous current nodes successor 
-* 
-* 1.Find the length of the linked list
-* 2.Pick a random node 
-* 3.Generate a random index position 
-* 4.Inner loop: find prevTragteNode at a certian positioj
-* 4.Rearrange pointers  to move nodes to teh correct position
-* 5.repeat loop
-* 
-
-**/
 /**
-*@brief Shuffles a deck of cards using randomization
-* @details This function randomizes the order of cards in a linked list deck 
-* by repeatedly selecting random positions and rearranging nodes.
-* The algorithm uses srand(time(NULL) which esnures unbiased shuffling
-* 
-* Algorithm steps:
-* 1.Calculate the length of the card
-* 2.For each card 
-*	-Generate a random index
-*	-Tranverse to find the node at that random position
-*	-Rearrange pointers to move the current card to whre teh targetNode is
-* 3.Update predecessor and targetNode 
-* 
-* Pointer management:
-*	-Different handling when prev/predecessor is null
-*	-Predecessor used to track the node before the current node
-* 
-* Example: A->B->C->D 
-* A ranodm position is selected , predecessor, current and target node links/pointers are rearranged in order
-* to insert the current node at the target node's position
-* 
-* @param deck Pointer to the unshuffled CardDeck structure 
-* @author Diana Ogualiri 24353051
-* 
-* @note Uses srand(time(NULL)) to seed  the random number generator 
-* 
-* 
-**/
+* Shuffles a deck following the algorithm outlined in the assignment.
+* <ol>
+*	<li>Take a source deck.</li>
+*	<li>Create a temporary, empty deck.</li>
+*	<li>Get a random number r that has a value between 1 and N, where N is the no. of cards in the source deck.</li>
+*	<li>Remove the r-th card from the source deck and insert it to the beginning of the temporary deck.</li>
+*	<li>Decrement N by one.</li>
+*	<li>Repeat steps 3 to 5 until N equals 0.<li>
+* @param deck Card deck to be shuffled
+*/
 void CardDeck_shuffle(CardDeck* deck) {
-	
-	if (deck == NULL) return;
-	
+	if (deck == NULL || deck->head->successor == NULL) return; // if deck is null or empty, don't shuffle
 
-	
-	CardNode* temp;//temp node
-	CardNode* prevTargetNode;
-	CardNode* targetNode;
-	CardNode* prev=NULL;
-	int decklen = 0;
-	while (deck->current!=NULL) {
-		decklen++;//get the length of deck to geneate random indexes
-		deck->current = deck->current->successor;
-
+	CardDeck* shuffledDeck = CardDeck_create(); // empty deck, to be populated with shuffled cards
+	if (shuffledDeck == NULL) {
+		printf("Error: failed to allocate memory for shuffle deck.\n");
+		return;
 	}
-	//what hppens when deck->current is null
-	//I want the head to become current again
-	deck->current = deck->head;
+	Card* removedCardPtr = NULL; // pointer to dynamically allocated card
+	deckError err = ok; 
 
-	
-	//loops while successor isnt null
-	while (deck->current!=NULL) {//handles pointers
-		int pos = rand() % decklen;//generates a random index witin the dcek length
+	int deckSize = CardDeck_count(deck);
+
+	// loop transferring a random card from source deck to shuffle deck
+	for (int i = deckSize; i > 0; i--) {
+		int r = rand() % i;
+		removedCardPtr = CardDeck_removeAt(deck, r, &err); // pointer of card removed from source deck at index r
 		
-		//pos used to find the pos of the target node
-		//i loop from current node to pos 
-		//tempCurr = deck->current;//used to prevent losing track of the current node when I am transversing through the list
-		prevTargetNode = deck->head;//prevTragte node starts at the head node
-
-
-		//finding prevtargetnode and targtnode
-		if (pos==0) {//if the poition is 0(at head) then
-			prevTargetNode = NULL;//theres nothing before the head node
-			targetNode = deck->head;//setting targetNode as the head node
-
-
+		if (err != ok || removedCardPtr == NULL)
+		{
+			printf("Error: could not remove card at %d from deck.\n", r);
+			return;
 		}
-		else {
-			prevTargetNode = deck->head;//prevTragte node starts at the head node
-			for (int i = 0; i < pos - 1; i++) {//used to find the node before current node
-				prevTargetNode = prevTargetNode->successor;
 
+		err = CardDeck_insertToTop(shuffledDeck, *removedCardPtr); // insert random card to top of shuffle deck
 
-			}
-			targetNode = prevTargetNode->successor;//targetnode changes every time the position chnages
-		
+		free(removedCardPtr); // free the allocated card
+		removedCardPtr = NULL; 
 
+		if (err != ok) {
+			printf("Error: could not insert card at %d to shuffle deck.\n", r);
+			return;
 		}
-		//if tragetNode is the current node then skip
-		if (targetNode==deck->current) {//checks
-			//then current node chnges 
-			//then we want prev to be the current node and the successor to be the targetnode
-			prev = deck->current;
-			deck->current=  deck->current->successor;
-			continue;//skips to the loop again
-
-		}
-		
-
-
-
-
-		
-		
-
-
-		//if statements to track prev node
-
-		if (prev==NULL) {//currrnet is the head node
-			//were swapping current with currnetnode
-			//A->B->C->D 
-			//head=A 
-			//stored currentnode in tempCurr
-			//tempCurr can cange 
-			//current cannot cahnge
-			if (prevTargetNode == NULL) {//targetnode is head
-				deck->head = targetNode->successor;//then we link to where targetnode points to and ignore targetnode 
-
-
-			}
-			else {
-				//targtenode isnt head 
-				//if prevtargetnode isnt null then currentode  is not head
-				//then we want the targetnode to link to itself to allow easy insertion 
-				prevTargetNode->successor = targetNode->successor;//prevtargtenode links to target nodes successor to extract targetnode
-
-			}
-			
-			
-
-			
-			targetNode->successor = deck->head;//targetnode points to current node/head
-			deck->head = targetNode;// head is now tragetnode
-
-			prev = targetNode;//prev is now the current node, since targetNode is now the head
-
-		
-
-
-
-
-
-		}
-		else {
-			//not at first iteration
-			if (prevTargetNode == NULL) {//targetnode is head
-				deck->head = targetNode->successor;//then we link to where targetnode points to and ignore targetnode 
-
-
-			}
-			else {
-				//targtenode isnt head 
-				//if prevtargetnode isnt null then currentode  is not head
-				//then we want the targetnode to link to itself to allow easy insertion 
-				prevTargetNode->successor = targetNode->successor;//prevtargtenode links to target nodes successor to extract targetnode
-
-			}
-
-	
-
-			targetNode->successor = deck->current;//targetnode links to currrentnode
-			prev->successor = targetNode;//previous node to current links to targetnode
-
-			prev = targetNode; //targetnode is now the previous node
-
-		}
-		
-
-
 	}
 
-
+	deck->head->successor = shuffledDeck->head->successor; // transfer temporary shuffled deck to source deck
+	free(shuffledDeck->head); // free allocated shuffle deck head
+	free(shuffledDeck); // free the allocated temporary shuffled deck
+	shuffledDeck = NULL;
 }
-
-/*
-*1.neeed to find out access a spcific pat in an enum  and somehow loop through it 
-* 2.sorting --> loop through the list, 
-* 3. if  the element is club then increment by 1 else 
-* 
-*  selection sort
-* 
-* first compare suits lower enum =smaller
-* 
-* if suits are the same then compare ranks
-* if i <i+! then increment else swap ranks
-* 
-* if suits are different then swap the lrger enum with the smaller one
-* 
-* if it cant find smaller then make tthe ext enum value as smller
-* repeat until ordered
-* 
-* this is going to be awkard cuz i need to take i account the last card will point to null , all i need to do is whe the las card is being swapped the last card pointts to where the card im swapping it with is pointing, and the card im swpaping with it points to null correct
-* 
-****/
 
 
 
@@ -583,9 +412,6 @@ void CardDeck_sort(CardDeck* deck) {
 	//ii need a temp variable to store reference;
 
 	//CHECK_DECK_VALID(deck);//checks if deck is valid or not
-
-
-
 	CardNode* prev=NULL;
 	CardNode* temp;
 	CardNode* temp2;
@@ -614,8 +440,6 @@ void CardDeck_sort(CardDeck* deck) {
 			//deck->current->rank is the rank itself
 
 			//if current suit is greater then successor suit then swap cards
-
-
 			if (deck->current->card.suit > deck->current->successor->card.suit) {
 
 				if (prev != NULL) {
@@ -648,15 +472,7 @@ void CardDeck_sort(CardDeck* deck) {
 					// link to c
 					temp->successor = temp2;
 					swapped = true;
-
-
-
-
-
 				}
-
-
-
 				//now i want the predecessor to point to the successor node
 
 				//how do i get the predecessor
@@ -669,8 +485,6 @@ void CardDeck_sort(CardDeck* deck) {
 
 				prev = deck->current;//prev is he current node -> used in next iteration
 				deck->current = deck->current->successor;//amkes successor the current node
-
-
 			}
 			//else if the suits are the same then check rank
 			else if (deck->current->card.suit == deck->current->successor->card.suit) {
@@ -707,18 +521,10 @@ void CardDeck_sort(CardDeck* deck) {
 						// link to c
 						temp->successor = temp2;
 						swapped = true;
-
-
-
-
-
 					}
 					//now i want the predecessor to point to the current node
 					prev = deck->current;
 					deck->current = deck->current->successor;//amkes successor the current node
-
-
-
 				}
 
 			}
@@ -729,27 +535,14 @@ void CardDeck_sort(CardDeck* deck) {
 				deck->current = deck->current->successor;//amkes successor the current node
 
 			}
-
-
-
-
-
-
-
-
-
-
-
 		}
 		prev = NULL;//After each pass prev needs to reset to null to start where head=current--> prev cant be before current
 					//thefore it has to be null
 		deck->current = deck->head;
 	}
-
-
-
-
 }
+
+
 
 /**
 *
