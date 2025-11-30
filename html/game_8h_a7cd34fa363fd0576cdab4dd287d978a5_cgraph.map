@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="5,56,152,83"/>
 <area shape="rect" id="Node000002" href="$_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title="Inserts a given card to the top of a specified deck." alt="" coords="377,5,531,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,53,199,41,361,23,362,28,200,47,140,58"/>
-<area shape="rect" id="Node000003" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="202,56,327,83"/>
+<area shape="rect" id="Node000003" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck of cards using randomization." alt="" coords="202,56,327,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,67,186,67,186,72,152,72"/>
 <area shape="rect" id="Node000008" href="$_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title="Removes the top card of a deck and returns its value." alt="" coords="200,107,329,133"/>
 <area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="131,81,199,100,198,105,130,86"/>

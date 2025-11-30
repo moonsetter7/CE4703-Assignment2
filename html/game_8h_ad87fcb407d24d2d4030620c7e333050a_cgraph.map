@@ -10,7 +10,7 @@
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="72,259,107,322,135,358,168,390,191,403,188,408,165,394,131,362,103,325,67,262"/>
 <area shape="rect" id="Node000007" href="$_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title="Removes a card from a card deck at a specified index and returns its card value." alt="" coords="584,272,727,299"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="119,257,167,267,269,284,348,294,428,297,530,295,568,292,569,297,530,300,428,303,347,299,268,289,166,272,118,263"/>
-<area shape="rect" id="Node000009" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title="Sort a deck of cards using bubble sort." alt="" coords="411,360,520,387"/>
+<area shape="rect" id="Node000009" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title=" " alt="" coords="411,360,520,387"/>
 <area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="76,259,113,300,139,322,168,339,225,359,285,370,344,375,395,375,395,380,344,380,285,375,224,364,166,344,136,326,109,304,72,262"/>
 <area shape="rect" id="Node000011" href="$_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title="Removes the top card of a deck and returns its value." alt="" coords="401,259,530,285"/>
 <area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="119,248,385,264,385,270,119,253"/>
@@ -24,7 +24,7 @@
 <area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="520,363,580,355,581,361,521,369"/>
 <area shape="poly" id="edge12_Node000012_Node000005" title=" " alt="" coords="332,205,401,193,563,175,563,181,401,199,333,210"/>
 <area shape="poly" id="edge18_Node000012_Node000011" title=" " alt="" coords="318,233,394,252,393,257,317,238"/>
-<area shape="rect" id="Node000013" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="403,208,528,235"/>
+<area shape="rect" id="Node000013" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck of cards using randomization." alt="" coords="403,208,528,235"/>
 <area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="333,219,387,219,387,224,333,224"/>
 <area shape="poly" id="edge16_Node000013_Node000005" title=" " alt="" coords="518,205,587,186,589,191,519,210"/>
 <area shape="poly" id="edge17_Node000013_Node000007" title=" " alt="" coords="508,233,600,264,598,269,507,238"/>

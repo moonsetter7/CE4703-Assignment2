@@ -1,5 +1,5 @@
 <map id="CardDeck_sort" name="CardDeck_sort">
-<area shape="rect" id="Node000001" title="Sort a deck of cards using bubble sort." alt="" coords="280,31,389,57"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="280,31,389,57"/>
 <area shape="rect" id="Node000002" href="$game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="111,5,224,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,36,224,30,225,25,265,31"/>
 <area shape="rect" id="Node000004" href="$game_8c.html#aeca6dd5d3b47a4ec8c168a3b3e54f917" title="Sorts all players&#39; decks." alt="" coords="103,56,232,83"/>

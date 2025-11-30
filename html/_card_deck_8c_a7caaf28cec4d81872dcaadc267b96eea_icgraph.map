@@ -1,8 +1,8 @@
 <map id="CardDeck_count" name="CardDeck_count">
 <area shape="rect" id="Node000001" title="Calculates the size of a deck." alt="" coords="648,58,767,85"/>
-<area shape="rect" id="Node000002" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="474,33,600,60"/>
+<area shape="rect" id="Node000002" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck of cards using randomization." alt="" coords="474,33,600,60"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="632,63,600,58,600,53,633,58"/>
-<area shape="rect" id="Node000006" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title="Sort a deck of cards using bubble sort." alt="" coords="298,84,408,110"/>
+<area shape="rect" id="Node000006" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title=" " alt="" coords="298,84,408,110"/>
 <area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="632,80,409,96,408,91,632,74"/>
 <area shape="rect" id="Node000003" href="$game_8c.html#a7cd34fa363fd0576cdab4dd287d978a5" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="280,33,426,60"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="459,49,427,49,427,44,459,44"/>

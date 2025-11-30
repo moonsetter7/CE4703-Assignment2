@@ -1,6 +1,6 @@
 <map id="Game_sortPlayers" name="Game_sortPlayers">
 <area shape="rect" id="Node000001" title="Sorts all players&#39; decks." alt="" coords="5,5,135,32"/>
-<area shape="rect" id="Node000002" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title="Sort a deck of cards using bubble sort." alt="" coords="183,5,292,32"/>
+<area shape="rect" id="Node000002" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title=" " alt="" coords="183,5,292,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,16,167,16,167,21,135,21"/>
 <area shape="rect" id="Node000003" href="$_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title="Calculates the size of a deck." alt="" coords="340,5,459,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="292,16,324,16,324,21,292,21"/>

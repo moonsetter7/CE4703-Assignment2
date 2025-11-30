@@ -1,5 +1,5 @@
 <map id="CardDeck_shuffle" name="CardDeck_shuffle">
-<area shape="rect" id="Node000001" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="458,31,584,57"/>
+<area shape="rect" id="Node000001" title="Shuffles a deck of cards using randomization." alt="" coords="458,31,584,57"/>
 <area shape="rect" id="Node000002" href="$game_8c.html#a7cd34fa363fd0576cdab4dd287d978a5" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="264,5,410,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="443,36,410,31,411,26,443,31"/>
 <area shape="rect" id="Node000004" href="$main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,55,57"/>

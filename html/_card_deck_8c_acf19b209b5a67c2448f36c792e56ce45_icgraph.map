@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Finds the pointer of a card deck&#39;s node at a specified index." alt="" coords="823,56,979,83"/>
 <area shape="rect" id="Node000002" href="$_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title="Removes a card from a card deck at a specified index and returns its card value." alt="" coords="632,56,775,83"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="808,72,776,72,776,67,808,67"/>
-<area shape="rect" id="Node000003" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="458,31,584,57"/>
+<area shape="rect" id="Node000003" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck of cards using randomization." alt="" coords="458,31,584,57"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="616,60,584,55,584,50,617,55"/>
 <area shape="rect" id="Node000005" href="$game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="103,31,216,57"/>
 <area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="616,78,453,82,358,80,264,72,207,60,208,55,264,67,358,74,453,77,616,73"/>
