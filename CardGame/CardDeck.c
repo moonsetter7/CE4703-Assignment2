@@ -59,20 +59,37 @@ CardDeck* CardDeck_create() {
 CardDeck* CardDeck_fillDeck(CardDeck* deck,int numPacks) {
 	//creating a deck with a number the user chooses
 
-	numPacks = numPacks * 52;
 	
+	
+	Card* newCard=malloc(sizeof(Card));
 
-
+	if(newCard==NULL){
+		return NULL; //return null if memory allocation fails
+	}	
 	//looping through elements in pack
 	//adding cards with suits and ranks 
 	//then putting each card into the deck
 
-	//for each card its placed in the deck/ 
-	for (int i = 0; i < numPacks; i++) {
-		Card* newCard = Card_create2(newCard);
-		CardDeck_insertAfter(newCard, deck);
-	}
+	//Each card is created and inserted after the current node using insertAfter function
+	for (int i = 0; i < 1; i++) {
+		
+		 for (int suit = 0; suit < suitCount; suit++) {
+			 for (int rank = 0; rank < rankCount; rank++) {
 
+				 newCard->rank = rank;//inserts rank into the card
+				 newCard->suit = suit;//inserts suit into the card
+				
+				 CardDeck_insertAfter(newCard, deck);//each card is inserted after the current node
+				 CardDeck_gotoNextCard(deck);//goes to next card after insertion
+
+
+			 }
+			
+
+		 }//each card is filled 
+		
+	}
+	return deck;// deck returned
 }
 
 /**
@@ -88,10 +105,12 @@ deckError CardDeck_insertAfter(Card* card, CardDeck* deck) {
 	if (deck->current == NULL) return illegalCard; // if current node is somehow null (maybe its a tail), return error
 
 	CardNode* newNode = (CardNode*)malloc(sizeof(CardNode)); // create and allocate newNode
+
 	if (newNode == NULL) return noMemory; // return noMemory if allocation fails
 	
 	// begin inserting card after current node
 	newNode->card = *card; // associate card with newNode
+
 	newNode->successor = deck->current->successor; // point newNode's successor towards next node
 	deck->current->successor = newNode; // point current node's successor towards newNode
 
@@ -403,20 +422,25 @@ void CardDeck_print(CardDeck* deck) {
 * 
 * 
 **/
-void CardDeck_shuffle(CardDeck* deck) {
+deckError CardDeck_shuffle(CardDeck* deck) {
 	
 	CHECK_DECK_VALID(deck);
 	
 
 	
-	CardNode* temp;//temp node
+	
 	CardNode* prevTargetNode;
 	CardNode* targetNode;
 	CardNode* prev=NULL;
+	CardNode* temp = deck->head;
 	int decklen = 0;
+
+	int shuffedCount=0;
+	
 	while (deck->current!=NULL) {
+		
 		decklen++;//get the length of deck to geneate random indexes
-		deck->current = deck->current->successor;
+		temp = temp->successor;
 
 	}
 	//what hppens when deck->current is null
@@ -426,7 +450,8 @@ void CardDeck_shuffle(CardDeck* deck) {
 	
 	//loops while successor isnt null
 	while (deck->current!=NULL) {//handles pointers
-		int pos = rand() % decklen;//generates a random index witin the dcek length
+		int unshuffledCount = decklen - shuffedCount;//tracks how many unshuffled cards are left
+		int pos = rand() % shuffedCount;//generates a random index witin the dcek length
 		
 		//pos used to find the pos of the target node
 		//i loop from current node to pos 
@@ -448,19 +473,21 @@ void CardDeck_shuffle(CardDeck* deck) {
 
 
 			}
-			targetNode = prevTargetNode->successor;//targetnode changes every time the position chnages
+			targetNode = prevTargetNode->successor;//targetNode  defined as the node after prevTargetNode
 		
 
 		}
 		//if tragetNode is the current node then skip
-		if (targetNode==deck->current) {//checks
+		if (targetNode==deck->current) {//it has been shuffled aready
 			//then current node chnges 
 			//then we want prev to be the current node and the successor to be the targetnode
 			prev = deck->current;
 			deck->current=  deck->current->successor;
+			shuffedCount++;
 			continue;//skips to the loop again
 
 		}
+	
 		
 
 
@@ -479,61 +506,36 @@ void CardDeck_shuffle(CardDeck* deck) {
 			//stored currentnode in tempCurr
 			//tempCurr can cange 
 			//current cannot cahnge
-			if (prevTargetNode == NULL) {//targetnode is head
-				deck->head = targetNode->successor;//then we link to where targetnode points to and ignore targetnode 
-
-
-			}
-			else {
-				//targtenode isnt head 
-				//if prevtargetnode isnt null then currentode  is not head
-				//then we want the targetnode to link to itself to allow easy insertion 
-				prevTargetNode->successor = targetNode->successor;//prevtargtenode links to target nodes successor to extract targetnode
-
-			}
+		
 			
 			
-
+			//dck is the current node
 			
 			targetNode->successor = deck->head;//targetnode points to current node/head
 			deck->head = targetNode;// head is now tragetnode
-
-			prev = targetNode;//prev is now the current node, since targetNode is now the head
-
-		
-
-
 
 
 
 		}
 		else {
 			//not at first iteration
-			if (prevTargetNode == NULL) {//targetnode is head
-				deck->head = targetNode->successor;//then we link to where targetnode points to and ignore targetnode 
-
-
-			}
-			else {
-				//targtenode isnt head 
-				//if prevtargetnode isnt null then currentode  is not head
-				//then we want the targetnode to link to itself to allow easy insertion 
-				prevTargetNode->successor = targetNode->successor;//prevtargtenode links to target nodes successor to extract targetnode
-
-			}
+			
 
 	
 
-			targetNode->successor = deck->current;//targetnode links to currrentnode
+			targetNode->successor = deck->current->successor;//targetnode links to where currentnod links to
 			prev->successor = targetNode;//previous node to current links to targetnode
 
-			prev = targetNode; //targetnode is now the previous node
+		
 
 		}
-		
+		prev = targetNode; //targetnode is now the previous node
+	//	deck->current = deck->current->successor;//current is now the successor of targetnode
+		shuffedCount++;//incrementing the shuffed count
 
 
 	}
+	return ok;
 
 
 }
@@ -804,7 +806,7 @@ void CardDeck_sort(CardDeck* deck) {
 * 
 * 
 **/
-void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
+deckError CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 
 	//tarnsfers played cards o teh hidden deck and shuffles it
 
@@ -816,7 +818,7 @@ void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 	
 	if (topCard==NULL) {
 		//if topCard aka the head is null that means the deck is null
-		return;
+		return illegalCard;
 
 	}
 
@@ -850,6 +852,7 @@ void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 	//we wnat the top card aka head's successor to point to nothing
 	played->head->successor = NULL;
 	CardDeck_shuffle(hidden);//shuffling the hiddn deck after played deck only has the top card
+	return ok;
 
 
 

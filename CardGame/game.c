@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include "game.h"
+#include "CardDeck.h"
 
 /*
 * Game_deal
@@ -29,7 +30,8 @@ deckError Game_deal(Game* game)
 	for (i = 0; i < 8; i++)
 	{
 		// take the top card from the hidden deck
-		Card takenCard = CardDeck_useTop(&game->hidden, &err);
+		Card* takenCard;
+		takenCard= CardDeck_useTop(&game->hidden, &err);
 		if (err != ok)
 		{
 			// if we cant get a card return error
@@ -40,12 +42,12 @@ deckError Game_deal(Game* game)
 		if (i % 2 == 0)
 		{
 			// put card on top of player 1s deck
-			err = CardDeck_insertToTop(&game->p1, takenCard);
+			err = CardDeck_insertToTop(&game->p1, *takenCard);
 		}
 		else
 		{
 			// put card on top of player 2s deck
-			err = CardDeck_insertToTop(&game->p2, takenCard);
+			err = CardDeck_insertToTop(&game->p2, *takenCard);
 		}
 
 		if (err != ok)
@@ -153,10 +155,10 @@ void Game_playTurn(Game* game)
 		if (game->hidden.head != NULL)
 		{
 			deckError err = ok;
-			Card drawnCard = CardDeck_useTop(&game->hidden, &err);
+			Card* drawnCard = CardDeck_useTop(&game->hidden, &err);
 			if (err == ok)
 			{
-				CardDeck_insertToTop(&game->p1, drawnCard);
+				CardDeck_insertToTop(&game->p1, *drawnCard);
 				printf("Player 1 had no match and drew a card.\n");
 			}
 			else
@@ -178,7 +180,7 @@ void Game_playTurn(Game* game)
 	{
 		// we found a matching card at matchIndex so we want to play it
 		deckError err = ok;
-		Card playedCard;
+		Card* playedCard;
 		
 		playedCard = CardDeck_removeAt(&game->p1, matchIndex, &err);
 		if (err != ok)
@@ -187,7 +189,7 @@ void Game_playTurn(Game* game)
 			return;
 		}
 		// put the removed card on top of the played deck
-		err = CardDeck_insertToTop(&game->played, playedCard);
+		 CardDeck_insertToTop(&game->played, *playedCard);
 		if (err != ok)
 		{
 			printf("Error: could not place on played deck.\n");

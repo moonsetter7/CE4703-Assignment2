@@ -43,6 +43,7 @@ typedef struct {
 
 //Linked list operations
 CardDeck* CardDeck_create();
+CardDeck* CardDeck_fillDeck(CardDeck* deck, int numPacks);
 deckError CardDeck_insertAfter(Card* card, CardDeck* deck);
 deckError CardDeck_deleteNext(CardDeck* deck);
 void CardDeck_delete(CardDeck* deck);
@@ -67,9 +68,9 @@ void CardDeck_print(CardDeck* deck);
 
 
 // Complex Operations
-//void CardDeck_shuffle(CardDeck* deck);
-//void CardDeck_sort(CardDeck* deck);
-//void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);
+ deckError CardDeck_shuffle(CardDeck* deck);
+void CardDeck_sort(CardDeck* deck);
+deckError CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);
 
 
 
