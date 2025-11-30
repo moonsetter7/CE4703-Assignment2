@@ -48,6 +48,6 @@ void Card_create(Card* card, Suit suit, Rank rank) {
 * 
 */
 void Card_print(Card* card) {
-	printf("Card: %s-%s\n", suitNames[card->suit], rankNames[card->rank]);
+	printf("%s-%s\n", suitNames[card->suit], rankNames[card->rank]);
 }
 

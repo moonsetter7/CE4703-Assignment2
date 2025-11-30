@@ -17,17 +17,20 @@ typedef enum { // enum used to indicate current status of a game.
 } GameStatus;
 
 typedef struct { // struct containing all components of a game.
-	CardDeck hidden;
-	CardDeck played;
-	CardDeck p1;
-	CardDeck p2;
+	CardDeck* hidden;
+	CardDeck* played;
+	CardDeck* p1;
+	CardDeck* p2;
 	GameStatus status; // set as ongoing initially. when its set to win, end the game
 } Game;
 
 //function declarations
 //game loop
-//deckError Game_deal(Game* game);
-//int CardDeck_findMatch(Game* game);
-//void Game_playTurn(Game* game);
+deckError Game_deal(Game* game);
+void Game_sortPlayers(Game* game);
+int CardDeck_findMatch(Game* game);
+void Game_recycleHidden(Game* game);
+void Game_playTurn(Game* game, int player);
+void Game_printPlayers(Game* game);
 
 #endif

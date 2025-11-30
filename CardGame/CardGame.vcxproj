@@ -131,6 +131,7 @@
     <ClCompile Include="Card.c" />
     <ClCompile Include="CardDeck.c" />
     <ClCompile Include="CardGameMain.c" />
+    <ClCompile Include="test_game.c" />
     <ClCompile Include="test_main.c" />
     <ClCompile Include="game.c" />
     <ClCompile Include="test_deck.c" />

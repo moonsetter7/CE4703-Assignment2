@@ -10,7 +10,7 @@
 #include "CardDeck.h"
 #include "Card.h"
 #include <stdbool.h>
-#include <time.h>
+
 
 /************************************************************
 * Linked List Operations
@@ -105,7 +105,7 @@ void CardDeck_delete(CardDeck* deck) {
 * @param deck Card deck to be deleted.
 */
 deckError CardDeck_gotoTop(CardDeck* deck) {
-	CHECK_DECK_VALID(deck); // return illegalCard if top card isn't valid
+	CHECK_DECK_VALID(deck); // return illegalCard if top card isn't valid (i.e. when top card doesn't exist)
 
 	// set current to top card
 	deck->current = deck->head->successor;
@@ -118,7 +118,7 @@ deckError CardDeck_gotoTop(CardDeck* deck) {
 * @param deck Card deck whose current node will be changed.
 */
 deckError CardDeck_gotoNextCard(CardDeck* deck) {
-	CHECK_DECK_VALID(deck); // return illegalCard if next card isn't valid
+	CHECK_DECK_VALID(deck); // return illegalCard if next card isn't valid (i.e. when next card is a tail)
 
 	deck->current = deck->current->successor;
 	return ok;
@@ -176,25 +176,43 @@ deckError CardDeck_insertToTop(CardDeck* deck, Card card){
 
 	return ok;
 }
-Card* CardDeck_useTop(CardDeck* deck, deckError* result) {
+
+Card CardDeck_useTop(CardDeck* deck, deckError* result) {
 	if (deck == NULL || deck->head->successor == NULL) {
 		if (result) {
 			*result = illegalCard;
 		}
-		return NULL; // if deck is null, return null, if deck is empty, return null
+		return INVALID_CARD; // if deck is null, return null, if deck is empty, return null
 	}
+
 	CardNode* delnode = deck->head->successor;
 	deck->head->successor = delnode->successor;
-	Card* delcard = malloc(sizeof(Card));
-	if (!delcard) {
-		if (result) *result = noMemory;
-		return NULL;
-	}
-	*delcard = delnode->card;
+	Card delcard = delnode->card;
 	free(delnode);
 	if (result) *result = ok;
 	return delcard;
 }
+
+// removed, using function returning card values instead of pointers instead
+//Card* CardDeck_useTop(CardDeck* deck, deckError* result) {
+//	if (deck == NULL || deck->head->successor == NULL) {
+//		if (result) {
+//			*result = illegalCard;
+//		}
+//		return NULL; // if deck is null, return null, if deck is empty, return null
+//	}
+//	CardNode* delnode = deck->head->successor;
+//	deck->head->successor = delnode->successor;
+//	Card* delcard = malloc(sizeof(Card));
+//	if (!delcard) {
+//		if (result) *result = noMemory;
+//		return NULL;
+//	}
+//	*delcard = delnode->card;
+//	free(delnode);
+//	if (result) *result = ok;
+//	return delcard;
+//}
 
 /************************************************************
 * Utility Operations
@@ -219,49 +237,87 @@ CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result) {
 	return node;
 }
 
-Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result) {
+Card CardDeck_removeAt(CardDeck* deck, int index, deckError* result) {
 	// we must first update the predecessor to point past the node to be deleted
 	CardNode* preNode = NULL;
 	CardNode* delNode = NULL;
-	
+
 	if (index == 0) { // if index is at 0, set predecessor to head
 		if (deck == NULL || deck->head->successor == NULL) {
 			if (result) *result = illegalCard;
-			return NULL;
+			return INVALID_CARD;
 		}
 		else {
 			preNode = deck->head;
 		}
 	}
 	else {  // else, set predecessor to the node prior to the deleted node
-		preNode = CardDeck_cardNodeAt(deck, index-1, result);
+		preNode = CardDeck_cardNodeAt(deck, index - 1, result);
 		if (preNode == NULL) {
-			return NULL;
+			return INVALID_CARD;
 		}
 	}
 	delNode = preNode->successor; // find the deleted node
 
 	if (delNode == NULL) { // check if a node existed after preNode
 		if (result) *result = illegalCard; // // index went out of bounds
-		return NULL;
+		return INVALID_CARD;
 	}
 
 	// if all checks are fine, begin removal
 
-	Card* delCard = malloc(sizeof(Card)); // allocate memory for card
-	if (!delCard) {
-		if (result) *result = noMemory;
-		return NULL;
-	}
-	
-	preNode->successor = delNode->successor; // set predecessor's successor pointer to the deleted node's successor
+	Card delCard = delNode->card;
 
-	
-	*delCard = delNode->card; // copy card data from deleted node into newly allocated card
+	preNode->successor = delNode->successor; // set predecessor's successor pointer to the deleted node's successor
 	free(delNode);
 	if (result) *result = ok;
 	return delCard;
 }
+
+// removed, using a function returning card values instead of pointers
+//Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result) {
+//	// we must first update the predecessor to point past the node to be deleted
+//	CardNode* preNode = NULL;
+//	CardNode* delNode = NULL;
+//	
+//	if (index == 0) { // if index is at 0, set predecessor to head
+//		if (deck == NULL || deck->head->successor == NULL) {
+//			if (result) *result = illegalCard;
+//			return NULL;
+//		}
+//		else {
+//			preNode = deck->head;
+//		}
+//	}
+//	else {  // else, set predecessor to the node prior to the deleted node
+//		preNode = CardDeck_cardNodeAt(deck, index-1, result);
+//		if (preNode == NULL) {
+//			return NULL;
+//		}
+//	}
+//	delNode = preNode->successor; // find the deleted node
+//
+//	if (delNode == NULL) { // check if a node existed after preNode
+//		if (result) *result = illegalCard; // // index went out of bounds
+//		return NULL;
+//	}
+//
+//	// if all checks are fine, begin removal
+//
+//	Card* delCard = malloc(sizeof(Card)); // allocate memory for card
+//	if (!delCard) {
+//		if (result) *result = noMemory;
+//		return NULL;
+//	}
+//	
+//	preNode->successor = delNode->successor; // set predecessor's successor pointer to the deleted node's successor
+//
+//	
+//	*delCard = delNode->card; // copy card data from deleted node into newly allocated card
+//	free(delNode);
+//	if (result) *result = ok;
+//	return delCard;
+//}
 
 int CardDeck_count(CardDeck* deck) {
 	if (deck == NULL || deck->head->successor == NULL) { // if card is empty, return 0
@@ -309,6 +365,7 @@ void CardDeck_print(CardDeck* deck) {
 *	<li>Remove the r-th card from the source deck and insert it to the beginning of the temporary deck.</li>
 *	<li>Decrement N by one.</li>
 *	<li>Repeat steps 3 to 5 until N equals 0.<li>
+* </ol>
 * @param deck Card deck to be shuffled
 */
 void CardDeck_shuffle(CardDeck* deck) {
@@ -319,7 +376,6 @@ void CardDeck_shuffle(CardDeck* deck) {
 		printf("Error: failed to allocate memory for shuffle deck.\n");
 		return;
 	}
-	Card* removedCardPtr = NULL; // pointer to dynamically allocated card
 	deckError err = ok; 
 
 	int deckSize = CardDeck_count(deck);
@@ -327,18 +383,15 @@ void CardDeck_shuffle(CardDeck* deck) {
 	// loop transferring a random card from source deck to shuffle deck
 	for (int i = deckSize; i > 0; i--) {
 		int r = rand() % i;
-		removedCardPtr = CardDeck_removeAt(deck, r, &err); // pointer of card removed from source deck at index r
+		Card removedCard = CardDeck_removeAt(deck, r, &err); // Value of card removed from source deck at index r
 		
-		if (err != ok || removedCardPtr == NULL)
+		if (err != ok || removedCard.rank == INVALID_RANK)
 		{
 			printf("Error: could not remove card at %d from deck.\n", r);
 			return;
 		}
 
-		err = CardDeck_insertToTop(shuffledDeck, *removedCardPtr); // insert random card to top of shuffle deck
-
-		free(removedCardPtr); // free the allocated card
-		removedCardPtr = NULL; 
+		err = CardDeck_insertToTop(shuffledDeck, removedCard); // insert random card to top of shuffle deck
 
 		if (err != ok) {
 			printf("Error: could not insert card at %d to shuffle deck.\n", r);
@@ -411,7 +464,7 @@ void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 
 	if (hidden == NULL) return;//checkin the hidden deck
 	if (played == NULL) return;//checking the played deck
-	CardNode* topCard=played->head;//gets the top card from the played deck and stores a reference to the head
+	CardNode* topCard= played->head->successor;//gets the top card from the played deck and stores a reference to the head
 	CardNode* currentCard;//the 2nd card onwards in the played deck
 	CardNode* temp;//temporary holds a card
 	
@@ -425,7 +478,7 @@ void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 	
 
 	//so i want to start at the 2nd card so where the head points to
-	currentCard = played->head->successor;//currentCard is the 2nd card
+	currentCard = topCard->successor;//currentCard is the 2nd card
 
 	//getting each card from played deck so I need to loop
 
@@ -439,30 +492,14 @@ void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played) {
 		//swapping occurs
 		temp = currentCard->successor;//storing a reference to where the currentacrd points to
 
-		currentCard->successor = hidden->head;//Currentcard  links to head
-		hidden->head = currentCard;
+		currentCard->successor = hidden->head->successor;//Currentcard  links to head
+		hidden->head->successor = currentCard;
 
 		currentCard = temp;//currentCard has the originla current card
-		
-
-
 	}
 	//we only nat played deck to have the top card
 	//we wnat the top card aka head's successor to point to nothing
 	played->head->successor = NULL;
 	CardDeck_shuffle(hidden);//shuffling the hiddn deck after played deck only has the top card
-
-
-
-
-	
-
-
-
-
-
-
-
-
 }
 

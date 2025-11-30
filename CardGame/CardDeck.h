@@ -57,11 +57,11 @@ deckError CardDeck_gotoNextCard(CardDeck* deck);
 Card* CardDeck_seeTop(CardDeck* deck);
 CardDeck* CardDeck_createOrdered(int num_packs);
 deckError CardDeck_insertToTop(CardDeck* deck, Card card);
-Card* CardDeck_useTop(CardDeck* deck, deckError* result);
+Card CardDeck_useTop(CardDeck* deck, deckError* result);
 
 // Util Operations
 CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result);
-Card* CardDeck_removeAt(CardDeck* deck, int index, deckError* result);
+Card CardDeck_removeAt(CardDeck* deck, int index, deckError* result);
 int CardDeck_count(CardDeck* deck);
 void CardDeck_print(CardDeck* deck);
 
