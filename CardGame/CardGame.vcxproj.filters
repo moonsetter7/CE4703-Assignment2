@@ -32,19 +32,10 @@
     <ClCompile Include="CardDeck.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CardGameMain.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="test_main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="game.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test_deck.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="test_game.c">
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,11 +4,13 @@
  * the card deck data type, its operations such as
  * shuffling, sorting, adding or removing a card.
  * CardDeck will be implemented as a single linked list.
- * 
+ * This linked list uses dummy nodes for both the head
+ * and tail, containing no card data.
+ *
  * A "CardDeck" is a collection of 0,1 or more cards.
- * This data type should support any number of packs
- * of cards, where the user can indicate how many 
- * complete packs of cards are to be placed in the 
+ * This data type supports any number of packs
+ * of cards, where the user can indicate how many
+ * complete packs of cards are to be placed in the
  * "CardDeck" at creation.
  *
  * @date 17.11.2025
@@ -49,10 +51,6 @@ void CardDeck_delete(CardDeck* deck);
 deckError CardDeck_gotoTop(CardDeck* deck);
 deckError CardDeck_gotoNextCard(CardDeck* deck);
 
-
-
-
-
 // Essential operations
 Card* CardDeck_seeTop(CardDeck* deck);
 CardDeck* CardDeck_createOrdered(int num_packs);
@@ -65,16 +63,8 @@ Card CardDeck_removeAt(CardDeck* deck, int index, deckError* result);
 int CardDeck_count(CardDeck* deck);
 void CardDeck_print(CardDeck* deck);
 
-
 // Complex Operations
 void CardDeck_shuffle(CardDeck* deck);
 void CardDeck_sort(CardDeck* deck);
-void CardDeck_recycleHidden(CardDeck* hidden, CardDeck* played);
-
-
-
-
-
-
 
 #endif

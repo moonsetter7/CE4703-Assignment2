@@ -1,3 +1,13 @@
+/**
+* @file main.c
+* Takes the user input for the number of
+* card packs to be used in a game.
+* Simulates a game as described in the assignment.
+* 
+* @date 27.11.25
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "CardDeck.h"

@@ -3,7 +3,7 @@
  * Provides interface for each card,
  * the card date type, the enums of
  * suit and rank.
- * 
+ *
  * The suits and ranks are as follows:\n
  * Suits: Club, Spade, Heart, Diamond\n
  * Ranks: Two, Three, Four, Five, Six, Seven,
@@ -25,7 +25,7 @@ typedef enum {
 
 } Suit;
 
-typedef enum{
+typedef enum {
 	TWO,
 	THREE,
 	FOUR,

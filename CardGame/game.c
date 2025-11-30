@@ -2,22 +2,21 @@
 * @file game.c
 * Implementation for the game loop functions
 * Deals cards, finds a match and plays a turn
-* Date: 27/11/2025
+* 
+* @date 27.11.2025
 */
 
 #include <stdio.h>
 #include "game.h"
 
 /*
-* Game_deal
-* 
-* deals the first 8 cards of the game
-* always takes cards from the hidden deck and alternates betweeen player 1 and 2
+* Deals 8 cards to each player.
+* Always takes cards from the hidden deck and alternates betweeen player 1 and 2
 * so cards 0,2,4,6 go to player 1
 * cards 1,3,5,7 go to player 2
 * 
-* if anything goes wrong while using the deck functions it returns the error code straight away
-* 
+* @param game Pointer of the game.
+* @return deckError value indicating the game deal error status.
 */
 
 deckError Game_deal(Game* game)
@@ -55,70 +54,31 @@ deckError Game_deal(Game* game)
 	return ok;
 }
 
+
+/*
+* Sorts all players' decks.
+* 
+* @param game Pointer of the game.
+*/
 void Game_sortPlayers(Game* game) {
 	CardDeck_sort(game->p1);
 	CardDeck_sort(game->p2);
 }
 
 /*
-* CardDeck_findMatch
-* 
-* This function looks for a card in player 1s hand
-* that matches either the suit or the rank of the top card on
-* the played deck
-* 
-* It returns:
-* -the index of the first matching card
-* -or -1 if no match is found
+* Finds a card matching the top card of a played deck 
+* from the player's hand. Two cards match if both share
+* either the same rank or the same suit.
+*
+* @param hand Pointer of the player's hand.
+* @param playedDeck pointer of the deck containing the played 
+* cards.
+* @return The match status: 
+* <ul>
+*	<li>The index of the matched card in the player's hand</li>
+*	<li><i>-1</i> if no match is found</li>
+* </ul>
 */
-
-int CardDeck_findMatch(Game* game)
-{
-	// look at the top card on the played deck
-	Card* target = CardDeck_seeTop(game->played);
-	if (target == NULL)
-	{
-		// nothing to match against
-		return -1;
-
-	}
-
-	// start from the top of player 1s deck
-	deckError err = CardDeck_gotoTop(game->p1);
-	if (err != ok)
-
-	{
-		// if the deck is empty
-		return -1;
-	}
-
-	int index = 0;
-
-	// we walk through the linked list using current + gotoNextCard
-	while (game->p1->current != NULL)
-	{
-		Card currentCard = game->p1->current->card;
-
-		// check for same suit or rank
-		if (currentCard.suit == target->suit || currentCard.rank == target->rank)
-		{
-			// first match found return its index
-			return index;
-		}
-		// move to next card
-		err = CardDeck_gotoNextCard(game->p1);
-		if (err != ok)
-		{
-			break;
-		}
-
-		index++;
-	}
-
-	return -1;
-
-}
-
 int CardDeck_findMatchInHand(CardDeck* hand, CardDeck* playedDeck) {
 	// look at the top card on the played deck
 	Card* target = CardDeck_seeTop(playedDeck);
@@ -155,6 +115,13 @@ int CardDeck_findMatchInHand(CardDeck* hand, CardDeck* playedDeck) {
 	return -1;
 }
 
+/*
+* Transfers all played cards into the hidden deck, and
+* then shuffles the hidden deck. Only the last played card
+* remains on the played card deck.
+*
+* @param game Pointer of the game.
+*/
 void Game_recycleHidden(Game* game) {
 	if (game->played->head->successor == NULL || game->played->head->successor->successor == NULL) {
 		printf("Played deck is empty or only has 1 card.\n");
@@ -162,12 +129,14 @@ void Game_recycleHidden(Game* game) {
 	}// if played deck is empty or has one card, end function
 
 	deckError err = ok;
+	// Save the value of the last played card
 	Card lastCard = CardDeck_useTop(game->played, &err);
 	if (err != ok || lastCard.rank == INVALID_RANK) {
 		printf("Error: failed in obtaining first card of played deck.\n");
 		return;
 	}
 
+	// Transfer all played cards into the hidden deck
 	while (game->played->head->successor != NULL) {
 		Card card = CardDeck_useTop(game->played, &err);
 		if (err != ok || card.rank == INVALID_RANK) {
@@ -182,7 +151,9 @@ void Game_recycleHidden(Game* game) {
 		}
 	}
 
+	// Shuffle the hidden deck
 	CardDeck_shuffle(game->hidden);
+	// Insert the last played card back into the played deck
 	err = CardDeck_insertToTop(game->played, lastCard);
 }
 
@@ -199,6 +170,27 @@ void Game_recycleHidden(Game* game) {
 * 3. If a match is found:
 * -remove that card from player's hand at the given index
 * -put that card into the played deck
+*/
+
+/*
+* Plays one turn of the game.
+* <em>Steps:</em>
+* <ol>
+*	<li>Try to find a matching card in a player's hand.</li>
+*   <li>If no match is found:</li>
+*	<ul>
+*		<li>Recycle the hidden deck if it's empty</li>
+*		<li>Draw one card from the player's hand.</li>
+*	</ul>
+*	<li>If a match is found:</li>
+*	<ul>
+*		<li>Remove the matching card from the player's hand at the given index</li>
+*		<li>Put that card into the played deck</li>
+*	</ul>
+* </ol>
+* 
+* @param game Pointer of the game.
+* @param player The player in turn.
 */
 void Game_playTurn(Game* game, int player) {
 	int matchIndex;
@@ -292,7 +284,11 @@ void Game_playTurn(Game* game, int player) {
 }
 
 
-
+/*
+* Prints the players' decks.
+* 
+* @param game Pointer of the game.
+*/
 void Game_printPlayers(Game* game) {
 	printf("Player 1 ");
 	CardDeck_print(game->p1);

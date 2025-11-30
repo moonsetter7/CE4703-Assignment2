@@ -2,12 +2,12 @@
 * @file Card.c
 * Provides implementation of card data type:
 * e.g. creating, printing a card
+* 
 * @date 17.11.2025
 */
 
 #include "Card.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 const char* suitNames[4] = {"Club", "Spade", "Heart", "Diamond"};
 const char* rankNames[13] = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
@@ -27,25 +27,10 @@ void Card_create(Card* card, Suit suit, Rank rank) {
 }
 
 /**
-* 
-* @brief Creating a card with suit and rank
-* 
-* @details This method creates a card by looping through the suits and ranks
-* and places each within the card.
-* 
-* @param newCard Pointer 
-* @return Card newCard
-* 
-**/
-
-/**
 * Prints the details of a card, e.g. a <i> Five of Spades>
 * would be <i>Spade-Five</i>.
 *
 * @param card Pointer of the card to be printed
-* 
-*
-* 
 */
 void Card_print(Card* card) {
 	printf("%s-%s\n", suitNames[card->suit], rankNames[card->rank]);
