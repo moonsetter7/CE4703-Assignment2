@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CE4703 Individual Assignment: CardGame/Card.c File Reference</title>
+<title>CE4703 Assignment 2: CardGame/Card.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,13 +17,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  extensions: ["tex2jax.js"],
-  jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,7 +26,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CE4703 Individual Assignment
+   <div id="projectname">CE4703 Assignment 2
    </div>
   </td>
  </tr>
@@ -105,13 +98,11 @@ Include dependency graph for Card.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_card_8c__incl.png" border="0" usemap="#a_card_game_2_card_8c" loading="lazy" alt=""/></div>
 <map name="a_card_game_2_card_8c" id="a_card_game_2_card_8c">
-<area shape="rect" title=" " alt="" coords="17,5,144,32"/>
-<area shape="rect" href="_card_8h.html" title=" " alt="" coords="9,80,70,107"/>
-<area shape="poly" title=" " alt="" coords="76,34,56,68,52,65,71,31"/>
-<area shape="rect" title=" " alt="" coords="93,80,154,107"/>
-<area shape="poly" title=" " alt="" coords="91,31,111,65,106,68,86,34"/>
-<area shape="rect" title=" " alt="" coords="5,155,74,181"/>
-<area shape="poly" title=" " alt="" coords="42,107,42,139,37,139,37,107"/>
+<area shape="rect" title=" " alt="" coords="13,5,140,32"/>
+<area shape="rect" href="_card_8h.html" title=" " alt="" coords="5,80,66,107"/>
+<area shape="poly" title=" " alt="" coords="72,34,52,68,48,65,67,31"/>
+<area shape="rect" title=" " alt="" coords="89,80,150,107"/>
+<area shape="poly" title=" " alt="" coords="87,31,107,65,102,68,82,34"/>
 </map>
 </div>
 </div>
@@ -120,16 +111,20 @@ Include dependency graph for Card.c:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0bb07e821bc4716ffeb2eacf9de199e3" id="r_a0bb07e821bc4716ffeb2eacf9de199e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bb07e821bc4716ffeb2eacf9de199e3">Card_create</a> (<a class="el" href="struct_card.html">Card</a> *card, <a class="el" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a> suit, <a class="el" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> rank)</td></tr>
+<tr class="memdesc:a0bb07e821bc4716ffeb2eacf9de199e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates and initializes a single card structure.  <br /></td></tr>
 <tr class="memitem:a7cca2feea37c83e9dd73aef535294d16" id="r_a7cca2feea37c83e9dd73aef535294d16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cca2feea37c83e9dd73aef535294d16">Card_print</a> (<a class="el" href="struct_card.html">Card</a> *card)</td></tr>
+<tr class="memdesc:a7cca2feea37c83e9dd73aef535294d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of a card.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a2dfadc9eccfd156afd357f907ce7e955" id="r_a2dfadc9eccfd156afd357f907ce7e955"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a> [4] = {&quot;Club&quot;, &quot;Spade&quot;, &quot;Heart&quot;, &quot;Diamond&quot;}</td></tr>
+<tr class="memdesc:a2dfadc9eccfd156afd357f907ce7e955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of string names corresponding to the <a class="el" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e" title="Represents the different suits of a card.">Suit</a> enumeration.  <br /></td></tr>
 <tr class="memitem:a44528397bbc84326f4a6d127a9073c21" id="r_a44528397bbc84326f4a6d127a9073c21"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44528397bbc84326f4a6d127a9073c21">rankNames</a> [13] = { &quot;Two&quot;, &quot;Three&quot;, &quot;Four&quot;, &quot;Five&quot;, &quot;Six&quot;, &quot;Seven&quot;, &quot;Eight&quot;, &quot;Nine&quot;, &quot;Ten&quot;, &quot;Jack&quot;, &quot;Queen&quot;, &quot;King&quot;, &quot;Ace&quot; }</td></tr>
+<tr class="memdesc:a44528397bbc84326f4a6d127a9073c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of string names corresponding to the <a class="el" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> enumeration.  <br /></td></tr>
 <tr class="memitem:a56f3a20e77679335c9f6856009e7be81" id="r_a56f3a20e77679335c9f6856009e7be81"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_card.html">Card</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56f3a20e77679335c9f6856009e7be81">INVALID_CARD</a> = { <a class="el" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189">INVALID_SUIT</a>, <a class="el" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173">INVALID_RANK</a> }</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides implementation of card data type: e.g. creating, printing a card</p>
+<div class="textblock"><p>Provides implementation of card data type: creating, printing a card</p>
 <dl class="section date"><dt>Date</dt><dd>17.11.2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
@@ -157,24 +152,25 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Allocates and initializes a single card structure.</p>
+
+<p>Allocates and initializes a single card structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">card</td><td>Pointer of the card to be modified </td></tr>
-    <tr><td class="paramname">suit</td><td>Value of suit, based off of <a class="el" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a> enum </td></tr>
-    <tr><td class="paramname">rank</td><td>Value of rank, based off of <a class="el" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> enum </td></tr>
+    <tr><td class="paramname">suit</td><td>Value of suit, based off of <a class="el" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e" title="Represents the different suits of a card.">Suit</a> enum. </td></tr>
+    <tr><td class="paramname">rank</td><td>Value of rank, based off of <a class="el" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> enum. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00024">24</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00032">32</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_card_8c_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph.png" border="0" usemap="#a_card_8c_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph" loading="lazy" alt=""/></div>
 <map name="a_card_8c_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph" id="a_card_8c_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph">
-<area shape="rect" title=" " alt="" coords="320,5,412,32"/>
-<area shape="rect" href="_card_deck_8c.html#adb8cb966ed696e00f7dd3bff322483df" title=" " alt="" coords="103,5,272,32"/>
+<area shape="rect" title="Allocates and initializes a single card structure." alt="" coords="320,5,412,32"/>
+<area shape="rect" href="_card_deck_8c.html#adb8cb966ed696e00f7dd3bff322483df" title="Creates an ordered deck consisting of numPacks card packs." alt="" coords="103,5,272,32"/>
 <area shape="poly" title=" " alt="" coords="304,21,273,21,273,16,304,16"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
@@ -197,23 +193,24 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints the details of a card, e.g. a <em> Five of Spades&gt; would be <em>Spade-Five</em>.</em></p>
-<p><em></p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints the details of a card. </p>
+<p>For example a <em>Five of Spades</em> would be <em>Spade-Five</em>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">card</td><td>Pointer of the card to be printed </td></tr>
+    <tr><td class="paramname">card</td><td>Pointer of the card to be printed. </td></tr>
   </table>
   </dd>
 </dl>
-<p></em></p>
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00035">35</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00044">44</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_card_8c_a7cca2feea37c83e9dd73aef535294d16_icgraph.png" border="0" usemap="#a_card_8c_a7cca2feea37c83e9dd73aef535294d16_icgraph" loading="lazy" alt=""/></div>
 <map name="a_card_8c_a7cca2feea37c83e9dd73aef535294d16_icgraph" id="a_card_8c_a7cca2feea37c83e9dd73aef535294d16_icgraph">
-<area shape="rect" title=" " alt="" coords="264,31,345,57"/>
-<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title=" " alt="" coords="103,5,216,32"/>
+<area shape="rect" title="Prints the details of a card." alt="" coords="264,31,345,57"/>
+<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="103,5,216,32"/>
 <area shape="poly" title=" " alt="" coords="248,37,216,31,217,26,249,32"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,55,57"/>
 <area shape="poly" title=" " alt="" coords="249,47,55,47,55,41,249,41"/>
@@ -235,8 +232,9 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Represents a non-usable card. Return it whenever a "Card" type function encounters an error. </p>
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00015">15</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00023">23</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 
 </div>
 </div>
@@ -252,7 +250,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00013">13</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p>Array of string names corresponding to the <a class="el" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> enumeration. </p>
+
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00020">20</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 
 </div>
 </div>
@@ -268,7 +268,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00012">12</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p>Array of string names corresponding to the <a class="el" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e" title="Represents the different suits of a card.">Suit</a> enumeration. </p>
+
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00015">15</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 
 </div>
 </div>

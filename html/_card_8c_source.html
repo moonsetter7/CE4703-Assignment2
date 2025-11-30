@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CE4703 Individual Assignment: CardGame/Card.c Source File</title>
+<title>CE4703 Assignment 2: CardGame/Card.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,13 +17,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  extensions: ["tex2jax.js"],
-  jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,7 +26,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CE4703 Individual Assignment
+   <div id="projectname">CE4703 Assignment 2
    </div>
   </td>
  </tr>
@@ -102,38 +95,39 @@ $(function(){initNavTree('_card_8c_source.html','',''); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="_card_8h.html">Card.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">   12</a></span><span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a>[4] = {<span class="stringliteral">&quot;Club&quot;</span>, <span class="stringliteral">&quot;Spade&quot;</span>, <span class="stringliteral">&quot;Heart&quot;</span>, <span class="stringliteral">&quot;Diamond&quot;</span>};</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">   13</a></span><span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">rankNames</a>[13] = { <span class="stringliteral">&quot;Two&quot;</span>, <span class="stringliteral">&quot;Three&quot;</span>, <span class="stringliteral">&quot;Four&quot;</span>, <span class="stringliteral">&quot;Five&quot;</span>, <span class="stringliteral">&quot;Six&quot;</span>, <span class="stringliteral">&quot;Seven&quot;</span>, <span class="stringliteral">&quot;Eight&quot;</span>, <span class="stringliteral">&quot;Nine&quot;</span>, <span class="stringliteral">&quot;Ten&quot;</span>, <span class="stringliteral">&quot;Jack&quot;</span>, <span class="stringliteral">&quot;Queen&quot;</span>, <span class="stringliteral">&quot;King&quot;</span>, <span class="stringliteral">&quot;Ace&quot;</span> };</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_card_8c.html#a56f3a20e77679335c9f6856009e7be81">   15</a></span><span class="keyword">const</span> <a class="code hl_struct" href="struct_card.html">Card</a> <a class="code hl_variable" href="_card_8c.html#a56f3a20e77679335c9f6856009e7be81">INVALID_CARD</a> = { <a class="code hl_enumvalue" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189">INVALID_SUIT</a>, <a class="code hl_enumvalue" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173">INVALID_RANK</a> }; <span class="comment">// represents a non-usable card. return it whenever a &quot;Card&quot; type function encounters an error.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">   15</a></span><span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a>[4] = {<span class="stringliteral">&quot;Club&quot;</span>, <span class="stringliteral">&quot;Spade&quot;</span>, <span class="stringliteral">&quot;Heart&quot;</span>, <span class="stringliteral">&quot;Diamond&quot;</span>};</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="_card_8c.html#a0bb07e821bc4716ffeb2eacf9de199e3">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_card_8c.html#a0bb07e821bc4716ffeb2eacf9de199e3">Card_create</a>(<a class="code hl_struct" href="struct_card.html">Card</a>* card, <a class="code hl_enumeration" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a> suit, <a class="code hl_enumeration" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> rank) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    card-&gt;<a class="code hl_variable" href="struct_card.html#a750437964948eae679afc9783ca7113b">suit</a> = suit;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    card-&gt;<a class="code hl_variable" href="struct_card.html#a420e59726263f526ac83effecba02401">rank</a> = rank;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">   20</a></span><span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">rankNames</a>[13] = { <span class="stringliteral">&quot;Two&quot;</span>, <span class="stringliteral">&quot;Three&quot;</span>, <span class="stringliteral">&quot;Four&quot;</span>, <span class="stringliteral">&quot;Five&quot;</span>, <span class="stringliteral">&quot;Six&quot;</span>, <span class="stringliteral">&quot;Seven&quot;</span>, <span class="stringliteral">&quot;Eight&quot;</span>, <span class="stringliteral">&quot;Nine&quot;</span>, <span class="stringliteral">&quot;Ten&quot;</span>, <span class="stringliteral">&quot;Jack&quot;</span>, <span class="stringliteral">&quot;Queen&quot;</span>, <span class="stringliteral">&quot;King&quot;</span>, <span class="stringliteral">&quot;Ace&quot;</span> };</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="_card_8c.html#a56f3a20e77679335c9f6856009e7be81">   23</a></span><span class="keyword">const</span> <a class="code hl_struct" href="struct_card.html">Card</a> <a class="code hl_variable" href="_card_8c.html#a56f3a20e77679335c9f6856009e7be81">INVALID_CARD</a> = { <a class="code hl_enumvalue" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189">INVALID_SUIT</a>, <a class="code hl_enumvalue" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173">INVALID_RANK</a> };</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="_card_8c.html#a0bb07e821bc4716ffeb2eacf9de199e3">   32</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_card_8c.html#a0bb07e821bc4716ffeb2eacf9de199e3">Card_create</a>(<a class="code hl_struct" href="struct_card.html">Card</a>* card, <a class="code hl_enumeration" href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a> suit, <a class="code hl_enumeration" href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> rank) {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    card-&gt;<a class="code hl_variable" href="struct_card.html#a750437964948eae679afc9783ca7113b">suit</a> = suit;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    card-&gt;<a class="code hl_variable" href="struct_card.html#a420e59726263f526ac83effecba02401">rank</a> = rank;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16">Card_print</a>(<a class="code hl_struct" href="struct_card.html">Card</a>* card) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    printf(<span class="stringliteral">&quot;%s-%s\n&quot;</span>, <a class="code hl_variable" href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a>[card-&gt;<a class="code hl_variable" href="struct_card.html#a750437964948eae679afc9783ca7113b">suit</a>], <a class="code hl_variable" href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">rankNames</a>[card-&gt;<a class="code hl_variable" href="struct_card.html#a420e59726263f526ac83effecba02401">rank</a>]);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16">Card_print</a>(<a class="code hl_struct" href="struct_card.html">Card</a>* card) {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    printf(<span class="stringliteral">&quot;%s-%s\n&quot;</span>, <a class="code hl_variable" href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a>[card-&gt;<a class="code hl_variable" href="struct_card.html#a750437964948eae679afc9783ca7113b">suit</a>], <a class="code hl_variable" href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">rankNames</a>[card-&gt;<a class="code hl_variable" href="struct_card.html#a420e59726263f526ac83effecba02401">rank</a>]);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="ttc" id="a_card_8c_html_a0bb07e821bc4716ffeb2eacf9de199e3"><div class="ttname"><a href="_card_8c.html#a0bb07e821bc4716ffeb2eacf9de199e3">Card_create</a></div><div class="ttdeci">void Card_create(Card *card, Suit suit, Rank rank)</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Card.c:24</a></div></div>
-<div class="ttc" id="a_card_8c_html_a2dfadc9eccfd156afd357f907ce7e955"><div class="ttname"><a href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a></div><div class="ttdeci">const char * suitNames[4]</div><div class="ttdef"><b>Definition</b> <a href="#l00012">Card.c:12</a></div></div>
-<div class="ttc" id="a_card_8c_html_a44528397bbc84326f4a6d127a9073c21"><div class="ttname"><a href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">rankNames</a></div><div class="ttdeci">const char * rankNames[13]</div><div class="ttdef"><b>Definition</b> <a href="#l00013">Card.c:13</a></div></div>
-<div class="ttc" id="a_card_8c_html_a56f3a20e77679335c9f6856009e7be81"><div class="ttname"><a href="_card_8c.html#a56f3a20e77679335c9f6856009e7be81">INVALID_CARD</a></div><div class="ttdeci">const Card INVALID_CARD</div><div class="ttdef"><b>Definition</b> <a href="#l00015">Card.c:15</a></div></div>
-<div class="ttc" id="a_card_8c_html_a7cca2feea37c83e9dd73aef535294d16"><div class="ttname"><a href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16">Card_print</a></div><div class="ttdeci">void Card_print(Card *card)</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Card.c:35</a></div></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="ttc" id="a_card_8c_html_a0bb07e821bc4716ffeb2eacf9de199e3"><div class="ttname"><a href="_card_8c.html#a0bb07e821bc4716ffeb2eacf9de199e3">Card_create</a></div><div class="ttdeci">void Card_create(Card *card, Suit suit, Rank rank)</div><div class="ttdoc">Allocates and initializes a single card structure.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">Card.c:32</a></div></div>
+<div class="ttc" id="a_card_8c_html_a2dfadc9eccfd156afd357f907ce7e955"><div class="ttname"><a href="_card_8c.html#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a></div><div class="ttdeci">const char * suitNames[4]</div><div class="ttdoc">Array of string names corresponding to the Suit enumeration.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">Card.c:15</a></div></div>
+<div class="ttc" id="a_card_8c_html_a44528397bbc84326f4a6d127a9073c21"><div class="ttname"><a href="_card_8c.html#a44528397bbc84326f4a6d127a9073c21">rankNames</a></div><div class="ttdeci">const char * rankNames[13]</div><div class="ttdoc">Array of string names corresponding to the Rank enumeration.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">Card.c:20</a></div></div>
+<div class="ttc" id="a_card_8c_html_a56f3a20e77679335c9f6856009e7be81"><div class="ttname"><a href="_card_8c.html#a56f3a20e77679335c9f6856009e7be81">INVALID_CARD</a></div><div class="ttdeci">const Card INVALID_CARD</div><div class="ttdef"><b>Definition</b> <a href="#l00023">Card.c:23</a></div></div>
+<div class="ttc" id="a_card_8c_html_a7cca2feea37c83e9dd73aef535294d16"><div class="ttname"><a href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16">Card_print</a></div><div class="ttdeci">void Card_print(Card *card)</div><div class="ttdoc">Prints the details of a card.</div><div class="ttdef"><b>Definition</b> <a href="#l00044">Card.c:44</a></div></div>
 <div class="ttc" id="a_card_8h_html"><div class="ttname"><a href="_card_8h.html">Card.h</a></div></div>
-<div class="ttc" id="a_card_8h_html_adf74d53cd68bbef55ba510b266ecbbed"><div class="ttname"><a href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a></div><div class="ttdeci">Rank</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00028">Card.h:28</a></div></div>
-<div class="ttc" id="a_card_8h_html_adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173"><div class="ttname"><a href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173">INVALID_RANK</a></div><div class="ttdeci">@ INVALID_RANK</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00042">Card.h:42</a></div></div>
-<div class="ttc" id="a_card_8h_html_af78e1c8ea5e6837b6ab9452a1e435e4e"><div class="ttname"><a href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a></div><div class="ttdeci">Suit</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00019">Card.h:19</a></div></div>
-<div class="ttc" id="a_card_8h_html_af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189"><div class="ttname"><a href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189">INVALID_SUIT</a></div><div class="ttdeci">@ INVALID_SUIT</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00024">Card.h:24</a></div></div>
-<div class="ttc" id="astruct_card_html"><div class="ttname"><a href="struct_card.html">Card</a></div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00045">Card.h:45</a></div></div>
-<div class="ttc" id="astruct_card_html_a420e59726263f526ac83effecba02401"><div class="ttname"><a href="struct_card.html#a420e59726263f526ac83effecba02401">Card::rank</a></div><div class="ttdeci">Rank rank</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00047">Card.h:47</a></div></div>
-<div class="ttc" id="astruct_card_html_a750437964948eae679afc9783ca7113b"><div class="ttname"><a href="struct_card.html#a750437964948eae679afc9783ca7113b">Card::suit</a></div><div class="ttdeci">Suit suit</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00046">Card.h:46</a></div></div>
+<div class="ttc" id="a_card_8h_html_adf74d53cd68bbef55ba510b266ecbbed"><div class="ttname"><a href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbed">Rank</a></div><div class="ttdeci">Rank</div><div class="ttdoc">Represents the different ranks of a card.</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00042">Card.h:42</a></div></div>
+<div class="ttc" id="a_card_8h_html_adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173"><div class="ttname"><a href="_card_8h.html#adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173">INVALID_RANK</a></div><div class="ttdeci">@ INVALID_RANK</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00070">Card.h:70</a></div></div>
+<div class="ttc" id="a_card_8h_html_af78e1c8ea5e6837b6ab9452a1e435e4e"><div class="ttname"><a href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a></div><div class="ttdeci">Suit</div><div class="ttdoc">Represents the different suits of a card.</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00023">Card.h:23</a></div></div>
+<div class="ttc" id="a_card_8h_html_af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189"><div class="ttname"><a href="_card_8h.html#af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189">INVALID_SUIT</a></div><div class="ttdeci">@ INVALID_SUIT</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00033">Card.h:33</a></div></div>
+<div class="ttc" id="astruct_card_html"><div class="ttname"><a href="struct_card.html">Card</a></div><div class="ttdoc">Represents a single playing card.</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00078">Card.h:78</a></div></div>
+<div class="ttc" id="astruct_card_html_a420e59726263f526ac83effecba02401"><div class="ttname"><a href="struct_card.html#a420e59726263f526ac83effecba02401">Card::rank</a></div><div class="ttdeci">Rank rank</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00082">Card.h:82</a></div></div>
+<div class="ttc" id="astruct_card_html_a750437964948eae679afc9783ca7113b"><div class="ttname"><a href="struct_card.html#a750437964948eae679afc9783ca7113b">Card::suit</a></div><div class="ttdeci">Suit suit</div><div class="ttdef"><b>Definition</b> <a href="_card_8h_source.html#l00080">Card.h:80</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

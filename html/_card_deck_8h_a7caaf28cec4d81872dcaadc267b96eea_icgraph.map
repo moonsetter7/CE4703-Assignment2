@@ -1,18 +1,18 @@
 <map id="CardDeck_count" name="CardDeck_count">
-<area shape="rect" id="Node000001" title=" " alt="" coords="648,58,767,85"/>
-<area shape="rect" id="Node000002" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title=" " alt="" coords="474,33,600,60"/>
+<area shape="rect" id="Node000001" title="Calculates the size of a deck." alt="" coords="648,58,767,85"/>
+<area shape="rect" id="Node000002" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="474,33,600,60"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="632,63,600,58,600,53,633,58"/>
-<area shape="rect" id="Node000006" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title=" " alt="" coords="298,84,408,110"/>
+<area shape="rect" id="Node000006" href="$_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title="Sort a deck of cards using bubble sort." alt="" coords="298,84,408,110"/>
 <area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="632,80,409,96,408,91,632,74"/>
-<area shape="rect" id="Node000003" href="$game_8c.html#a7cd34fa363fd0576cdab4dd287d978a5" title=" " alt="" coords="280,33,426,60"/>
+<area shape="rect" id="Node000003" href="$game_8c.html#a7cd34fa363fd0576cdab4dd287d978a5" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="280,33,426,60"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="459,49,427,49,427,44,459,44"/>
 <area shape="rect" id="Node000005" href="$main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,33,55,60"/>
 <area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="472,32,426,24,335,13,264,9,193,11,103,24,56,38,54,33,102,19,193,6,264,3,336,8,427,18,473,27"/>
-<area shape="rect" id="Node000004" href="$game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title=" " alt="" coords="111,33,224,60"/>
+<area shape="rect" id="Node000004" href="$game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="111,33,224,60"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="264,49,224,49,224,44,264,44"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="95,49,55,49,55,44,95,44"/>
 <area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="286,82,218,63,220,58,288,77"/>
-<area shape="rect" id="Node000007" href="$game_8c.html#aeca6dd5d3b47a4ec8c168a3b3e54f917" title=" " alt="" coords="103,84,232,110"/>
+<area shape="rect" id="Node000007" href="$game_8c.html#aeca6dd5d3b47a4ec8c168a3b3e54f917" title="Sorts all players&#39; decks." alt="" coords="103,84,232,110"/>
 <area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="283,100,233,100,233,94,283,94"/>
 <area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="114,80,54,58,56,53,116,75"/>
 </map>

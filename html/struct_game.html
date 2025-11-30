@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CE4703 Individual Assignment: Game Struct Reference</title>
+<title>CE4703 Assignment 2: Game Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,13 +17,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  extensions: ["tex2jax.js"],
-  jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,7 +26,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CE4703 Individual Assignment
+   <div id="projectname">CE4703 Assignment 2
    </div>
   </td>
  </tr>
@@ -99,19 +92,22 @@ $(function(){initNavTree('struct_game.html','',''); });
 </div><!--header-->
 <div class="contents">
 
+<p>Represents the entire game itself: the decks used, and its current status.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="game_8h_source.html">game.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Game:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_game__coll__graph.png" border="0" usemap="#a_game_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="a_game_coll__map" id="a_game_coll__map">
-<area shape="rect" title=" " alt="" coords="10,536,70,605"/>
-<area shape="rect" href="struct_card_deck.html" title=" " alt="" coords="5,331,75,400"/>
+<area shape="rect" title="Represents the entire game itself: the decks used, and its current status." alt="" coords="10,536,70,605"/>
+<area shape="rect" href="struct_card_deck.html" title="Represents the entire deck of cards using a linked list." alt="" coords="5,331,75,400"/>
 <area shape="poly" title=" " alt="" coords="43,400,43,519,38,519,38,400"/>
-<area shape="rect" href="structn.html" title=" " alt="" coords="31,168,49,237"/>
+<area shape="rect" href="structn.html" title="Represents a single node in a card deck." alt="" coords="31,168,49,237"/>
 <area shape="poly" title=" " alt="" coords="43,237,43,314,38,314,38,237"/>
 <area shape="poly" title=" " alt="" coords="48,191,65,187,73,193,76,203,73,212,67,217,64,213,69,209,70,203,69,196,64,193,49,196"/>
-<area shape="rect" href="struct_card.html" title=" " alt="" coords="16,5,65,96"/>
+<area shape="rect" href="struct_card.html" title="Represents a single playing card." alt="" coords="16,5,65,96"/>
 <area shape="poly" title=" " alt="" coords="43,96,43,151,38,151,38,96"/>
 </map>
 </div>
@@ -125,8 +121,10 @@ Data Fields</h2></td></tr>
 <tr class="memitem:ac9a27578c28e28338b2b1ba1b8e98643" id="r_ac9a27578c28e28338b2b1ba1b8e98643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="game_8h.html#a881b49e3802366255ad852f1c8624fd1">GameStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9a27578c28e28338b2b1ba1b8e98643">status</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00019">19</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+<div class="textblock"><p>Represents the entire game itself: the decks used, and its current status. </p>
+<p>This structure combines all components required to track a game's state, including the various card piles and the current status of the game. </p><dl class="section note"><dt>Note</dt><dd>This game structure limits the possible players to only two. This limitation will be more apparent as you read through the <em><a class="el" href="struct_game.html" title="Represents the entire game itself: the decks used, and its current status.">Game</a></em> functions. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00034">34</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="a4a29b7ddf51d483288410ca4f9c3e843" name="a4a29b7ddf51d483288410ca4f9c3e843"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a29b7ddf51d483288410ca4f9c3e843">&#9670;&#160;</a></span>hidden</h2>
@@ -139,8 +137,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pointer to the hidden deck of cards, used for players to draw from. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00020">20</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00036">36</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 
 </div>
 </div>
@@ -155,8 +154,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pointer to player 1's deck of cards. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00022">22</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00040">40</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 
 </div>
 </div>
@@ -171,8 +171,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pointer to player 2's deck of cards. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00023">23</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00042">42</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 
 </div>
 </div>
@@ -187,8 +188,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pointer to the deck of cards consisting of all played cards. </p>
 
-<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00021">21</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00038">38</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 
 </div>
 </div>
@@ -203,8 +205,9 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Current status of the game (e.g. ongoing, win) </p>
 
-<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00024">24</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="game_8h_source.html#l00044">44</a> of file <a class="el" href="game_8h_source.html">game.h</a>.</p>
 
 </div>
 </div>

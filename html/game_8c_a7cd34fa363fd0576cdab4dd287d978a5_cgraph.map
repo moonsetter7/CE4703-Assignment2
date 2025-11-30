@@ -1,18 +1,18 @@
 <map id="Game_recycleHidden" name="Game_recycleHidden">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,152,83"/>
-<area shape="rect" id="Node000002" href="$_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title=" " alt="" coords="377,5,531,32"/>
+<area shape="rect" id="Node000001" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="5,56,152,83"/>
+<area shape="rect" id="Node000002" href="$_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title="Inserts a given card to the top of a specified deck." alt="" coords="377,5,531,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,53,199,41,361,23,362,28,200,47,140,58"/>
-<area shape="rect" id="Node000003" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title=" " alt="" coords="202,56,327,83"/>
+<area shape="rect" id="Node000003" href="$_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="202,56,327,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,67,186,67,186,72,152,72"/>
-<area shape="rect" id="Node000008" href="$_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title=" " alt="" coords="200,107,329,133"/>
+<area shape="rect" id="Node000008" href="$_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title="Removes the top card of a deck and returns its value." alt="" coords="200,107,329,133"/>
 <area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="131,81,199,100,198,105,130,86"/>
 <area shape="poly" id="edge5_Node000003_Node000002" title=" " alt="" coords="317,53,386,34,387,39,318,58"/>
-<area shape="rect" id="Node000004" href="$_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title=" " alt="" coords="394,56,514,83"/>
+<area shape="rect" id="Node000004" href="$_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title="Calculates the size of a deck." alt="" coords="394,56,514,83"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="327,67,379,67,379,72,327,72"/>
-<area shape="rect" id="Node000005" href="$_card_deck_8c.html#aede5d7389cf044fc345273ef3dbc38fc" title=" " alt="" coords="392,107,516,133"/>
+<area shape="rect" id="Node000005" href="$_card_deck_8c.html#aede5d7389cf044fc345273ef3dbc38fc" title="Creates an empty card deck in the form of a singly linked list." alt="" coords="392,107,516,133"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="318,81,387,100,386,105,317,86"/>
-<area shape="rect" id="Node000006" href="$_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title=" " alt="" coords="382,157,526,184"/>
+<area shape="rect" id="Node000006" href="$_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title="Removes a card from a card deck at a specified index and returns its card value." alt="" coords="382,157,526,184"/>
 <area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="309,81,331,92,346,106,355,119,364,131,379,143,387,148,385,153,375,148,360,135,351,122,342,109,327,97,307,86"/>
-<area shape="rect" id="Node000007" href="$_card_deck_8c.html#acf19b209b5a67c2448f36c792e56ce45" title=" " alt="" coords="579,157,736,184"/>
+<area shape="rect" id="Node000007" href="$_card_deck_8c.html#acf19b209b5a67c2448f36c792e56ce45" title="Finds the pointer of a card deck&#39;s node at a specified index." alt="" coords="579,157,736,184"/>
 <area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="526,168,564,168,564,173,526,173"/>
 </map>

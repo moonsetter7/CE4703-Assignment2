@@ -1,6 +1,6 @@
 <map id="Card_create" name="Card_create">
-<area shape="rect" id="Node000001" title=" " alt="" coords="320,5,412,32"/>
-<area shape="rect" id="Node000002" href="$_card_deck_8c.html#adb8cb966ed696e00f7dd3bff322483df" title=" " alt="" coords="103,5,272,32"/>
+<area shape="rect" id="Node000001" title="Allocates and initializes a single card structure." alt="" coords="320,5,412,32"/>
+<area shape="rect" id="Node000002" href="$_card_deck_8c.html#adb8cb966ed696e00f7dd3bff322483df" title="Creates an ordered deck consisting of numPacks card packs." alt="" coords="103,5,272,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,21,273,21,273,16,304,16"/>
 <area shape="rect" id="Node000003" href="$main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>

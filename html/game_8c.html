@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CE4703 Individual Assignment: CardGame/game.c File Reference</title>
+<title>CE4703 Assignment 2: CardGame/game.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,13 +17,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  extensions: ["tex2jax.js"],
-  jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,7 +26,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CE4703 Individual Assignment
+   <div id="projectname">CE4703 Assignment 2
    </div>
   </td>
  </tr>
@@ -114,8 +107,6 @@ Include dependency graph for game.c:</div>
 <area shape="poly" title=" " alt="" coords="125,107,125,139,120,139,120,107"/>
 <area shape="rect" href="_card_8h.html" title=" " alt="" coords="92,229,152,256"/>
 <area shape="poly" title=" " alt="" coords="125,182,125,214,120,214,120,182"/>
-<area shape="rect" title=" " alt="" coords="88,304,156,331"/>
-<area shape="poly" title=" " alt="" coords="125,257,125,288,120,288,120,257"/>
 </map>
 </div>
 </div>
@@ -124,14 +115,20 @@ Include dependency graph for game.c:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abba820a2f4d5a7f4c97daa64d6e8d355" id="r_abba820a2f4d5a7f4c97daa64d6e8d355"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_card_deck_8h.html#ac350b5ab30eb479eb81b1ce3106bb6a0">deckError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba820a2f4d5a7f4c97daa64d6e8d355">Game_deal</a> (<a class="el" href="struct_game.html">Game</a> *game)</td></tr>
+<tr class="memdesc:abba820a2f4d5a7f4c97daa64d6e8d355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deals 8 cards to each player.  <br /></td></tr>
 <tr class="memitem:aeca6dd5d3b47a4ec8c168a3b3e54f917" id="r_aeca6dd5d3b47a4ec8c168a3b3e54f917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeca6dd5d3b47a4ec8c168a3b3e54f917">Game_sortPlayers</a> (<a class="el" href="struct_game.html">Game</a> *game)</td></tr>
+<tr class="memdesc:aeca6dd5d3b47a4ec8c168a3b3e54f917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts all players' decks.  <br /></td></tr>
 <tr class="memitem:ace276ffe88685bad903c85ec69bfcdda" id="r_ace276ffe88685bad903c85ec69bfcdda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace276ffe88685bad903c85ec69bfcdda">CardDeck_findMatchInHand</a> (<a class="el" href="struct_card_deck.html">CardDeck</a> *hand, <a class="el" href="struct_card_deck.html">CardDeck</a> *playedDeck)</td></tr>
+<tr class="memdesc:ace276ffe88685bad903c85ec69bfcdda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds a matching card in a player's hand to the played deck's top card, and returns its index.  <br /></td></tr>
 <tr class="memitem:a7cd34fa363fd0576cdab4dd287d978a5" id="r_a7cd34fa363fd0576cdab4dd287d978a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cd34fa363fd0576cdab4dd287d978a5">Game_recycleHidden</a> (<a class="el" href="struct_game.html">Game</a> *game)</td></tr>
+<tr class="memdesc:a7cd34fa363fd0576cdab4dd287d978a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recycles the hidden deck when it's empty.  <br /></td></tr>
 <tr class="memitem:ad87fcb407d24d2d4030620c7e333050a" id="r_ad87fcb407d24d2d4030620c7e333050a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad87fcb407d24d2d4030620c7e333050a">Game_playTurn</a> (<a class="el" href="struct_game.html">Game</a> *game, int player)</td></tr>
+<tr class="memdesc:ad87fcb407d24d2d4030620c7e333050a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays one turn of the game.  <br /></td></tr>
 <tr class="memitem:a08ae83d668c20131a9e3290b858ac0af" id="r_a08ae83d668c20131a9e3290b858ac0af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08ae83d668c20131a9e3290b858ac0af">Game_printPlayers</a> (<a class="el" href="struct_game.html">Game</a> *game)</td></tr>
+<tr class="memdesc:a08ae83d668c20131a9e3290b858ac0af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the players' decks.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation for the game loop functions Deals cards, finds a match and plays a turn</p>
+<div class="textblock"><p>Implementation for the game loop functions: Deals cards, finds a match and plays a turn.</p>
 <dl class="section date"><dt>Date</dt><dd>27.11.2025 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="game_8c_source.html">game.c</a>.</p>
@@ -155,14 +152,31 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00082">82</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
+<p>Finds a matching card in a player's hand to the played deck's top card, and returns its index. </p>
+<p>Finds a card matching the top card of a played deck from the player's hand. Two cards match if both share either the same rank or the same suit.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hand</td><td>Pointer of the player's hand. </td></tr>
+    <tr><td class="paramname">playedDeck</td><td>pointer of the deck containing the played cards. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The match status: <ul>
+<li>
+The index of the matched card in the player's hand </li>
+<li>
+<em>-1</em> if no match is found </li>
+</ul>
+</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00085">85</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_ace276ffe88685bad903c85ec69bfcdda_cgraph.png" border="0" usemap="#agame_8c_ace276ffe88685bad903c85ec69bfcdda_cgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_ace276ffe88685bad903c85ec69bfcdda_cgraph" id="agame_8c_ace276ffe88685bad903c85ec69bfcdda_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,192,32"/>
-<area shape="rect" href="_card_deck_8c.html#aaa9a68bb9cba852c3a6570df5cb9c8c5" title=" " alt="" coords="240,5,369,32"/>
+<area shape="rect" title="Finds a matching card in a player&#39;s hand to the played deck&#39;s top card, and returns its index." alt="" coords="5,5,192,32"/>
+<area shape="rect" href="_card_deck_8c.html#aaa9a68bb9cba852c3a6570df5cb9c8c5" title="Gets the pointer of the card at the top of a given deck." alt="" coords="240,5,369,32"/>
 <area shape="poly" title=" " alt="" coords="192,16,224,16,224,21,192,21"/>
 </map>
 </div>
@@ -171,8 +185,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_ace276ffe88685bad903c85ec69bfcdda_icgraph.png" border="0" usemap="#agame_8c_ace276ffe88685bad903c85ec69bfcdda_icgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_ace276ffe88685bad903c85ec69bfcdda_icgraph" id="agame_8c_ace276ffe88685bad903c85ec69bfcdda_icgraph">
-<area shape="rect" title=" " alt="" coords="264,5,450,32"/>
-<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title=" " alt="" coords="103,5,216,32"/>
+<area shape="rect" title="Finds a matching card in a player&#39;s hand to the played deck&#39;s top card, and returns its index." alt="" coords="264,5,450,32"/>
+<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="103,5,216,32"/>
 <area shape="poly" title=" " alt="" coords="248,21,216,21,216,16,248,16"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
@@ -196,16 +210,26 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00022">22</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
+<p>Deals 8 cards to each player. </p>
+<p>Always takes cards from the hidden deck and alternates betweeen player 1 and 2 so cards 0,2,4,6 go to player 1 cards 1,3,5,7 go to player 2</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer of the game. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="_card_deck_8h.html#ac350b5ab30eb479eb81b1ce3106bb6a0" title="Error codes returned by deck manipulation functions.">deckError</a> value indicating the game deal error status. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00023">23</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_abba820a2f4d5a7f4c97daa64d6e8d355_cgraph.png" border="0" usemap="#agame_8c_abba820a2f4d5a7f4c97daa64d6e8d355_cgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_abba820a2f4d5a7f4c97daa64d6e8d355_cgraph" id="agame_8c_abba820a2f4d5a7f4c97daa64d6e8d355_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,93,57"/>
-<area shape="rect" href="_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title=" " alt="" coords="141,5,295,32"/>
+<area shape="rect" title="Deals 8 cards to each player." alt="" coords="5,31,93,57"/>
+<area shape="rect" href="_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title="Inserts a given card to the top of a specified deck." alt="" coords="141,5,295,32"/>
 <area shape="poly" title=" " alt="" coords="93,35,125,30,126,35,94,40"/>
-<area shape="rect" href="_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title=" " alt="" coords="153,56,282,83"/>
+<area shape="rect" href="_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title="Removes the top card of a deck and returns its value." alt="" coords="153,56,282,83"/>
 <area shape="poly" title=" " alt="" coords="94,48,138,55,137,60,93,53"/>
 </map>
 </div>
@@ -214,7 +238,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_abba820a2f4d5a7f4c97daa64d6e8d355_icgraph.png" border="0" usemap="#agame_8c_abba820a2f4d5a7f4c97daa64d6e8d355_icgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_abba820a2f4d5a7f4c97daa64d6e8d355_icgraph" id="agame_8c_abba820a2f4d5a7f4c97daa64d6e8d355_icgraph">
-<area shape="rect" title=" " alt="" coords="103,5,190,32"/>
+<area shape="rect" title="Deals 8 cards to each player." alt="" coords="103,5,190,32"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
@@ -241,43 +265,72 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00195">195</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
+<p>Plays one turn of the game. </p>
+<p><em>Steps:</em> </p><ol>
+<li>
+Try to find a matching card in a player's hand. </li>
+<li>
+If no match is found: <ul>
+<li>
+Recycle the hidden deck if it's empty </li>
+<li>
+Draw one card from the player's hand. </li>
+</ul>
+</li>
+<li>
+If a match is found: <ul>
+<li>
+Remove the matching card from the player's hand at the given index </li>
+<li>
+Put that card into the played deck </li>
+</ul>
+</li>
+</ol>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer of the game. </td></tr>
+    <tr><td class="paramname">player</td><td>The player in turn. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00186">186</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_ad87fcb407d24d2d4030620c7e333050a_cgraph.png" border="0" usemap="#agame_8c_ad87fcb407d24d2d4030620c7e333050a_cgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_ad87fcb407d24d2d4030620c7e333050a_cgraph" id="agame_8c_ad87fcb407d24d2d4030620c7e333050a_cgraph">
-<area shape="rect" title=" " alt="" coords="5,233,119,260"/>
-<area shape="rect" href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16" title=" " alt="" coords="219,5,300,32"/>
+<area shape="rect" title="Plays one turn of the game." alt="" coords="5,233,119,260"/>
+<area shape="rect" href="_card_8c.html#a7cca2feea37c83e9dd73aef535294d16" title="Prints the details of a card." alt="" coords="219,5,300,32"/>
 <area shape="poly" title=" " alt="" coords="64,232,74,194,94,143,123,89,143,64,165,42,183,31,203,23,205,28,185,35,168,46,147,67,128,92,98,145,79,196,69,234"/>
-<area shape="rect" href="game_8c.html#ace276ffe88685bad903c85ec69bfcdda" title=" " alt="" coords="167,56,353,83"/>
+<area shape="rect" href="game_8c.html#ace276ffe88685bad903c85ec69bfcdda" title="Finds a matching card in a player&#39;s hand to the played deck&#39;s top card, and returns its index." alt="" coords="167,56,353,83"/>
 <area shape="poly" title=" " alt="" coords="67,232,103,169,131,132,165,99,186,87,188,92,168,103,135,135,107,172,72,234"/>
-<area shape="rect" href="_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title=" " alt="" coords="578,157,733,184"/>
+<area shape="rect" href="_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title="Inserts a given card to the top of a specified deck." alt="" coords="578,157,733,184"/>
 <area shape="poly" title=" " alt="" coords="85,230,122,211,166,193,271,171,378,160,478,158,563,161,563,166,478,163,378,166,272,176,167,199,124,216,87,235"/>
-<area shape="rect" href="_card_deck_8c.html#ad80dff2e7d0a3440bb5546914ed4b81d" title=" " alt="" coords="204,411,316,437"/>
+<area shape="rect" href="_card_deck_8c.html#ad80dff2e7d0a3440bb5546914ed4b81d" title="Prints a card deck." alt="" coords="204,411,316,437"/>
 <area shape="poly" title=" " alt="" coords="72,259,107,322,135,358,168,390,191,403,188,408,165,394,131,362,103,325,67,262"/>
-<area shape="rect" href="_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title=" " alt="" coords="584,272,727,299"/>
+<area shape="rect" href="_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title="Removes a card from a card deck at a specified index and returns its card value." alt="" coords="584,272,727,299"/>
 <area shape="poly" title=" " alt="" coords="119,257,167,267,269,284,348,294,428,297,530,295,568,292,569,297,530,300,428,303,347,299,268,289,166,272,118,263"/>
-<area shape="rect" href="_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title=" " alt="" coords="411,360,520,387"/>
+<area shape="rect" href="_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title="Sort a deck of cards using bubble sort." alt="" coords="411,360,520,387"/>
 <area shape="poly" title=" " alt="" coords="76,259,113,300,139,322,168,339,225,359,285,370,344,375,395,375,395,380,344,380,285,375,224,364,166,344,136,326,109,304,72,262"/>
-<area shape="rect" href="_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title=" " alt="" coords="401,259,530,285"/>
+<area shape="rect" href="_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title="Removes the top card of a deck and returns its value." alt="" coords="401,259,530,285"/>
 <area shape="poly" title=" " alt="" coords="119,248,385,264,385,270,119,253"/>
-<area shape="rect" href="game_8c.html#a7cd34fa363fd0576cdab4dd287d978a5" title=" " alt="" coords="187,208,333,235"/>
+<area shape="rect" href="game_8c.html#a7cd34fa363fd0576cdab4dd287d978a5" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="187,208,333,235"/>
 <area shape="poly" title=" " alt="" coords="119,237,171,230,172,235,120,242"/>
-<area shape="rect" href="_card_deck_8c.html#aaa9a68bb9cba852c3a6570df5cb9c8c5" title=" " alt="" coords="401,56,530,83"/>
+<area shape="rect" href="_card_deck_8c.html#aaa9a68bb9cba852c3a6570df5cb9c8c5" title="Gets the pointer of the card at the top of a given deck." alt="" coords="401,56,530,83"/>
 <area shape="poly" title=" " alt="" coords="353,67,385,67,385,72,353,72"/>
-<area shape="rect" href="_card_deck_8c.html#acf19b209b5a67c2448f36c792e56ce45" title=" " alt="" coords="781,272,937,299"/>
+<area shape="rect" href="_card_deck_8c.html#acf19b209b5a67c2448f36c792e56ce45" title="Finds the pointer of a card deck&#39;s node at a specified index." alt="" coords="781,272,937,299"/>
 <area shape="poly" title=" " alt="" coords="728,283,765,283,765,288,728,288"/>
-<area shape="rect" href="_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title=" " alt="" coords="596,335,715,361"/>
+<area shape="rect" href="_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title="Calculates the size of a deck." alt="" coords="596,335,715,361"/>
 <area shape="poly" title=" " alt="" coords="520,363,580,355,581,361,521,369"/>
 <area shape="poly" title=" " alt="" coords="332,205,401,193,563,175,563,181,401,199,333,210"/>
 <area shape="poly" title=" " alt="" coords="318,233,394,252,393,257,317,238"/>
-<area shape="rect" href="_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title=" " alt="" coords="403,208,528,235"/>
+<area shape="rect" href="_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="403,208,528,235"/>
 <area shape="poly" title=" " alt="" coords="333,219,387,219,387,224,333,224"/>
 <area shape="poly" title=" " alt="" coords="518,205,587,186,589,191,519,210"/>
 <area shape="poly" title=" " alt="" coords="508,233,600,264,598,269,507,238"/>
 <area shape="poly" title=" " alt="" coords="512,233,532,245,548,261,557,277,565,293,580,309,606,325,603,330,577,313,561,296,552,280,544,264,529,249,510,238"/>
-<area shape="rect" href="_card_deck_8c.html#aede5d7389cf044fc345273ef3dbc38fc" title=" " alt="" coords="594,208,717,235"/>
+<area shape="rect" href="_card_deck_8c.html#aede5d7389cf044fc345273ef3dbc38fc" title="Creates an empty card deck in the form of a singly linked list." alt="" coords="594,208,717,235"/>
 <area shape="poly" title=" " alt="" coords="529,219,579,219,579,224,529,224"/>
 </map>
 </div>
@@ -286,7 +339,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_ad87fcb407d24d2d4030620c7e333050a_icgraph.png" border="0" usemap="#agame_8c_ad87fcb407d24d2d4030620c7e333050a_icgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_ad87fcb407d24d2d4030620c7e333050a_icgraph" id="agame_8c_ad87fcb407d24d2d4030620c7e333050a_icgraph">
-<area shape="rect" title=" " alt="" coords="103,5,216,32"/>
+<area shape="rect" title="Plays one turn of the game." alt="" coords="103,5,216,32"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
@@ -309,14 +362,22 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00292">292</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
+<p>Prints the players' decks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer of the game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00283">283</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_a08ae83d668c20131a9e3290b858ac0af_cgraph.png" border="0" usemap="#agame_8c_a08ae83d668c20131a9e3290b858ac0af_cgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_a08ae83d668c20131a9e3290b858ac0af_cgraph" id="agame_8c_a08ae83d668c20131a9e3290b858ac0af_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,138,32"/>
-<area shape="rect" href="_card_deck_8c.html#ad80dff2e7d0a3440bb5546914ed4b81d" title=" " alt="" coords="186,5,298,32"/>
+<area shape="rect" title="Prints the players&#39; decks." alt="" coords="5,5,138,32"/>
+<area shape="rect" href="_card_deck_8c.html#ad80dff2e7d0a3440bb5546914ed4b81d" title="Prints a card deck." alt="" coords="186,5,298,32"/>
 <area shape="poly" title=" " alt="" coords="138,16,170,16,170,21,138,21"/>
 </map>
 </div>
@@ -325,7 +386,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_a08ae83d668c20131a9e3290b858ac0af_icgraph.png" border="0" usemap="#agame_8c_a08ae83d668c20131a9e3290b858ac0af_icgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_a08ae83d668c20131a9e3290b858ac0af_icgraph" id="agame_8c_a08ae83d668c20131a9e3290b858ac0af_icgraph">
-<area shape="rect" title=" " alt="" coords="103,5,235,32"/>
+<area shape="rect" title="Prints the players&#39; decks." alt="" coords="103,5,235,32"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
@@ -348,27 +409,36 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00125">125</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
+<p>Recycles the hidden deck when it's empty. </p>
+<p>Transfers all played cards into the hidden deck, and then shuffles the hidden deck. Only the last played card remains on the played card deck.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer of the game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00130">130</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_a7cd34fa363fd0576cdab4dd287d978a5_cgraph.png" border="0" usemap="#agame_8c_a7cd34fa363fd0576cdab4dd287d978a5_cgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_a7cd34fa363fd0576cdab4dd287d978a5_cgraph" id="agame_8c_a7cd34fa363fd0576cdab4dd287d978a5_cgraph">
-<area shape="rect" title=" " alt="" coords="5,56,152,83"/>
-<area shape="rect" href="_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title=" " alt="" coords="377,5,531,32"/>
+<area shape="rect" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="5,56,152,83"/>
+<area shape="rect" href="_card_deck_8c.html#ac8af33f2dcbc5cbefff63efe5dc629b4" title="Inserts a given card to the top of a specified deck." alt="" coords="377,5,531,32"/>
 <area shape="poly" title=" " alt="" coords="139,53,199,41,361,23,362,28,200,47,140,58"/>
-<area shape="rect" href="_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title=" " alt="" coords="202,56,327,83"/>
+<area shape="rect" href="_card_deck_8c.html#acd4db6bb7ac906933ec951e17d675f23" title="Shuffles a deck following the algorithm outlined in the assignment." alt="" coords="202,56,327,83"/>
 <area shape="poly" title=" " alt="" coords="152,67,186,67,186,72,152,72"/>
-<area shape="rect" href="_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title=" " alt="" coords="200,107,329,133"/>
+<area shape="rect" href="_card_deck_8c.html#ada26e16a3132bc3ed58e34c9bfa14494" title="Removes the top card of a deck and returns its value." alt="" coords="200,107,329,133"/>
 <area shape="poly" title=" " alt="" coords="131,81,199,100,198,105,130,86"/>
 <area shape="poly" title=" " alt="" coords="317,53,386,34,387,39,318,58"/>
-<area shape="rect" href="_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title=" " alt="" coords="394,56,514,83"/>
+<area shape="rect" href="_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title="Calculates the size of a deck." alt="" coords="394,56,514,83"/>
 <area shape="poly" title=" " alt="" coords="327,67,379,67,379,72,327,72"/>
-<area shape="rect" href="_card_deck_8c.html#aede5d7389cf044fc345273ef3dbc38fc" title=" " alt="" coords="392,107,516,133"/>
+<area shape="rect" href="_card_deck_8c.html#aede5d7389cf044fc345273ef3dbc38fc" title="Creates an empty card deck in the form of a singly linked list." alt="" coords="392,107,516,133"/>
 <area shape="poly" title=" " alt="" coords="318,81,387,100,386,105,317,86"/>
-<area shape="rect" href="_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title=" " alt="" coords="382,157,526,184"/>
+<area shape="rect" href="_card_deck_8c.html#a15c25cf0f36c925d4ca4a41d68954e56" title="Removes a card from a card deck at a specified index and returns its card value." alt="" coords="382,157,526,184"/>
 <area shape="poly" title=" " alt="" coords="309,81,331,92,346,106,355,119,364,131,379,143,387,148,385,153,375,148,360,135,351,122,342,109,327,97,307,86"/>
-<area shape="rect" href="_card_deck_8c.html#acf19b209b5a67c2448f36c792e56ce45" title=" " alt="" coords="579,157,736,184"/>
+<area shape="rect" href="_card_deck_8c.html#acf19b209b5a67c2448f36c792e56ce45" title="Finds the pointer of a card deck&#39;s node at a specified index." alt="" coords="579,157,736,184"/>
 <area shape="poly" title=" " alt="" coords="526,168,564,168,564,173,526,173"/>
 </map>
 </div>
@@ -377,8 +447,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_a7cd34fa363fd0576cdab4dd287d978a5_icgraph.png" border="0" usemap="#agame_8c_a7cd34fa363fd0576cdab4dd287d978a5_icgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_a7cd34fa363fd0576cdab4dd287d978a5_icgraph" id="agame_8c_a7cd34fa363fd0576cdab4dd287d978a5_icgraph">
-<area shape="rect" title=" " alt="" coords="264,5,410,32"/>
-<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title=" " alt="" coords="103,5,216,32"/>
+<area shape="rect" title="Recycles the hidden deck when it&#39;s empty." alt="" coords="264,5,410,32"/>
+<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="103,5,216,32"/>
 <area shape="poly" title=" " alt="" coords="249,21,216,21,216,16,249,16"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
@@ -402,16 +472,24 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00063">63</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
+<p>Sorts all players' decks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>Pointer of the game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="game_8c_source.html#l00064">64</a> of file <a class="el" href="game_8c_source.html">game.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_cgraph.png" border="0" usemap="#agame_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_cgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_cgraph" id="agame_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,135,32"/>
-<area shape="rect" href="_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title=" " alt="" coords="183,5,292,32"/>
+<area shape="rect" title="Sorts all players&#39; decks." alt="" coords="5,5,135,32"/>
+<area shape="rect" href="_card_deck_8c.html#abb43897e7a133b71bf109042b872c692" title="Sort a deck of cards using bubble sort." alt="" coords="183,5,292,32"/>
 <area shape="poly" title=" " alt="" coords="135,16,167,16,167,21,135,21"/>
-<area shape="rect" href="_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title=" " alt="" coords="340,5,459,32"/>
+<area shape="rect" href="_card_deck_8c.html#a7caaf28cec4d81872dcaadc267b96eea" title="Calculates the size of a deck." alt="" coords="340,5,459,32"/>
 <area shape="poly" title=" " alt="" coords="292,16,324,16,324,21,292,21"/>
 </map>
 </div>
@@ -420,7 +498,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_icgraph.png" border="0" usemap="#agame_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_icgraph" loading="lazy" alt=""/></div>
 <map name="agame_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_icgraph" id="agame_8c_aeca6dd5d3b47a4ec8c168a3b3e54f917_icgraph">
-<area shape="rect" title=" " alt="" coords="103,5,232,32"/>
+<area shape="rect" title="Sorts all players&#39; decks." alt="" coords="103,5,232,32"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>

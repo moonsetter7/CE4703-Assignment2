@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CE4703 Individual Assignment: CardGame/Card.h File Reference</title>
+<title>CE4703 Assignment 2: CardGame/Card.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,13 +17,6 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  extensions: ["tex2jax.js"],
-  jax: ["input/TeX","output/HTML-CSS"],
-});
-</script>
-<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -33,7 +26,7 @@ MathJax.Hub.Config({
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">CE4703 Individual Assignment
+   <div id="projectname">CE4703 Assignment 2
    </div>
   </td>
  </tr>
@@ -98,18 +91,7 @@ $(function(){initNavTree('_card_8h.html','',''); });
   <div class="headertitle"><div class="title">Card.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for Card.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="_card_8h__incl.png" border="0" usemap="#a_card_game_2_card_8h" loading="lazy" alt=""/></div>
-<map name="a_card_game_2_card_8h" id="a_card_game_2_card_8h">
-<area shape="rect" title=" " alt="" coords="5,5,133,32"/>
-<area shape="rect" title=" " alt="" coords="35,80,103,107"/>
-<area shape="poly" title=" " alt="" coords="72,33,72,64,66,64,66,33"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
+<div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_card_8h__dep__incl.png" border="0" usemap="#a_card_game_2_card_8hdep" loading="lazy" alt=""/></div>
@@ -137,6 +119,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:Card" id="r_Card"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_card.html">Card</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single playing card.  <a href="struct_card.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -149,6 +132,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189">INVALID_SUIT</a> = -1
 <br />
  }</td></tr>
+<tr class="memdesc:af78e1c8ea5e6837b6ab9452a1e435e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the different suits of a card.  <a href="#af78e1c8ea5e6837b6ab9452a1e435e4e">More...</a><br /></td></tr>
 <tr class="memitem:adf74d53cd68bbef55ba510b266ecbbed" id="r_adf74d53cd68bbef55ba510b266ecbbed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> { <br />
 &#160;&#160;<a class="el" href="#adf74d53cd68bbef55ba510b266ecbbeda0e793500a63ffa575b9b712ca3bc9851">TWO</a>
 , <a class="el" href="#adf74d53cd68bbef55ba510b266ecbbeda1251fbf93888ad32fe0ae54d49bcef17">THREE</a>
@@ -169,17 +153,22 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173">INVALID_RANK</a> = -1
 <br />
  }</td></tr>
+<tr class="memdesc:adf74d53cd68bbef55ba510b266ecbbed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the different ranks of a card.  <a href="#adf74d53cd68bbef55ba510b266ecbbed">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0bb07e821bc4716ffeb2eacf9de199e3" id="r_a0bb07e821bc4716ffeb2eacf9de199e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bb07e821bc4716ffeb2eacf9de199e3">Card_create</a> (<a class="el" href="struct_card.html">Card</a> *card, <a class="el" href="#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a> suit, <a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> rank)</td></tr>
+<tr class="memdesc:a0bb07e821bc4716ffeb2eacf9de199e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates and initializes a single card structure.  <br /></td></tr>
 <tr class="memitem:a7cca2feea37c83e9dd73aef535294d16" id="r_a7cca2feea37c83e9dd73aef535294d16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cca2feea37c83e9dd73aef535294d16">Card_print</a> (<a class="el" href="struct_card.html">Card</a> *card)</td></tr>
+<tr class="memdesc:a7cca2feea37c83e9dd73aef535294d16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the details of a card.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a56f3a20e77679335c9f6856009e7be81" id="r_a56f3a20e77679335c9f6856009e7be81"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_card.html">Card</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56f3a20e77679335c9f6856009e7be81">INVALID_CARD</a></td></tr>
 <tr class="memitem:a2dfadc9eccfd156afd357f907ce7e955" id="r_a2dfadc9eccfd156afd357f907ce7e955"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dfadc9eccfd156afd357f907ce7e955">suitNames</a> [4]</td></tr>
+<tr class="memdesc:a2dfadc9eccfd156afd357f907ce7e955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of string names corresponding to the <a class="el" href="#af78e1c8ea5e6837b6ab9452a1e435e4e" title="Represents the different suits of a card.">Suit</a> enumeration.  <br /></td></tr>
 <tr class="memitem:a44528397bbc84326f4a6d127a9073c21" id="r_a44528397bbc84326f4a6d127a9073c21"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44528397bbc84326f4a6d127a9073c21">rankNames</a> [13]</td></tr>
+<tr class="memdesc:a44528397bbc84326f4a6d127a9073c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of string names corresponding to the <a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> enumeration.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides interface for each card, the card date type, the enums of suit and rank.</p>
@@ -201,24 +190,41 @@ Ranks: Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, 
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Represents the different ranks of a card. </p>
+<p>This enumeration provides the ranks of a card. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda0e793500a63ffa575b9b712ca3bc9851" name="adf74d53cd68bbef55ba510b266ecbbeda0e793500a63ffa575b9b712ca3bc9851"></a>TWO&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda1251fbf93888ad32fe0ae54d49bcef17" name="adf74d53cd68bbef55ba510b266ecbbeda1251fbf93888ad32fe0ae54d49bcef17"></a>THREE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda23d7ef5341c6930d19b2ecbb997977cf" name="adf74d53cd68bbef55ba510b266ecbbeda23d7ef5341c6930d19b2ecbb997977cf"></a>FOUR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda3a40d11d30db182ab8f9846aa9458bec" name="adf74d53cd68bbef55ba510b266ecbbeda3a40d11d30db182ab8f9846aa9458bec"></a>FIVE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbedaadffddd32c3e7497e32cd7e430c9c106" name="adf74d53cd68bbef55ba510b266ecbbedaadffddd32c3e7497e32cd7e430c9c106"></a>SIX&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda9a193f3e84352f3fbbe44f8d275a820c" name="adf74d53cd68bbef55ba510b266ecbbeda9a193f3e84352f3fbbe44f8d275a820c"></a>SEVEN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda2fd39b67b424f4ea3b4c11ce3195ab8b" name="adf74d53cd68bbef55ba510b266ecbbeda2fd39b67b424f4ea3b4c11ce3195ab8b"></a>EIGHT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbedaea09d09b793ccc4a4b5983368d18a4ab" name="adf74d53cd68bbef55ba510b266ecbbedaea09d09b793ccc4a4b5983368d18a4ab"></a>NINE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda19e6aa533738c43fc96e8be6560bf1a8" name="adf74d53cd68bbef55ba510b266ecbbeda19e6aa533738c43fc96e8be6560bf1a8"></a>TEN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda701917e3b6bc2c89c9e13f090c6627be" name="adf74d53cd68bbef55ba510b266ecbbeda701917e3b6bc2c89c9e13f090c6627be"></a>JACK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda58561257be7e2f96f82c0fdb51d7f964" name="adf74d53cd68bbef55ba510b266ecbbeda58561257be7e2f96f82c0fdb51d7f964"></a>QUEEN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda157524408d6f0fc4b7dc5e52f3dd3b80" name="adf74d53cd68bbef55ba510b266ecbbeda157524408d6f0fc4b7dc5e52f3dd3b80"></a>KING&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda7c6322d06ffff6c8d3bf3c0b3ea3210e" name="adf74d53cd68bbef55ba510b266ecbbeda7c6322d06ffff6c8d3bf3c0b3ea3210e"></a>ACE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173" name="adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173"></a>INVALID_RANK&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda0e793500a63ffa575b9b712ca3bc9851" name="adf74d53cd68bbef55ba510b266ecbbeda0e793500a63ffa575b9b712ca3bc9851"></a>TWO&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Two </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda1251fbf93888ad32fe0ae54d49bcef17" name="adf74d53cd68bbef55ba510b266ecbbeda1251fbf93888ad32fe0ae54d49bcef17"></a>THREE&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Three </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda23d7ef5341c6930d19b2ecbb997977cf" name="adf74d53cd68bbef55ba510b266ecbbeda23d7ef5341c6930d19b2ecbb997977cf"></a>FOUR&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Four </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda3a40d11d30db182ab8f9846aa9458bec" name="adf74d53cd68bbef55ba510b266ecbbeda3a40d11d30db182ab8f9846aa9458bec"></a>FIVE&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Five </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbedaadffddd32c3e7497e32cd7e430c9c106" name="adf74d53cd68bbef55ba510b266ecbbedaadffddd32c3e7497e32cd7e430c9c106"></a>SIX&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Six </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda9a193f3e84352f3fbbe44f8d275a820c" name="adf74d53cd68bbef55ba510b266ecbbeda9a193f3e84352f3fbbe44f8d275a820c"></a>SEVEN&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Seven </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda2fd39b67b424f4ea3b4c11ce3195ab8b" name="adf74d53cd68bbef55ba510b266ecbbeda2fd39b67b424f4ea3b4c11ce3195ab8b"></a>EIGHT&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Eight </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbedaea09d09b793ccc4a4b5983368d18a4ab" name="adf74d53cd68bbef55ba510b266ecbbedaea09d09b793ccc4a4b5983368d18a4ab"></a>NINE&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Nine </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda19e6aa533738c43fc96e8be6560bf1a8" name="adf74d53cd68bbef55ba510b266ecbbeda19e6aa533738c43fc96e8be6560bf1a8"></a>TEN&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Ten </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda701917e3b6bc2c89c9e13f090c6627be" name="adf74d53cd68bbef55ba510b266ecbbeda701917e3b6bc2c89c9e13f090c6627be"></a>JACK&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Jack </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda58561257be7e2f96f82c0fdb51d7f964" name="adf74d53cd68bbef55ba510b266ecbbeda58561257be7e2f96f82c0fdb51d7f964"></a>QUEEN&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Queen </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda157524408d6f0fc4b7dc5e52f3dd3b80" name="adf74d53cd68bbef55ba510b266ecbbeda157524408d6f0fc4b7dc5e52f3dd3b80"></a>KING&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> King </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda7c6322d06ffff6c8d3bf3c0b3ea3210e" name="adf74d53cd68bbef55ba510b266ecbbeda7c6322d06ffff6c8d3bf3c0b3ea3210e"></a>ACE&#160;</td><td class="fielddoc"><p><a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> Ace </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173" name="adf74d53cd68bbef55ba510b266ecbbeda9473711803e538a606b1a41526f6e173"></a>INVALID_RANK&#160;</td><td class="fielddoc"><p>Sentinel value for an invalid rank </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_card_8h_source.html#l00028">28</a> of file <a class="el" href="_card_8h_source.html">Card.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8h_source.html#l00042">42</a> of file <a class="el" href="_card_8h_source.html">Card.h</a>.</p>
 
 </div>
 </div>
@@ -233,15 +239,23 @@ Ranks: Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, 
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Represents the different suits of a card. </p>
+<p>This enumeration provides the suits of a card. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4eac25cb3585b367833c9129f36fb70ed2e" name="af78e1c8ea5e6837b6ab9452a1e435e4eac25cb3585b367833c9129f36fb70ed2e"></a>CLUB&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4ea2808784edc7a2b2e5a53e8ac7b625a3d" name="af78e1c8ea5e6837b6ab9452a1e435e4ea2808784edc7a2b2e5a53e8ac7b625a3d"></a>SPADE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4ea2dc2f5c8b096c26695b79f60d735dd90" name="af78e1c8ea5e6837b6ab9452a1e435e4ea2dc2f5c8b096c26695b79f60d735dd90"></a>HEART&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4ea714f2cc5c292a305e2da3c03bd63916a" name="af78e1c8ea5e6837b6ab9452a1e435e4ea714f2cc5c292a305e2da3c03bd63916a"></a>DIAMOND&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189" name="af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189"></a>INVALID_SUIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4eac25cb3585b367833c9129f36fb70ed2e" name="af78e1c8ea5e6837b6ab9452a1e435e4eac25cb3585b367833c9129f36fb70ed2e"></a>CLUB&#160;</td><td class="fielddoc"><p>Club suit </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4ea2808784edc7a2b2e5a53e8ac7b625a3d" name="af78e1c8ea5e6837b6ab9452a1e435e4ea2808784edc7a2b2e5a53e8ac7b625a3d"></a>SPADE&#160;</td><td class="fielddoc"><p>Spade suit </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4ea2dc2f5c8b096c26695b79f60d735dd90" name="af78e1c8ea5e6837b6ab9452a1e435e4ea2dc2f5c8b096c26695b79f60d735dd90"></a>HEART&#160;</td><td class="fielddoc"><p>Heart suit </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4ea714f2cc5c292a305e2da3c03bd63916a" name="af78e1c8ea5e6837b6ab9452a1e435e4ea714f2cc5c292a305e2da3c03bd63916a"></a>DIAMOND&#160;</td><td class="fielddoc"><p>Diamond suit </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189" name="af78e1c8ea5e6837b6ab9452a1e435e4eaf7ffebb0e8b290f82af2d9aa70a2b189"></a>INVALID_SUIT&#160;</td><td class="fielddoc"><p>Sentinel value for an invalid suit </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="_card_8h_source.html#l00019">19</a> of file <a class="el" href="_card_8h_source.html">Card.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8h_source.html#l00023">23</a> of file <a class="el" href="_card_8h_source.html">Card.h</a>.</p>
 
 </div>
 </div>
@@ -269,24 +283,25 @@ Ranks: Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Allocates and initializes a single card structure.</p>
+
+<p>Allocates and initializes a single card structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">card</td><td>Pointer of the card to be modified </td></tr>
-    <tr><td class="paramname">suit</td><td>Value of suit, based off of <a class="el" href="#af78e1c8ea5e6837b6ab9452a1e435e4e">Suit</a> enum </td></tr>
-    <tr><td class="paramname">rank</td><td>Value of rank, based off of <a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed">Rank</a> enum </td></tr>
+    <tr><td class="paramname">suit</td><td>Value of suit, based off of <a class="el" href="#af78e1c8ea5e6837b6ab9452a1e435e4e" title="Represents the different suits of a card.">Suit</a> enum. </td></tr>
+    <tr><td class="paramname">rank</td><td>Value of rank, based off of <a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> enum. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00024">24</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00032">32</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_card_8h_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph.png" border="0" usemap="#a_card_8h_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph" loading="lazy" alt=""/></div>
 <map name="a_card_8h_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph" id="a_card_8h_a0bb07e821bc4716ffeb2eacf9de199e3_icgraph">
-<area shape="rect" title=" " alt="" coords="320,5,412,32"/>
-<area shape="rect" href="_card_deck_8c.html#adb8cb966ed696e00f7dd3bff322483df" title=" " alt="" coords="103,5,272,32"/>
+<area shape="rect" title="Allocates and initializes a single card structure." alt="" coords="320,5,412,32"/>
+<area shape="rect" href="_card_deck_8c.html#adb8cb966ed696e00f7dd3bff322483df" title="Creates an ordered deck consisting of numPacks card packs." alt="" coords="103,5,272,32"/>
 <area shape="poly" title=" " alt="" coords="304,21,273,21,273,16,304,16"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
@@ -309,23 +324,24 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Prints the details of a card, e.g. a <em> Five of Spades&gt; would be <em>Spade-Five</em>.</em></p>
-<p><em></p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Prints the details of a card. </p>
+<p>For example a <em>Five of Spades</em> would be <em>Spade-Five</em>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">card</td><td>Pointer of the card to be printed </td></tr>
+    <tr><td class="paramname">card</td><td>Pointer of the card to be printed. </td></tr>
   </table>
   </dd>
 </dl>
-<p></em></p>
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00035">35</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00044">44</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_card_8h_a7cca2feea37c83e9dd73aef535294d16_icgraph.png" border="0" usemap="#a_card_8h_a7cca2feea37c83e9dd73aef535294d16_icgraph" loading="lazy" alt=""/></div>
 <map name="a_card_8h_a7cca2feea37c83e9dd73aef535294d16_icgraph" id="a_card_8h_a7cca2feea37c83e9dd73aef535294d16_icgraph">
-<area shape="rect" title=" " alt="" coords="264,31,345,57"/>
-<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title=" " alt="" coords="103,5,216,32"/>
+<area shape="rect" title="Prints the details of a card." alt="" coords="264,31,345,57"/>
+<area shape="rect" href="game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="103,5,216,32"/>
 <area shape="poly" title=" " alt="" coords="248,37,216,31,217,26,249,32"/>
 <area shape="rect" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,55,57"/>
 <area shape="poly" title=" " alt="" coords="249,47,55,47,55,41,249,41"/>
@@ -355,8 +371,9 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Represents a non-usable card. Return it whenever a "Card" type function encounters an error. </p>
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00015">15</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00023">23</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 
 </div>
 </div>
@@ -380,7 +397,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00013">13</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p>Array of string names corresponding to the <a class="el" href="#adf74d53cd68bbef55ba510b266ecbbed" title="Represents the different ranks of a card.">Rank</a> enumeration. </p>
+
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00020">20</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 
 </div>
 </div>
@@ -404,7 +423,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00012">12</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
+<p>Array of string names corresponding to the <a class="el" href="#af78e1c8ea5e6837b6ab9452a1e435e4e" title="Represents the different suits of a card.">Suit</a> enumeration. </p>
+
+<p class="definition">Definition at line <a class="el" href="_card_8c_source.html#l00015">15</a> of file <a class="el" href="_card_8c_source.html">Card.c</a>.</p>
 
 </div>
 </div>

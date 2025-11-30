@@ -21,20 +21,45 @@
 // checks if a deck is valid, else returns illegal card. use in functions returning deckError types
 #define CHECK_DECK_VALID(deck) if(deck == NULL || deck->current == NULL || deck->current->successor == NULL) return illegalCard
 
+/**
+ * @brief Error codes returned by deck manipulation functions.
+ *
+ * This enumeration provides specific codes indicating the @ref CardDeck
+ * function statuses describing on their success or failure.
+ */
 typedef enum {
-	ok, // no error
-	illegalCard, // card is invalid
-	noMemory // no memory available for allocation
+	/** Indicates a successful operation (no error). */
+	ok,
+	/** Indicates that there was an attempt operating on an invalid card. */
+	illegalCard,
+	/** Indicates that there was a memory allocation failure (e.g. during a card creation) */
+	noMemory
 } deckError;
 
+/**
+ * @brief Represents a single node in a card deck.
+ *
+ * This structure is based off of nodes in a linked list.
+ */
 typedef struct n {
-	Card card; // stores card data in carddeck node
-	struct n* successor; // contains pointer towards next carddeck node
+	/** Stores the actual data of a the card. */
+	Card card;
+	/** Stores a pointer of the next node in the card deck. */
+	struct n* successor;
 } CardNode;
 
+/**
+* @brief Represents the entire deck of cards using a linked list.
+* 
+* This structure maintains the starting point and current position of the deck.
+*/
 typedef struct {
-	CardNode* head; // pointer towards head of carddeck
-	CardNode* current; // pointer towards current node of carddeck
+	/** Pointer towards the head node of a deck.
+	The head node contains no actual card data, except
+	the pointer towards the first node. */
+	CardNode* head;
+	/** Pointer towards the current node of a deck. */
+	CardNode* current;
 } CardDeck;
 
 // Function declarations

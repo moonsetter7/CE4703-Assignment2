@@ -9,17 +9,25 @@
 #include "Card.h"
 #include <stdio.h>
 
+/** 
+* @brief Array of string names corresponding to the Suit enumeration.
+*/
 const char* suitNames[4] = {"Club", "Spade", "Heart", "Diamond"};
-const char* rankNames[13] = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
-
-const Card INVALID_CARD = { INVALID_SUIT, INVALID_RANK }; // represents a non-usable card. return it whenever a "Card" type function encounters an error.
 
 /**
-* Allocates and initializes a single card structure.
+* @brief Array of string names corresponding to the Rank enumeration.
+*/
+const char* rankNames[13] = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
+
+/** Represents a non-usable card. Return it whenever a "Card" type function encounters an error. */
+const Card INVALID_CARD = { INVALID_SUIT, INVALID_RANK };
+
+/**
+* @brief Allocates and initializes a single card structure.
 * 
 * @param card Pointer of the card to be modified
-* @param suit Value of suit, based off of Suit enum
-* @param rank Value of rank, based off of Rank enum
+* @param suit Value of suit, based off of Suit enum.
+* @param rank Value of rank, based off of Rank enum.
 */
 void Card_create(Card* card, Suit suit, Rank rank) {
 	card->suit = suit;
@@ -27,10 +35,11 @@ void Card_create(Card* card, Suit suit, Rank rank) {
 }
 
 /**
-* Prints the details of a card, e.g. a <i>Five of Spades</i>
-* would be <i>Spade-Five</i>.
+* @brief Prints the details of a card.
+* 
+* For example a <i>Five of Spades</i> would be <i>Spade-Five</i>.
 *
-* @param card Pointer of the card to be printed
+* @param card Pointer of the card to be printed.
 */
 void Card_print(Card* card) {
 	printf("%s-%s\n", suitNames[card->suit], rankNames[card->rank]);

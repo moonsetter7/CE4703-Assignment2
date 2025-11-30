@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "CE4703 Individual Assignment", "index.html", [
+  [ "CE4703 Assignment 2", "index.html", [
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

@@ -1,6 +1,6 @@
 <map id="Card_print" name="Card_print">
-<area shape="rect" id="Node000001" title=" " alt="" coords="264,31,345,57"/>
-<area shape="rect" id="Node000002" href="$game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title=" " alt="" coords="103,5,216,32"/>
+<area shape="rect" id="Node000001" title="Prints the details of a card." alt="" coords="264,31,345,57"/>
+<area shape="rect" id="Node000002" href="$game_8c.html#ad87fcb407d24d2d4030620c7e333050a" title="Plays one turn of the game." alt="" coords="103,5,216,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="248,37,216,31,217,26,249,32"/>
 <area shape="rect" id="Node000003" href="$main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,55,57"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="249,47,55,47,55,41,249,41"/>

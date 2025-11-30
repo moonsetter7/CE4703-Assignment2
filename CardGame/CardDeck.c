@@ -4,7 +4,7 @@
 * <ul>
 *	<li>initializing empty/ordered decks</li>
 *	<li>card deck manipulation</li>
-*	<li>card deckde-allocation</li>
+*	<li>card deck de-allocation</li>
 * </ul>
 * 
 * @date 17.11.2025
@@ -26,8 +26,11 @@
 
 
 /**
-* Creates an empty card deck in the form of a singly linked list.
+* @brief Creates an empty card deck in the form of a singly linked list.
+* 
 * Used for player hands, and the temporary deck during shuffling.
+* 
+* @return Pointer to the newly created, empty deck.
 */
 CardDeck* CardDeck_create() {
 	CardDeck* deck = (CardDeck*)malloc(sizeof(CardDeck)); // create and allocate for deck
@@ -46,12 +49,13 @@ CardDeck* CardDeck_create() {
 }
 
 /**
-* Inserts a card after the current card node of a deck.
-* Note that the current node of a deck will still remain the same when
+* @brief Inserts a card after the current card node of a deck.
+
+* @note The current node of a deck will still remain the same when
 * calling this function, and will not be set to the newly added node.
 *
-* @param card The card to be inserted.
-* @param deck The card deck to insert the card into.
+* @param card Pointer of the card to be inserted.
+* @param deck Pointer of the card deck to insert the card into.
 * @return Enum value indicating allocation success status.
 */
 deckError CardDeck_insertAfter(Card* card, CardDeck* deck) {
@@ -69,9 +73,10 @@ deckError CardDeck_insertAfter(Card* card, CardDeck* deck) {
 }
 
 /**
-* Deletes the card next to the current node of a deck.
+* @brief Deletes the card next to the current node of a deck.
 * 
-* @param deck The deck to delete the card from.
+* @param deck Pointer of the deck to delete the card from.
+* @return Enum value indicating deletion and deallocation success status.
 */
 deckError CardDeck_deleteNext(CardDeck* deck) {
 	CHECK_DECK_VALID(deck); // return invalidCard if current card or next card is invalid
@@ -84,9 +89,9 @@ deckError CardDeck_deleteNext(CardDeck* deck) {
 }
 
 /**
-* Deletes a given deck entirely.
+* @brief Deletes a given deck entirely.
 * 
-* @param deck Card deck to be deleted.
+* @param deck Pointer of the card deck to be deleted.
 */
 void CardDeck_delete(CardDeck* deck) {
 	if (deck == NULL) return; // if deck doesn't exist, do nothing
@@ -105,10 +110,12 @@ void CardDeck_delete(CardDeck* deck) {
 }
 
 /**
-* Sets the current node to the top card of a deck,
+* @brief Sets the current node to the top card of a deck.
+* 
 * i.e. the node succeeding the head node.
 *
-* @param deck Card deck to be deleted.
+* @param deck Pointer of card deck to modify the <i>current node</i> of.
+* @return Error code indicating the success status of the current node re-assignment.
 */
 deckError CardDeck_gotoTop(CardDeck* deck) {
 	CHECK_DECK_VALID(deck); // return illegalCard if top card isn't valid (i.e. when top card doesn't exist)
@@ -121,7 +128,8 @@ deckError CardDeck_gotoTop(CardDeck* deck) {
 /**
 * Sets the current node to the next card of a deck.
 *
-* @param deck Card deck whose current node will be changed.
+* @param deck Pointer of the deck whose current node will be changed.
+* @return Error code indicating the success status of the current node re-assignment.
 */
 deckError CardDeck_gotoNextCard(CardDeck* deck) {
 	CHECK_DECK_VALID(deck); // return illegalCard if next card isn't valid (i.e. when next card is a tail)
@@ -135,11 +143,10 @@ deckError CardDeck_gotoNextCard(CardDeck* deck) {
 ************************************************************/
 
 /**
-* Gets the pointer of the card at the top of a
-* given deck.
+* @brief Gets the pointer of the card at the top of a given deck.
 *
-* @param deck Card deck to check the top card of.
-* @return Pointer value of the deck's top card.
+* @param deck Pointer of the deck to return the top card pointer of.
+* @return Pointer of the deck's top card.
 */
 Card* CardDeck_seeTop(CardDeck* deck) {
 	if (deck == NULL) return NULL; // if deck is null, return null
@@ -149,10 +156,10 @@ Card* CardDeck_seeTop(CardDeck* deck) {
 }
 
 /**
-* Creates an ordered deck consisting of <i>numPacks</i> card packs.
+* @brief Creates an ordered deck consisting of <i>numPacks</i> card packs.
 * 
 * @param numPacks no. of card packs to be inserted into the new deck.
-* @return Pointer value of the newly created ordered deck.
+* @return Pointer of the newly created ordered deck.
 */
 CardDeck* CardDeck_createOrdered(int numPacks) {
 	CardDeck* deck = CardDeck_create();
@@ -179,7 +186,7 @@ CardDeck* CardDeck_createOrdered(int numPacks) {
 }
 
 /**
-* Inserts a given card to the top of a specified deck.
+* @brief Inserts a given card to the top of a specified deck.
 *
 * @param deck Pointer of the deck to insert the card in.
 * @param card The card to be inserted into the deck.
@@ -200,7 +207,7 @@ deckError CardDeck_insertToTop(CardDeck* deck, Card card){
 }
 
 /**
-* Removes the top card of a deck and returns its value.
+* @brief Removes the top card of a deck and returns its value.
 * 
 * @param deck Pointer of the deck to use the top card of.
 * @param result deckError pointer indicating the card 
@@ -229,7 +236,7 @@ Card CardDeck_useTop(CardDeck* deck, deckError* result) {
 
 
 /**
-* Finds the pointer of a card deck's node at a specified index.
+* @brief Finds the pointer of a card deck's node at a specified index.
 *
 * @param deck Pointer of the deck to find the card node index of.
 * @param index Index of the card node.
@@ -258,13 +265,13 @@ CardNode* CardDeck_cardNodeAt(CardDeck* deck, int index, deckError* result) {
 }
 
 /**
-* Removes a card from a card deck at a specified index and returns
+* @brief Removes a card from a card deck at a specified index and returns
 * its card value.
 *
 * @param deck Pointer of the deck to remove a card from.
 * @param index Index of the card node.
 * @param result deckError pointer indicating the card node validity.
-* @result Value of the removed card.
+* @return Card value of the removed card.
 */
 Card CardDeck_removeAt(CardDeck* deck, int index, deckError* result) {
 	// we must first update the predecessor to point past the node to be deleted
@@ -304,7 +311,7 @@ Card CardDeck_removeAt(CardDeck* deck, int index, deckError* result) {
 }
 
 /**
-* Calculates the size of a deck,
+* @brief Calculates the size of a deck.
 *
 * @param deck Pointer of the deck to find the size of.
 * @return The size of the deck.
@@ -324,7 +331,7 @@ int CardDeck_count(CardDeck* deck) {
 }
 
 /**
-* Prints a card deck.
+* @brief Prints a card deck.
 * 
 * @param deck Pointer of the deck to print out.
 * @note Output example - "deck: Diamond-Ace, Spade-Five, Heart-Jack"
@@ -354,58 +361,67 @@ void CardDeck_print(CardDeck* deck) {
 
 
 /**
-* Shuffles a deck following the algorithm outlined in the assignment.
-* <ol>
-*	<li>Take a source deck.</li>
-*	<li>Create a temporary, empty deck.</li>
-*	<li>Get a random number r that has a value between 1 and N, where N is the no. of cards in the source deck.</li>
-*	<li>Remove the r-th card from the source deck and insert it to the beginning of the temporary deck.</li>
-*	<li>Decrement N by one.</li>
-*	<li>Repeat steps 3 to 5 until N equals 0.<li>
-* </ol>
-* @param deck Card deck to be shuffled
-*/
+*@brief Shuffles a deck of cards using randomization.
+* 
+* @details This function shuffles the deck by repeatedly selecting random cards fromm the original deck
+* and inserting them into a temporry deck.
+*
+* @param deck Pointer to the unshuffled CardDeck structure
+*
+* @author Diana Ogualiri 24353051
+*
+* @note The deck must be valid and not emtpty
+* @note uses rand() for random number generation
+* @note uses a dummy node for the head node
+*
+**/
 void CardDeck_shuffle(CardDeck* deck) {
 	if (deck == NULL || deck->head->successor == NULL) return; // if deck is null or empty, don't shuffle
-
-	CardDeck* shuffledDeck = CardDeck_create(); // empty deck, to be populated with shuffled cards
-	if (shuffledDeck == NULL) {
+	int decklen = CardDeck_count(deck);//getting the deck length
+	CardDeck* deck2 = CardDeck_create();//crating a second emty deck
+	if (deck2 == NULL) {
 		printf("Error: failed to allocate memory for shuffle deck.\n");
 		return;
 	}
-	deckError err = ok; 
+	//initializing deck2
+	int pos = 0;
+	Card targetCard;//Card is the card itself, Card* is a pointer to the card
+	deckError err = ok;
 
-	int deckSize = CardDeck_count(deck);
+	while (decklen != 0) {
+		//	printf("\nwithin the loop\n");
+		pos = rand() % decklen;//generating a random position between 0 and decklen - 1
 
-	// loop transferring a random card from source deck to shuffle deck
-	for (int i = deckSize; i > 0; i--) {
-		int r = rand() % i;
-		Card removedCard = CardDeck_removeAt(deck, r, &err); // Value of card removed from source deck at index r
-		
-		if (err != ok || removedCard.rank == INVALID_RANK)
-		{
-			printf("Error: could not remove card at %d from deck.\n", r);
+		//printf("Loop decklen=%d, pos=%d\n",decklen, pos);
+
+
+		targetCard = CardDeck_removeAt(deck, pos, &err);// removing the card at that position and getting its value
+		if (err != ok || targetCard.rank == INVALID_RANK ) {
+			printf("targetCard is invalid\n");
 			return;
 		}
-
-		err = CardDeck_insertToTop(shuffledDeck, removedCard); // insert random card to top of shuffle deck
-
-		if (err != ok) {
-			printf("Error: could not insert card at %d to shuffle deck.\n", r);
-			return;
+		else {
+			//printf("card at pos %d removed successfully\n", pos);
+			err = CardDeck_insertToTop(deck2, targetCard);
+			if (err != ok) {
+				printf("failed to insert card into deck2\n");
+				return;
+			}
 		}
-	}
+		decklen--;//reduces length to prevent strange behaviour
 
-	deck->head->successor = shuffledDeck->head->successor; // transfer temporary shuffled deck to source deck
-	free(shuffledDeck->head); // free allocated shuffle deck head
-	free(shuffledDeck); // free the allocated temporary shuffled deck
-	shuffledDeck = NULL;
+	}//end of while loop deck1 is now 1ength 0
+	deck->head->successor = deck2->head->successor;//used to point heads successor of deck2 to the heads successor of the original deck
+	deck->current = deck->head->successor;//points to the  current nodes deck
+	free(deck2->head);//frees head since head is a dummy node
+	free(deck2);//then deck2 is freed
 }
+
 
 /**
 * Sort a deck of cards using bubble sort.
-* 
-* @param deck The deck to be sorted
+*
+* @param deck The deck to be sorted.
 */
 void CardDeck_sort(CardDeck* deck) {
 	if (deck == NULL || deck->head->successor == NULL || deck->head->successor->successor == NULL) return; // if deck is null or empty/has 1 card, end function
@@ -417,11 +433,11 @@ void CardDeck_sort(CardDeck* deck) {
 	while (!sorted) { // if the deck isn't flagged as sorted, keep iterating
 		nodePtr = deck->head->successor;
 		sorted = true; // assume list is sorted true until proven otherwise
-		for (int i = 0; i < last-1; i++) {
+		for (int i = 0; i < last - 1; i++) {
 			CardNode* node2Ptr = nodePtr->successor;
 			Card card1 = nodePtr->card; // copy card values onto stack
 			Card card2 = node2Ptr->card;
-			
+
 			if ((card1.rank > card2.rank) || (card1.rank == card2.rank && card1.suit > card2.suit)) { // if card1 is bigger than card2, swap
 				// swap the data of the cards, not the nodes themselves
 				Card cardtemp = card1;
@@ -430,9 +446,8 @@ void CardDeck_sort(CardDeck* deck) {
 				sorted = false; // indicate that the list still isn't sorted
 			}
 			nodePtr = nodePtr->successor;
-			
+
 		}
 		last--; // adjust outer boundary so sorted cards are left alone
 	}
 }
-

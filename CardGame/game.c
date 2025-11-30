@@ -10,7 +10,8 @@
 #include "game.h"
 
 /**
-* Deals 8 cards to each player.
+* @brief Deals 8 cards to each player.
+* 
 * Always takes cards from the hidden deck and alternates betweeen player 1 and 2
 * so cards 0,2,4,6 go to player 1
 * cards 1,3,5,7 go to player 2
@@ -56,7 +57,7 @@ deckError Game_deal(Game* game)
 
 
 /**
-* Sorts all players' decks.
+* @brief Sorts all players' decks.
 * 
 * @param game Pointer of the game.
 */
@@ -66,6 +67,8 @@ void Game_sortPlayers(Game* game) {
 }
 
 /**
+* @brief Finds a matching card in a player's hand to the played deck's top card, and returns its index.
+* 
 * Finds a card matching the top card of a played deck 
 * from the player's hand. Two cards match if both share
 * either the same rank or the same suit.
@@ -116,6 +119,8 @@ int CardDeck_findMatchInHand(CardDeck* hand, CardDeck* playedDeck) {
 }
 
 /**
+* @brief Recycles the hidden deck when it's empty.
+* 
 * Transfers all played cards into the hidden deck, and
 * then shuffles the hidden deck. Only the last played card
 * remains on the played card deck.
@@ -158,7 +163,8 @@ void Game_recycleHidden(Game* game) {
 }
 
 /**
-* Plays one turn of the game.
+* @brief Plays one turn of the game.
+* 
 * <em>Steps:</em>
 * <ol>
 *	<li>Try to find a matching card in a player's hand.</li>
@@ -270,7 +276,7 @@ void Game_playTurn(Game* game, int player) {
 
 
 /**
-* Prints the players' decks.
+* @brief Prints the players' decks.
 * 
 * @param game Pointer of the game.
 */

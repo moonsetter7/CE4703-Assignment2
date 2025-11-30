@@ -1,6 +1,6 @@
 <map id="n" name="n">
-<area shape="rect" id="Node000001" title=" " alt="" coords="21,168,39,237"/>
+<area shape="rect" id="Node000001" title="Represents a single node in a card deck." alt="" coords="21,168,39,237"/>
 <area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="38,191,55,187,63,193,65,203,63,212,57,217,53,213,58,209,60,203,58,196,54,193,39,196"/>
-<area shape="rect" id="Node000002" href="$struct_card.html" title=" " alt="" coords="5,5,54,96"/>
+<area shape="rect" id="Node000002" href="$struct_card.html" title="Represents a single playing card." alt="" coords="5,5,54,96"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="32,96,32,151,27,151,27,96"/>
 </map>
