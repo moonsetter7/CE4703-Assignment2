@@ -352,193 +352,37 @@ void CardDeck_shuffle(CardDeck* deck) {
 	shuffledDeck = NULL;
 }
 
-
-
 /**
-*Buble Sort
-* how i will be doing this
-* 1. im comapring adjcant cards
-* 2. checking if current->suit >current->link->suit
-*		if true then they are swapped
+* Sort a deck of cards using bubble sort.
 * 
-* 3. checking if suits arre equal
-*		if true then check if current->rank>current->link->rank
-*		if true then the cards are swapped
-* 
-* 4. handle pointerr updates carefullly and 
-*		dont forget when the current->link is null
-*	
-* 
-* 
-*/
-
-/**
-* @brief Implements Bubble Sort Algoirthm to sort a deck of cards
-* @details This function implements Bubble Sort Algorithm to sort a deck of cards using a Linekd List Structure.
-*			The sorting is based off 2 rules:
-*				Rule 1: Must sort by suit (lower enum is the smaller one)
-*				Rule 2: Mut sort by rank (When suits are equal)
-* 
-* This algorithm uses 2 while loops
-*	Outer loop: Repeatedly passes through the list until the deck is in the right order and no more swaps is needed.
-*	Inner loop: Compares suits and swaps once the currentsuit is greather then the successor suit
-* 
-* Implementation details:
-* - Uses swapped boolean flag to track if swaps occured or not
-* - Uses if statements to handle when current node is the head or not
-* - Rearranges pointers to point to the correct node
-* - After every pass , predecessor becomes null and current node egins at the head node again
-* 
-* 
-* @param deck Pointer to the unsorted CardDeck structure 
-* @author Diana Ogualiri 24353051
-* 
-* @return void: nothing
-* 
-* 
-* 
-* 
+* @param deck The deck to be sorted
 */
 void CardDeck_sort(CardDeck* deck) {
-	//bubbl sort
-	//sort the deck by suit then rank
-	
-	//current is the card
-	//like curret i linked list the current is  type node
-	//in type node u can get the data or link
+	if (deck == NULL || deck->head->successor == NULL || deck->head->successor->successor == NULL) return; // if deck is null or empty/has 1 card, end function
+	int last = CardDeck_count(deck);
+	bool sorted = false;
 
-	//so in type cardnode u can get cardata and 
+	CardNode* nodePtr = NULL;
 
-	//ii need a temp variable to store reference;
-
-	//CHECK_DECK_VALID(deck);//checks if deck is valid or not
-	CardNode* prev=NULL;
-	CardNode* temp;
-	CardNode* temp2;
-	bool swapped;
-
-	//use swapped
-	//to track the passes
-	//swapped=true only when adjacnet elements are swapped
-	//once the end is reached swapped=false because theres nothing more toswap
-	
-	
-	//outer loop handles the num of passes
-	// //pas until no more swaps occur
-	//looping until
-	swapped = true;
-	while (swapped==true) {
-		//inner loop handles the swapping
-		
-		while (deck->current->successor != NULL) {//while successor  isnt null
-			swapped = false;
-			//swapped only stayys false if we reached then end and theres nothing left to swap
-			//i wnat to acces the suit
-
-			//deck->current is the card itself
-			//deck->current->suit is the shuit
-			//deck->current->rank is the rank itself
-
-			//if current suit is greater then successor suit then swap cards
-			if (deck->current->card.suit > deck->current->successor->card.suit) {
-
-				if (prev != NULL) {
-					// A->B->C->D
-					// swapping B and C
-					// storing c in temp
-					temp = deck->current->successor;
-					//b link to d 
-					deck->current->successor = deck->current->successor->successor;
-					//c links to b
-					temp->successor = deck->current;
-					//a links to c
-					prev->successor = temp;
-					swapped = true;
-
-				}
-				else {
-					//A->B->C->D
-					// we want head to point to 2nd node 
-					// and the frist node to point to the 3rd node
-					//swapping A and B 
-					//wand to store reference to first node
-					temp = deck->head;
-					temp2 = deck->head->successor->successor;//storing a refernece to c
-					//head links to 2nd node/B
-					deck->head = deck->head->successor;
-					//first node links to where the 2nd ndde was connectd to
-					//B link to A
-					deck->head->successor = temp;
-					// link to c
-					temp->successor = temp2;
-					swapped = true;
-				}
-				//now i want the predecessor to point to the successor node
-
-				//how do i get the predecessor
-
-				//i have the current node
-				//now i want the predecessor to point to the current node
-
-				//e.g if i have A->B->C->D
-				//and i swap b and c, b becomes the current node
-
-				prev = deck->current;//prev is he current node -> used in next iteration
-				deck->current = deck->current->successor;//amkes successor the current node
+	while (!sorted) { // if the deck isn't flagged as sorted, keep iterating
+		nodePtr = deck->head->successor;
+		sorted = true; // assume list is sorted true until proven otherwise
+		for (int i = 0; i < last-1; i++) {
+			CardNode* node2Ptr = nodePtr->successor;
+			Card card1 = nodePtr->card; // copy card values onto stack
+			Card card2 = node2Ptr->card;
+			
+			if ((card1.rank > card2.rank) || (card1.rank == card2.rank && card1.suit > card2.suit)) { // if card1 is bigger than card2, swap
+				// swap the data of the cards, not the nodes themselves
+				Card cardtemp = card1;
+				nodePtr->card = card2;
+				node2Ptr->card = card1;
+				sorted = false; // indicate that the list still isn't sorted
 			}
-			//else if the suits are the same then check rank
-			else if (deck->current->card.suit == deck->current->successor->card.suit) {
-
-				//if the currnet card's rank is > then the next card's rank then swap cards
-				if (deck->current->card.rank > deck->current->successor->card.rank) {
-					if (prev != NULL) {
-						// A->B->C->D
-						// swapping B and C
-						// storing c in temp
-						temp = deck->current->successor;
-						//b link to d 
-						deck->current->successor = deck->current->successor->successor;
-						//c links to b
-						temp->successor = deck->current;
-						//a links to c
-						prev->successor = temp;
-						swapped = true;
-
-					}
-					else {
-						//A->B->C->D
-						// we want head to point to 2nd node 
-						// and the frist node to point to the 3rd node
-						//swapping A and B 
-						//wand to store reference to first node
-						temp = deck->head;
-						temp2 = deck->head->successor->successor;//storing a refernece to c
-						//head links to 2nd node/B
-						deck->head = deck->head->successor;
-						//first node links to where the 2nd ndde was connectd to
-						//B link to A
-						deck->head->successor = temp;
-						// link to c
-						temp->successor = temp2;
-						swapped = true;
-					}
-					//now i want the predecessor to point to the current node
-					prev = deck->current;
-					deck->current = deck->current->successor;//amkes successor the current node
-				}
-
-			}
-			else {
-				//now i want the predecessor to point to the current node
-				
-				prev = deck->current;
-				deck->current = deck->current->successor;//amkes successor the current node
-
-			}
+			nodePtr = nodePtr->successor;
+			
 		}
-		prev = NULL;//After each pass prev needs to reset to null to start where head=current--> prev cant be before current
-					//thefore it has to be null
-		deck->current = deck->head;
+		last--; // adjust outer boundary so sorted cards are left alone
 	}
 }
 

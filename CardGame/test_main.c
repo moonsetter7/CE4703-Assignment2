@@ -82,14 +82,19 @@ int main(){
 	
 	CardDeck_print(deck);
 
+	CardDeck_sort(deck);
+
+	CardDeck_print(deck);
 
 
+	int i = 1;
 	while (deck!=NULL) {
 		Card* foundCard = NULL;
 		deckError statusResult;
 		foundCard = CardDeck_useTop(deck, &statusResult);
+		
 		if (statusResult == ok) {
-			printf("Used ");
+			printf("%d - Used ", i++);
 			Card_print(foundCard);
 			free(foundCard);
 		}
